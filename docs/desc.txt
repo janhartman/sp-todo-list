@@ -1,0 +1,11 @@
+Seznam opravil (To-Do)
+Nečak očetovega brata, Emiljenko, ima veliko idej, vendar se nikoli ne spravi k realizaciji le-teh, ker trpi za sindromom pomanjkanja motivacije (a.k.a. lenoba). Ker je Emiljenko zelo samokriticen, vcasih tudi do sebe, se je odlocil, da si bo življenje popestril z super-duper spletno aplikacijo, ki sliši na ime To-Do-List. Aplikacija bazira na spodbujanju in teženju k ustvarjanju (kot jutranja budilka), poleg tega pa vsebuje vse in še vec. Kratek seznam funkcij, ki jih lista vsebuje, je nanizan spodaj:
+
+Dodajanje opravil v seznam opravil. Opravilo zajema informacije, kot so ime opravila, datum kreiranja, datum končanja (=deadline), opis, prioriteta (od 1 do 5).
+Glede na prioriteto, aplikacija vsakodnevno nakljucno izbere recimo 5 (to število se po želji spremeni) opravil iz seznama še ne opravljenih, ki naj bi jih Emiljenko opravil v današnjem dnevu. V primeru, da je v bazi opravillo z prioriteto 5 (kar pomeni, da je naloga pomembna in zahtevna), aplikacija ne dodeli 5 nakljucnih opravil, ampak opozori, da se bliža pomemben dogodek, ter da naj uporabnik svoje moci in pozornost posveti le temu (tudi cas, ki je rezerviran za pomembna opravila, se da po želji spreminjati).
+Odstranjevanje opravil
+Urejanje že dodanih opravil
+Možnost dodajanja opravil v kategorije (delo za fax, osebne potrebe, .... )
+Pregled opravljenih opravil
+Izris grafa aktivnosti uporabnika
+
