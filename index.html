@@ -3,16 +3,40 @@
 
 
 <head>
-    <title>To-do List</title>
+    <title>To-do List - Log in</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href ="css/styles.css">
     <script src="js/code.js"></script>
 </head>
 
 <body>
+    <ul class="navbar">
+        <li>
+            <p>LOGO</p>
+        </li>
+        <li>
+            <a href="tasks.html">Task View</a>
+        </li>
+        <li>
+            <a href="productivity.html">Productivity</a>
+        </li>
+        <li>
+            <a href="profile.html">User Profile</a>
+        </li>
+    </ul>
+
 	<div id="login">
 		<p>central div for log in placement</p>
+        <br>
+
+        <form method="POST">
+            <label><input type="email" name="email" required placeholder="E-mail"/></label>
+            <label><input type="password" name="password" required placeholder="Password"/></label>
+            <input id="button" type="submit" value="Log in" />
+         </form>
 	</div>
+
+    <a href="register.html">Register</a>
 </body>
 
 

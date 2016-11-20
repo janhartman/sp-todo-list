@@ -1,3 +1,8 @@
+/*
+@media only screen and (min-width: 1001px) { }
+@media only screen and (min-width: 1px) and (max-width: 1000px) { }
+*/
+
 body {
     flex: auto;
    	margin: 10px;
@@ -6,8 +11,57 @@ body {
 	padding: 10px;
 }
 
+
 #login {
 	display: flex;
-	justify-content: center;
+    justify-content: center;
 	align-items: center
 }
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    border: 1px solid #e7e7e7;
+    background-color: #f3f3f3;
+}
+
+.navbar li {
+    float: left;
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    float: right;
+}
+
+.register {
+    margin-top: 120px;
+    margin-left: 25%;
+    height: 150px;
+    width: 50%;
+    text-align: center;
+    border: 1px solid black;
+}
+
+.register input{
+    border: 15px;
+}
+
+
+
+#active {
+    background-color: #4CAF50;
+}
+
+#button {
+
+}
+

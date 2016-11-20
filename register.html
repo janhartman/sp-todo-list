@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <title>To-do List - Register</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href ="css/styles.css">
+    <script src="js/code.js"></script>
+</head>
+
+<body>
+    <div class="navbar">
+        <ul class="navbar">
+            <li>
+                <p>LOGO</p>
+            </li>
+            <li>
+                <a href="tasks.html">Task View</a>
+            </li>
+            <li>
+                <a href="productivity.html">Productivity</a>
+            </li>
+            <li>
+                <a href="profile.html">User Profile</a>
+            </li>
+        </ul>
+    </div>
+
+
+	<div class="register">
+        <div>
+            <form method="POST">
+                <label class="labels">Name </label>
+                <input type="text" name="name" required placeholder="Your name" pattern="[A-Z]+ [A-Z]+/gi"/>
+                <br>
+                <label>Username </label>
+                <input type="text" name="username" required placeholder="Username" pattern="[A-Z0-9]+/gi"/>
+                <br>
+                <label>E-mail </label>
+                <input type="email" name="email" required placeholder="E-mail"/>
+                <br>
+                <label>Password </label>
+                <input type="password" name="password" required placeholder="Password"/>
+                <br>
+                <input id="button" type="submit" value="Register" />
+             </form>
+        </div>
+	</div>
+    <a href="index.html">Log in</a>
+
+
+</body>
+
+
+
+</html>
