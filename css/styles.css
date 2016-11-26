@@ -206,4 +206,91 @@ body {
     cursor: pointer;
 }
 
-*/
+
+/* TASKS */
+.sectionTasks {
+    width: 75%;
+    margin: 0 auto;
+    padding: 40px;
+    background: #EFEFEF;
+    margin-top: 100px;
+    border-radius: 8px;
+    position: relative;
+}
+
+.dailyTasks {
+    margin: 15px;
+}
+
+.categoryTasks {
+    margin: 15px;
+}
+
+.dailyTasksList {
+    list-style: none;
+    display: inline-flex;
+    margin:  10px;
+}
+
+.categoryTasksList {
+    list-style: none;
+    display: inline-flex;
+    margin:  10px;
+}
+
+.task {
+    border: 2px solid black;
+    border-radius: 5px;
+    font-family: "Lato";
+    margin: 10px;
+    padding: 5px;
+    float: left;
+    width: 80%;
+}
+
+.task button {
+    border-radius: 8px;
+    background-color: #EFEFEF;
+    color: black;
+    border: 3px solid #ff3b3f;
+    font-size: 14px;
+    font-family: "Lato";
+}
+
+.task header {
+    font-weight: bold;
+}
+
+.blackBorderTask {;
+    border-radius: 8px;
+    border: 3px solid black;
+}
+
+.taskHeader {
+    font-size: 19px;
+    font-weight: bold;
+    font-family: "Lato";
+    padding: 10px;
++}
+
+#addTaskButton {
+    border-radius: 8px;
+    background-color: #EFEFEF;
+    color: black;
+    border: 3px solid #ff3b3f;
+    font-size: 19px;
+    font-family: "Lato";
+    cursor: pointer;
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+}
+
+#addTaskButton a {
+    color: black;
+    text-decoration: none;
+}
+
+#hidden {
+    overflow: hidden;
+}

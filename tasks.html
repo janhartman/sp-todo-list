@@ -4,21 +4,45 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href ="css/styles.css">
     <script src="js/code.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato">
+
 </head>
 <body>
-    <ul class="navbar">
-        <li>
-            <p>LOGO</p>
-        </li>
-        <li>
-            <a id="active" href="tasks.html">Task View</a>
-        </li>
-        <li>
-            <a href="productivity.html">Productivity</a>
-        </li>
-        <li>
-            <a href="profile.html">User Profile</a>
-        </li>
-    </ul>
+    <nav class="navbar">
+        <ul>
+            <li id="logoNav">
+                <a>TO-DO</a>
+            </li>
+            <li>
+                <a href="tasks.html">Task View</a>
+            </li>
+            <li>
+                <a href="productivity.html">Productivity</a>
+            </li>
+            <li>
+                <a href="profile.html">User Profile</a>
+            </li>
+        </ul>
+    </nav>
+
+    <section class="sectionTasks">
+        <div class="tasks">
+
+            <div class="dailyTasks blackBorderTask">
+                <header class="taskHeader">Daily top tasks</header>
+                <ul class="dailyTasksList">
+
+                </ul>
+            </div>
+
+            <div class="categoryTasks blackBorderTask">
+                <header class="taskHeader">Tasks in category</header>
+                <ul class="categoryTasksList">
+
+                </ul>
+            </div>
+        </div>
+        <button id="addTaskButton"><a href="#taskAdd">Add new task</a></button>
+    </section>
 </body>
 </html>
