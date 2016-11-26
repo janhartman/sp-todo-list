@@ -38,13 +38,36 @@
             </div>
 
             <div class="summaryProd blackBorder">
-                <header class="summaryProdHeader">Summary</header>
-                <table>
-
-                </table>
+                <header class="summaryProdHeader">Summary of the time period</header>
+                <ul>
+                    <li>
+                        <p>Completed tasks: 7</p>
+                    </li>
+                    <li>
+                        <p>Missed deadlines: 1</p>
+                    </li>
+                    <li>
+                        <p>Total productivity: 24</p>
+                    </li>
+                </ul>
             </div>
         </div>
     </section>
+
+    <aside >
+        <span id="open" onclick="modifyNav(180, 'hidden')">&#9776; Time period</span>
+        <div class="sidenav" id="mySidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="modifyNav(0, 'visible')">&times;</a>
+            <fieldset class="checkboxgroup">
+                <h1> Time period </h1>
+                <label><input type="checkbox"> Day </label>
+                <label><input type="checkbox"> Week </label>
+                <label><input type="checkbox"> Month </label>
+                <label><input type="checkbox"> Custom </label>
+            </fieldset>
+        </div>
+
+    </aside>
 
 
 </body>

@@ -26,6 +26,7 @@
     </nav>
 
     <section class="sectionTasks">
+        <button id="addTaskButton"><a href="#taskAdd">Add new task</a></button>
         <div class="tasks">
 
             <div class="dailyTasks blackBorder">
@@ -42,19 +43,19 @@
                 </ul>
             </div>
         </div>
-        <button id="addTaskButton"><a href="#taskAdd">Add new task</a></button>
+
     </section>
 
     <aside >
-        <span id="openCat" onclick="openNav()">&#9776; Open categories</span>
+        <span id="open" onclick="modifyNav(180, 'hidden')">&#9776; Categories</span>
         <div class="sidenav" id="mySidenav">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="javascript:void(0)" class="closebtn" onclick="modifyNav(0, 'visible')">&times;</a>
             <fieldset class="checkboxgroup">
-                <h1> Categories</h1>
+                <h1> Categories </h1>
                 <label><input type="checkbox"> All </label>
                 <label><input type="checkbox"> Work </label>
                 <label><input type="checkbox"> Other </label>
-                <label><input type="checkbox"> Completed</label>
+                <label><input type="checkbox"> Completed </label>
             </fieldset>
         </div>
 

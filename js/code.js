@@ -44,7 +44,9 @@ function showTasks(tasks) {
         var taskNode2 = document.createElement("LI");
         taskNode.innerHTML = taskNode2.innerHTML = taskFormat.format(task.name, task.priority, task.due, task.description);
         addTask(categoryTasksList, taskNode);
-        addTask(dailyTasksList, taskNode2);
+
+        if (Math.round(Math.random()) == 1)
+            addTask(dailyTasksList, taskNode2);
     })
 }
 
@@ -58,11 +60,51 @@ function loadTasks(callback) {
 
 function drawGraph() {
     var c = document.getElementById("graph");
-    var ctx = c.getContext("2d")
+    var xSize = c.offsetWidth;
+    var ySize = c.offsetHeight;
+    var ctx = c.getContext("2d");
+
+    var offset = 50;
+    var max = 10;
+    var scale = ySize - 2*offset;
+    var days = 20;
+    var xDist = (xSize - 2*offset)/days;
+    var yDist = (ySize - 2*offset)/max;
+
+    ctx.beginPath();
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = "#000000";
+    ctx.moveTo(offset, ySize - offset);
+    ctx.lineTo(xSize - offset/2, ySize - offset);
+    ctx.moveTo(offset, ySize - offset);
+    ctx.lineTo(offset, offset/2);
+    ctx.stroke();
+
+    for (var i = 1; i <= days; i++) {
+        ctx.fillText(i, offset/2 + i * xDist, ySize - offset/2);
+    }
+
+    for (i = 1; i <= max; i++) {
+        ctx.fillText(i, offset/2, ySize - offset  - i * yDist);
+    }
+    ctx.closePath();
 
 
+    ctx.beginPath();
+    ctx.strokeStyle = "#222299";
+
+    ctx.moveTo(offset, ySize - offset);
+    var y = ySize - offset;
+    for (i = 1; i <= days; i++) {
+        ctx.moveTo(offset + (i-1) * xDist, y);
+        var rand = Math.round(Math.random() * scale) ;
+        rand = Math.round(rand / max) * max;
+        y = ySize - offset -  rand;
+        ctx.lineTo(offset + i * xDist, y);
+    }
 
     ctx.stroke();
+    ctx.closePath();
 
 }
 
@@ -75,20 +117,10 @@ String.prototype.format = function() {
    return content;
 };
 
-/* HIDE SHOW CATEGORIES */
 
-function openNav() {
-    document.getElementById("mySidenav").style.width = "250px";
-    /*document.getElementById("main").style.marginLeft = "250px";*/
-
-    document.getElementById('openCat').style.visibility = 'hidden';
-
+function modifyNav(width, visibility) {
+    document.getElementById("mySidenav").style.width = width + "px";
+    document.getElementById('open').style.visibility = visibility;
 }
 
-function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-    /*document.getElementById("main").style.marginLeft= "0";*/
-
-    document.getElementById('openCat').style.visibility = 'visible';
-}
 
