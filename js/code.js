@@ -1,17 +1,18 @@
-function alertUser(message) {
-	alert(message);
-}
+document.addEventListener("DOMContentLoaded", loadTasks);
+
 
 
 function addTask(parent, child) {
     parent.appendChild(child);
 }
 
-function removeTask(element) {
-    element.parentNode.remove();
+function doneTask(element) {
+    var task = element.parentNode;
+    var list = task.parentNode;
+    list.removeChild(task);
+
 }
 
-document.addEventListener("DOMContentLoaded", loadTasks);
 
 function loadJSON(file, callback) {
     var xobj = new XMLHttpRequest();
@@ -26,7 +27,7 @@ function loadJSON(file, callback) {
 }
 
 function loadTasks() {
-    var taskFormat = "<li class=\"task\"> <header>{0}</header> <p>Priority: {1}</p> <p>Due: {2}</p> <p>Description: {3}</p> <button>Edit</button> <button onclick=\"removeTask(this)\">Delete</button> </li>";
+    var taskFormat = "<li class=\"task\"> <header>{0}</header> <p>Priority: {1}</p> <p>Due: {2}</p> <p>Description: {3}</p> <button>Edit</button> <button onclick=\"doneTask(this)\">Done</button> </li>";
 
     loadJSON("js/tasks.json", function(data) {
         var tasks = JSON.parse(data);
