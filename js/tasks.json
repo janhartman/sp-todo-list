@@ -25,8 +25,29 @@
 			"name": "UZ zagovor",
 			"due": "2016-11-28T11:00",
 			"created": "2016-11-25T16:00",
-			"description": "Zagovor tretje naloge",
+			"description": "Zagovor tretje naloge pri predmetu Umetno zaznavanje ",
 			"priority": 3
+		},
+		{
+			"name": "SP kolokvij",
+			"due": "2016-12-06T11:00",
+			"created": "2016-11-11T16:00",
+			"description": "Prvi kolokvij pri predmetu Spletno programiranje",
+			"priority": 4
+		},
+		{
+			"name": "PRPO kolokvij",
+			"due": "2016-11-23T11:00",
+			"created": "2016-11-11T16:00",
+			"description": "Prvi kolokvij pri predmetu Postopki razvoja programske opreme",
+			"priority": 5
+		},
+		{
+			"name": "OUI naloga",
+			"due": "2016-11-27T11:00",
+			"created": "2016-11-11T16:00",
+			"description": "Tretja domača naloga",
+			"priority": 1
 		}
 	]
 }

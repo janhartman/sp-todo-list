@@ -28,14 +28,14 @@
     <section class="sectionTasks">
         <div class="tasks">
 
-            <div class="dailyTasks blackBorderTask">
+            <div class="dailyTasks blackBorder">
                 <header class="taskHeader">Daily top tasks</header>
                 <ul class="dailyTasksList">
 
                 </ul>
             </div>
 
-            <div class="categoryTasks blackBorderTask">
+            <div class="categoryTasks blackBorder">
                 <header class="taskHeader">Tasks in category</header>
                 <ul class="categoryTasksList">
 
@@ -44,5 +44,20 @@
         </div>
         <button id="addTaskButton"><a href="#taskAdd">Add new task</a></button>
     </section>
+
+    <aside >
+        <span id="openCat" onclick="openNav()">&#9776; Open categories</span>
+        <div class="sidenav" id="mySidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <fieldset class="checkboxgroup">
+                <h1> Categories</h1>
+                <label><input type="checkbox"> All </label>
+                <label><input type="checkbox"> Work </label>
+                <label><input type="checkbox"> Other </label>
+                <label><input type="checkbox"> Completed</label>
+            </fieldset>
+        </div>
+
+    </aside>
 </body>
 </html>
