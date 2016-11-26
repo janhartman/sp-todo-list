@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
 
-
 <head>
     <title>To-do List - Register</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href ="css/styles.css">
     <script src="js/code.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato">
 </head>
 
 <body>
     <nav class="navbar">
         <ul>
-            <li>
+            <li id="logoNav">
                 <a>LOGO-TODO</a>
             </li>
             <li>
@@ -27,51 +27,36 @@
         </ul>
     </nav>
 
-    <section>
+    <section class="sectionRegister">
         <div class="register">
-            <!--<div>
-                <form method="POST">
-                    <label class="labels">Name </label>
-                    <input type="text" name="name" required placeholder="Your name" pattern="[A-Z]+ [A-Z]+/gi"/>
+            <form class="formReg">
+                <div class="blackBorderReg">
+                    <table class="registerTable">
+                        <tr>
+                            <td class="leftTable">Name: </td> <td><input type="text" name="name" class="rightTable"></td><br>
+                        </tr>
+                        <tr>
+                            <td class="leftTable">Email: </td> <td><input type="text" name="email" class="rightTable"></td><br>
+                        </tr>
+                        <tr>
+                            <td class="leftTable">Password: </td> <td><input type="password" name="pwd" class="rightTable"></td><br>
+                        </tr>
+                        <tr>
+                            <td class="leftTable">Confirm password: </td> <td><input type="password" name="cpwd" class="rightTable"><br>
+                        </tr>
+                    </table>
                     <br>
-                    <label>Username </label>
-                    <input type="text" name="username" required placeholder="Username" pattern="[A-Z0-9]+/gi"/>
-                    <br>
-                    <label>E-mail </label>
-                    <input type="email" name="email" required placeholder="E-mail"/>
-                    <br>
-                    <label>Password </label>
-                    <input type="password" name="password" required placeholder="Password"/>
-                    <br>
-                    <input id="button" type="submit" value="Register" />
-                 </form>
-            </div>-->
-            <form >
-                <table class="registerTable">
-                    <tr>
-                        <td class="leftTable">Name: </td> <td><input type="text" name="name" class="rightTable"></td><br>
-                    </tr>
-                    <tr>
-                        <td class="leftTable">Email: </td> <td><input type="text" name="email" class="rightTable"></td><br>
-                    </tr>
-                    <tr>
-                        <td class="leftTable">Password: </td> <td><input type="password" name="pwd" class="rightTable"></td><br>
-                    </tr>
-                    <tr>
-                        <td class="leftTable">Confirm password: </td> <td><input type="password" name="cpwd" class="rightTable"><br>
-                    </tr>
-                </table>
+                    <div class="submitRegisterDiv">
+                        <input type="submit" value="Register" id="submitRegister">
+                    </div>
+                </div>
                 <br>
-                <div class="submitRegisterDiv">
-                    <input type="submit" value="Submit" id="submitRegister">
+                <div class="alreadyReg">
+                   <a href="login.html"><input value="Already registered? Sign in here" id="submitAlreadyReg"></a>
                 </div>
             </form>
         </div>
-        <!--<a href="index.html">Log in</a>-->
     </section>
-
 </body>
-
-
 
 </html>
