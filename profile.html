@@ -22,7 +22,66 @@
             <li>
                 <a href="profile.html">User Profile</a>
             </li>
+            <li id="logoutBtnNav">
+                <a id="logoutBtn">Log out</a>
+            </li>
         </ul>
     </nav>
+
+    <!-- The Modal -->
+    <div id="logoutModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <span class="close">×</span>
+                <h2>Are you sure you want to log out?</h2>
+            </div>
+
+            <div class="modal-body">
+                <p>
+                    <button class="logoutBtnConfirm">Yes</button>
+                    <button class="logoutBtnConfirm">Cancel</button>
+                </p>
+            </div>
+
+            <!--<div class="modal-footer">
+                <h3>Modal Footer</h3>
+            </div>-->
+        </div>
+
+    </div>
+
+    <section class="sectionProfile">
+        <div class="profileInfo profile blackBorder">
+            <header class="divHeader">Info</header>
+            <table>
+                    <tr>
+                        <td class="leftTable">Name: </td> <td class="rightTable">Jan Hartman</td>
+                    </tr>
+                    <tr>
+                        <td class="leftTable">Email: </td> <td class="rightTable">jan@hartman.com</td>
+                    </tr>
+                    <tr>
+                        <td class="leftTable">Productivity points: </td> <td class="rightTable">47</td>
+                    </tr>
+                    <tr>
+                        <td class="leftTable">TODOs completed: </td> <td class="rightTable">12</td>
+                    </tr>
+            </table>
+        </div>
+        <div class="profileSettings profile blackBorder">
+            <header class="divHeader">Settings</header>
+            <table>
+                    <tr>
+                        <td class="leftTable">Number of daily tasks: </td> <td class="rightTable"><input type="number" placeholder="5"> </td>
+                    </tr>
+                    <tr>
+                        <td class="leftTable">Pick tasks with maximum priority first: </td> <td class="rightTable"><input name="pick" type="radio" >Yes</td><td class="rightTable"><input name="pick" type="radio">No</td>
+                    </tr>
+            </table>
+        </div>
+    </section>
 </body>
 </html>
