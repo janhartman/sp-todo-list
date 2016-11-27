@@ -20,7 +20,7 @@ function load() {
     var taskSpan = document.getElementById("closeTaskAdd");
     var cancelAdd = document.getElementById("cancelAddButton");
     var doAdd = document.getElementById("doAddButton");
-    var locationDiv = document.getElementById("location");
+    var locationDiv = document.getElementById("locationY");
 
      window.onclick = function(event) {
         if (event.target == logoutModal) {
@@ -256,7 +256,8 @@ function modifyNav(width, visibility) {
 
 
 function showLocation() {
-    var locationDiv = document.getElementById("location");
+    var locationDiv = document.getElementById("locationY");
+
     function getLocation() {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(showPosition);
@@ -265,7 +266,8 @@ function showLocation() {
         }
     }
     function showPosition(position) {
-        locationDiv.innerHTML = "Latitude: " + position.coords.latitude + " Longitude: " + position.coords.longitude;
+        locationDiv.innerHTML = "Latitude: " + position.coords.latitude.toPrecision(5);
+        document.getElementById("locationX").innerHTML = "Longitude: " + position.coords.longitude.toPrecision(5);
     }
 
     getLocation();

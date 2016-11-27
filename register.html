@@ -15,34 +15,27 @@
             <li id="logoNav">
                 <img src="img/logo.png" alt="LOGO" height="45">
             </li>
-            <li>
-                <a href="tasks.html">Task View</a>
-            </li>
-            <li>
-                <a href="productivity.html">Productivity</a>
-            </li>
-            <li>
-                <a href="profile.html">User Profile</a>
-            </li>
+
         </ul>
     </nav>
 
     <section class="sectionRegister">
         <div class="register">
-            <form class="formReg">
+            <header class="divHeader newApp">Your new favourite to-do app.</header>
+            <form class="formReg" action="index.html">
                 <div class="divReg blackBorder">
                     <table class="registerTable">
                         <tr>
-                            <td class="leftTable">Name: </td> <td><input type="text" name="name" class="rightTable"></td>
+                            <td class="leftTable">Name: </td> <td><input required type="text" name="name" class="rightTable"></td>
                         </tr>
                         <tr>
-                            <td class="leftTable">Email: </td> <td><input type="text" name="email" class="rightTable"></td>
+                            <td class="leftTable">Email: </td> <td><input required type="email" name="email" class="rightTable"></td>
                         </tr>
                         <tr>
-                            <td class="leftTable">Password: </td> <td><input type="password" name="pwd" class="rightTable"></td>
+                            <td class="leftTable">Password: </td> <td><input required type="password" name="pwd" class="rightTable"></td>
                         </tr>
                         <tr>
-                            <td class="leftTable">Confirm password: </td> <td><input type="password" name="cpwd" class="rightTable"></td>
+                            <td class="leftTable">Confirm password: </td> <td><input required type="password" name="cpwd" class="rightTable"></td>
                         </tr>
                     </table>
                     <br>
