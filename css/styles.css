@@ -427,6 +427,24 @@ body {
     width: 50%;
 }
 
+.webSocketDiv {
+    margin: 20px;
+}
+
+.webSocketDiv p {
+    font-size: 14px;
+    font-family: "Lato";
+}
+
+#startWSButton {
+    border-radius: 8px;
+    background-color: #EFEFEF;
+    color: black;
+    border: 3px solid #ff3b3f;
+    font-size: 14px;
+    font-family: "Lato";
+}
+
 /* MODAL */
 /* http://www.w3schools.com/howto/howto_css_modals.asp */
 

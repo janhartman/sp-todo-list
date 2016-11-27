@@ -272,3 +272,65 @@ function showLocation() {
 
     getLocation();
 }
+
+function startWS() {
+    var host = "ws://localhost:8000";
+    var socket;
+    try {
+        socket = new WebSocket(host);
+    }
+    catch (err) {
+        errorWS();
+        return;
+    }
+    document.getElementById("webSocketData").innerHTML = "";
+    socket.binaryType = "arraybuffer";
+    socket.addEventListener("message", messageWS);
+	socket.addEventListener("error", errorWS);
+
+	console.log("started socket" + socket);
+
+    var button = document.getElementById("startWSButton");
+	button.innerHTML = "Stop viewing";
+	button.onclick = function () {
+	    console.log("calling stopWS as listener");
+        stopWS(socket);
+    };
+
+	var i = 0;
+	var interval = setInterval(function() {
+	        socket.send("a");
+	        if (i++ > 100) {
+                clearInterval(interval);
+                stopWS(socket)
+            }
+
+        }, 1000);
+}
+
+function stopWS(socket) {
+    if (socket)
+        socket.close();
+
+    var button = document.getElementById("startWSButton");
+
+    console.log("stopped socket");
+    button.innerHTML = "Start viewing";
+    button.onclick = function() {
+        console.log("calling startWS as listener");
+        startWS();
+    }
+}
+
+function messageWS(event) {
+    var data = event.data;
+    console.log("message received: " + data);
+    var task = JSON.parse(data);
+    document.getElementById("webSocketData").innerHTML = "Task: " + task.name + " Priority: " + task.priority;
+}
+
+function errorWS(event) {
+    console.log("error on socket");
+    document.getElementById("webSocketData").innerHTML = "Error: cannot connect to websocket server ws://localhost:8000";
+    stopWS(null);
+}
