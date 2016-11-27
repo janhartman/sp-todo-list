@@ -20,9 +20,10 @@
     </nav>
 
     <section class="sectionRegister">
+        <h2 class="hidden">A</h2>
         <div class="register">
             <header class="divHeader newApp">Your new favourite to-do app.</header>
-            <form class="formReg" action="tasks.html">
+            <form class="formReg" action="tasks.html" onSubmit="return checkPasswords()">
                 <div class="divReg blackBorder">
                     <table class="registerTable">
                         <tr>
@@ -32,10 +33,10 @@
                             <td class="leftTable">Email: </td> <td><input required type="email" name="email" class="rightTable"></td>
                         </tr>
                         <tr>
-                            <td class="leftTable">Password: </td> <td><input required type="password" name="pwd" class="rightTable"></td>
+                            <td class="leftTable">Password: </td> <td><input required type="password" name="pwd" id="pwd" class="rightTable"></td>
                         </tr>
                         <tr>
-                            <td class="leftTable">Confirm password: </td> <td><input required type="password" name="cpwd" class="rightTable"></td>
+                            <td class="leftTable">Confirm password: </td> <td><input required type="password" name="cpwd" id="cpwd" class="rightTable"></td>
                         </tr>
                     </table>
                     <br>
@@ -45,11 +46,13 @@
                 </div>
                 <br>
                 <div class="alreadyReg">
-                   <a href="index.html"><input value="Already registered? Sign in here" id="submitAlreadyReg"></a>
+                   <a href="index.html" id="submitAlreadyReg">Already registered? Sign in here</a>
                 </div>
             </form>
         </div>
     </section>
+    <div class="hidden">Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+
 </body>
 
 </html>

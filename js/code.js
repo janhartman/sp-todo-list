@@ -273,6 +273,18 @@ function showLocation() {
     getLocation();
 }
 
+function checkPasswords() {
+    var pass1 = document.getElementById("pwd").value;
+    var pass2 = document.getElementById("cpwd").value;
+    var same = pass1 == pass2;
+    if (! same) {
+        alert("Passwords must match");
+        return false;
+    }
+    else
+        return true;
+}
+
 function startWS() {
     var host = "ws://localhost:8000";
     var socket;
