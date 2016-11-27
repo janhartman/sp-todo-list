@@ -20,6 +20,7 @@ function load() {
     var taskSpan = document.getElementById("closeTaskAdd");
     var cancelAdd = document.getElementById("cancelAddButton");
     var doAdd = document.getElementById("doAddButton");
+    var locationDiv = document.getElementById("location");
 
      window.onclick = function(event) {
         if (event.target == logoutModal) {
@@ -56,24 +57,11 @@ function load() {
             taskModal.style.display = "block";
         };
 
-    if (doAdd) {
-        doAdd.onclick = function () {
-            var name = document.getElementById("taskName").value;
-            var desc = document.getElementById("taskDesc").value;
-            var due = document.getElementById("taskDue").value;
-            var priority = document.getElementById("taskPriority").value;
-            var created = new Date();
-            var categoryTasksList = document.getElementsByClassName("categoryTasksList")[0];
-
-            if (name && due) {
-                addTask(categoryTasksList, name, priority, due, desc);
-                clearTaskInput(taskModal, doAdd);
-            }
-            else {
-                alert("Provide the name and due date!")
-            }
+    if (doAdd)
+        doAdd.onclick = function() {
+            addTaskToList(taskModal, doAdd);
         };
-    }
+
     if (taskSpan)
         taskSpan.onclick = function() {
         clearTaskInput(taskModal);
@@ -84,6 +72,9 @@ function load() {
         clearTaskInput(taskModal);
         };
 
+    if (locationDiv)
+        showLocation();
+
 }
 
 function clearTaskInput(taskModal) {
@@ -93,6 +84,25 @@ function clearTaskInput(taskModal) {
     document.getElementById("taskPriority").value= 1;
     taskModal.style.display = "none";
 }
+
+function addTaskToList(taskModal, doAdd) {
+    var name = document.getElementById("taskName").value;
+    var desc = document.getElementById("taskDesc").value;
+    var due = document.getElementById("taskDue").value;
+    var priority = document.getElementById("taskPriority").value;
+    var created = new Date();
+    var categoryTasksList = document.getElementsByClassName("categoryTasksList")[0];
+
+
+    if (name && due) {
+        addTask(categoryTasksList, name, priority, due, desc);
+        clearTaskInput(taskModal, doAdd);
+    }
+    else {
+        alert("Provide the name and due date!")
+    }
+}
+
 
 
 function showTasks(tasks) {
@@ -107,9 +117,8 @@ function showTasks(tasks) {
     })
 }
 
-
 function addTask(parent, name, priority, due, description) {
-    var taskFormat = "<li class=\"task\"> <header>{0}</header> <p>Priority: {1}</p> <p>Due: {2}</p> <p>Description: {3}</p> <button>Edit</button> <button onclick=\"doneTask(this)\">Done</button> </li>";
+    var taskFormat = "<li class=\"task\"> <header>{0}</header> <p>Priority: {1}</p> <p>Due: {2}</p> <p>Description: {3}</p> <button onclick=\"editTask(this)\">Edit</button> <button onclick=\"doneTask(this)\">Done</button> </li>";
     var taskNode = document.createElement("LI");
     taskNode.innerHTML = taskFormat.format(name, priority, due, description);
 
@@ -121,6 +130,43 @@ function doneTask(element) {
     var list = task.parentNode;
     list.removeChild(task);
 
+}
+
+function editTask(element) {
+    var task = element.parentNode;
+
+    var taskModal = document.getElementById("taskModal");
+    taskModal.style.display = "block";
+
+    document.getElementById("taskModalHeader").innerHTML = "Edit TODO";
+    var doAdd = document.getElementById("doAddButton");
+    doAdd.innerHTML = "Edit task";
+
+    document.getElementById("taskName").value = task.childNodes[1].innerHTML;
+    document.getElementById("taskDesc").value = task.childNodes[7].innerHTML.substr("description: ".length);
+    document.getElementById("taskDue").value = task.childNodes[5].innerHTML.substr("due: ".length);
+    document.getElementById("taskPriority").value= task.childNodes[3].innerHTML.substr("priority: ".length);
+
+    doAdd.onclick = function() {
+        editTaskInList(taskModal, doAdd, task);
+    };
+}
+
+function editTaskInList(taskModal, doAdd, task) {
+
+    task.childNodes[1].innerHTML = document.getElementById("taskName").value;
+    task.childNodes[7].innerHTML = "Description: " + document.getElementById("taskDesc").value;
+    task.childNodes[5].innerHTML = "Due: " +  document.getElementById("taskDue").value;
+    task.childNodes[3].innerHTML = "Priority: " + document.getElementById("taskPriority").value;
+
+    document.getElementById("taskModalHeader").innerHTML = "Add a new TODO";
+    document.getElementById("doAddButton").innerHTML = "Add task";
+
+    clearTaskInput(taskModal);
+
+    doAdd.onclick = function() {
+        addTaskToList(taskModal, doAdd);
+    };
 }
 
 function loadJSON(file, callback) {
@@ -209,3 +255,18 @@ function modifyNav(width, visibility) {
 }
 
 
+function showLocation() {
+    var locationDiv = document.getElementById("location");
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+            locationDiv.innerHTML = "Geolocation is not supported by this browser.";
+        }
+    }
+    function showPosition(position) {
+        locationDiv.innerHTML = "Latitude: " + position.coords.latitude + " Longitude: " + position.coords.longitude;
+    }
+
+    getLocation();
+}
