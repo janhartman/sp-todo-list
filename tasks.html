@@ -22,39 +22,69 @@
             <li>
                 <a href="profile.html">User Profile</a>
             </li>
-            <li id="logoutBtnNav">
-                <a id="logoutBtn">Log out</a>
+            <li id="logoutButtonNav">
+                <a id="logoutButton">Log out</a>
             </li>
         </ul>
     </nav>
 
-    <!-- The Modal -->
+    <!-- The Modal for LOGOUT -->
     <div id="logoutModal" class="modal">
-
-        <!-- Modal content -->
         <div class="modal-content">
-
-            <div class="modal-header">
-                <span class="close">×</span>
-                <h2>Are you sure you want to log out?</h2>
-            </div>
-
-            <div class="modal-body">
-                <p>
-                    <button class="logoutBtnConfirm">Yes</button>
-                    <button class="logoutBtnConfirm">Cancel</button>
-                </p>
-            </div>
-
-            <!--<div class="modal-footer">
-                <h3>Modal Footer</h3>
-            </div>-->
+             <div class="modal-header">
+                    <span class="close" id="closeLogout">×</span>
+                    <h2>Are you sure you want to log out?</h2>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        <button class="modalButton" id="doLogout">Yes</button>
+                        <button class="modalButton" id="cancelLogout">Cancel</button>
+                    </p>
+                </div>
+                <!--<div class="modal-footer">
+                    <h3>Modal Footer</h3>
+                </div>-->
         </div>
+    </div>
+
+
+
+
+
+    <!-- modal for task adding -->
+    <div id="taskModal" class="modal">
+         <div class="modal-content">
+            <div class="modal-header">
+                    <span class="close" id="closeTaskAdd">×</span>
+                    <h2>Add a new TODO</h2>
+                </div>
+
+                <div class="modal-body">
+                    <table>
+                        <tr>
+                            <td class="leftTable">Task name: </td> <td><label><input id="taskName" type="text" placeholder="Your task name" name="name" class="rightTable"></label></td>
+                        </tr>
+                        <tr>
+                            <td class="leftTable">Description </td> <td><textarea id="taskDesc" title="Task description" placeholder="Your task description" rows="5" cols="15" name="desc" class="rightTable"></textarea></td>
+                        </tr>
+                        <tr>
+                            <td class="leftTable">Password: </td> <td><input id="taskDue" type="date" name="date" placeholder="20/12/2016" class="rightTable"></td>
+                        </tr>
+                        <tr>
+                            <td class="leftTable">Confirm password: </td> <td><input id="taskPriority" type="number" name="prio" placeholder="1" class="rightTable"></td>
+                        </tr>
+                    </table>
+                    <p>
+                        <button class="modalButton" id="doAddButton">Add task</button>
+                        <button class="modalButton" id="cancelAddButton">Cancel</button>
+                    </p>
+                </div>
+         </div>
 
     </div>
 
     <section class="sectionTasks">
-        <button id="addTaskButton"><a href="#taskAdd">Add new task</a></button>
+        <button id="addTaskButton" >Add new task</button>
         <div class="tasks">
 
             <div class="dailyTasks blackBorder">

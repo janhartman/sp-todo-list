@@ -2,49 +2,49 @@
 	"tasks": [
 		{
 			"name": "SP oddaja",
-			"due": "2016-11-27T23:59",
+			"due": "2016-11-27",
 			"created": "2016-11-26T13:00",
 			"description": "Oddaja prve faze",
 			"priority": 5
 		},
 		{
 			"name": "PRPO naloga",
-			"due": "2016-11-27T23:59",
+			"due": "2016-11-27",
 			"created": "2016-11-26T13:00",
 			"description": "Oddaja 5. naloge",
 			"priority": 4
 		},
 		{
 			"name": "PI naloga",
-			"due": "2016-11-29T10:00",
+			"due": "2016-11-29",
 			"created": "2016-11-26T11:00",
 			"description": "Oddaja 3. naloge",
 			"priority": 2
 		},
 		{
 			"name": "UZ zagovor",
-			"due": "2016-11-28T11:00",
+			"due": "2016-11-28",
 			"created": "2016-11-25T16:00",
 			"description": "Zagovor tretje naloge pri predmetu Umetno zaznavanje ",
 			"priority": 3
 		},
 		{
 			"name": "SP kolokvij",
-			"due": "2016-12-06T11:00",
+			"due": "2016-12-06",
 			"created": "2016-11-11T16:00",
 			"description": "Prvi kolokvij pri predmetu Spletno programiranje",
 			"priority": 4
 		},
 		{
 			"name": "PRPO kolokvij",
-			"due": "2016-11-23T11:00",
+			"due": "2016-11-23",
 			"created": "2016-11-11T16:00",
 			"description": "Prvi kolokvij pri predmetu Postopki razvoja programske opreme",
 			"priority": 5
 		},
 		{
 			"name": "OUI naloga",
-			"due": "2016-11-27T11:00",
+			"due": "2016-11-27",
 			"created": "2016-11-11T16:00",
 			"description": "Tretja domača naloga",
 			"priority": 1

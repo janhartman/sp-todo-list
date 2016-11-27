@@ -3,8 +3,117 @@ window.onload = function() {
 };
 
 
-function addTask(parent, child) {
-    parent.appendChild(child);
+function load() {
+    if (document.querySelector(".tasks"))
+        loadTasks(showTasks);
+    else if (document.querySelector(("#graph")))
+        drawGraph();
+
+    /* MODAL */
+    var logoutModal = document.getElementById("logoutModal");
+    var taskModal = document.getElementById("taskModal");
+    var logoutButton = document.getElementById("logoutButton");
+    var taskButton = document.getElementById("addTaskButton");
+    var logoutSpan = document.getElementById("closeLogout");
+    var cancelLogout = document.getElementById("cancelLogout");
+    var doLogout = document.getElementById("doLogout");
+    var taskSpan = document.getElementById("closeTaskAdd");
+    var cancelAdd = document.getElementById("cancelAddButton");
+    var doAdd = document.getElementById("doAddButton");
+
+     window.onclick = function(event) {
+        if (event.target == logoutModal) {
+            logoutModal.style.display = "none";
+        }
+        if (event.target == taskModal) {
+            taskModal.style.display = "none";
+        }
+    };
+
+    if (logoutButton)
+        logoutButton.onclick = function() {
+            logoutModal.style.display = "block";
+        };
+
+    if (logoutSpan)
+        logoutSpan.onclick = function() {
+            logoutModal.style.display = "none";
+        };
+
+    if (cancelLogout)
+        cancelLogout.onclick = function() {
+            logoutModal.style.display = "none";
+        };
+
+    if (doLogout)
+        doLogout.onclick = function() {
+            document.location = "index.html";
+        };
+
+
+    if (taskButton)
+        taskButton.onclick = function() {
+            taskModal.style.display = "block";
+        };
+
+    if (doAdd) {
+        doAdd.onclick = function () {
+            var name = document.getElementById("taskName").value;
+            var desc = document.getElementById("taskDesc").value;
+            var due = document.getElementById("taskDue").value;
+            var priority = document.getElementById("taskPriority").value;
+            var created = new Date();
+            var categoryTasksList = document.getElementsByClassName("categoryTasksList")[0];
+
+            if (name && due) {
+                addTask(categoryTasksList, name, priority, due, desc);
+                clearTaskInput(taskModal, doAdd);
+            }
+            else {
+                alert("Provide the name and due date!")
+            }
+        };
+    }
+    if (taskSpan)
+        taskSpan.onclick = function() {
+        clearTaskInput(taskModal);
+        };
+
+    if (cancelAdd)
+        cancelAdd.onclick = function() {
+        clearTaskInput(taskModal);
+        };
+
+}
+
+function clearTaskInput(taskModal) {
+    document.getElementById("taskName").value = "";
+    document.getElementById("taskDesc").value = "";
+    document.getElementById("taskDue").value = "";
+    document.getElementById("taskPriority").value= 1;
+    taskModal.style.display = "none";
+}
+
+
+function showTasks(tasks) {
+    var categoryTasksList = document.getElementsByClassName("categoryTasksList")[0];
+    var dailyTasksList = document.getElementsByClassName("dailyTasksList")[0];
+
+    tasks.forEach(function(task) {
+        addTask(categoryTasksList, task.name, task.priority, task.due, task.description);
+
+        if (Math.round(Math.random()) == 1)
+            addTask(dailyTasksList, task.name, task.priority, task.due, task.description);
+    })
+}
+
+
+function addTask(parent, name, priority, due, description) {
+    var taskFormat = "<li class=\"task\"> <header>{0}</header> <p>Priority: {1}</p> <p>Due: {2}</p> <p>Description: {3}</p> <button>Edit</button> <button onclick=\"doneTask(this)\">Done</button> </li>";
+    var taskNode = document.createElement("LI");
+    taskNode.innerHTML = taskFormat.format(name, priority, due, description);
+
+    parent.appendChild(taskNode);
 }
 
 function doneTask(element) {
@@ -17,56 +126,13 @@ function doneTask(element) {
 function loadJSON(file, callback) {
     var xobj = new XMLHttpRequest();
     xobj.overrideMimeType("application/json");
-    xobj.open('GET', file, true);
+    xobj.open("GET", file, true);
     xobj.onreadystatechange = function () {
           if (xobj.readyState == 4 && xobj.status == "200") {
             callback(xobj.responseText);
           }
     };
     xobj.send(null);
-}
-
-function load() {
-    if (document.querySelector(".tasks"))
-        loadTasks(showTasks);
-    else if (document.querySelector(("#graph")))
-        drawGraph();
-
-    /* MODAL */
-    var modal = document.getElementById('logoutModal');
-    var btn = document.getElementById("logoutBtn");
-    var span = document.getElementsByClassName("close")[0];
-
-    btn.onclick = function() {
-        modal.style.display = "block";
-    };
-
-    span.onclick = function() {
-        modal.style.display = "none";
-    };
-
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
-}
-
-function showTasks(tasks) {
-    var taskFormat = "<li class=\"task\"> <header>{0}</header> <p>Priority: {1}</p> <p>Due: {2}</p> <p>Description: {3}</p> <button>Edit</button> <button onclick=\"doneTask(this)\">Done</button> </li>";
-
-    var categoryTasksList = document.getElementsByClassName("categoryTasksList")[0];
-    var dailyTasksList = document.getElementsByClassName("dailyTasksList")[0];
-
-    tasks.forEach(function(task) {
-        var taskNode = document.createElement("LI");
-        var taskNode2 = document.createElement("LI");
-        taskNode.innerHTML = taskNode2.innerHTML = taskFormat.format(task.name, task.priority, task.due, task.description);
-        addTask(categoryTasksList, taskNode);
-
-        if (Math.round(Math.random()) == 1)
-            addTask(dailyTasksList, taskNode2);
-    })
 }
 
 function loadTasks(callback) {
@@ -130,7 +196,7 @@ function drawGraph() {
 String.prototype.format = function() {
    var content = this;
    for (var i = 0; i < arguments.length; i++) {
-        var replacement = '{' + i + '}';
+        var replacement = "{" + i + "}";
         content = content.replace(replacement, arguments[i]);
    }
    return content;
@@ -139,7 +205,7 @@ String.prototype.format = function() {
 
 function modifyNav(width, visibility) {
     document.getElementById("mySidenav").style.width = width + "px";
-    document.getElementById('open').style.visibility = visibility;
+    document.getElementById("open").style.visibility = visibility;
 }
 
 

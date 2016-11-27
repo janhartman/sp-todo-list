@@ -305,6 +305,7 @@ body {
 
 .categoryTasks {
     margin: 15px;
+    overflow-y: scroll
 }
 
 .dailyTasksList {
@@ -364,12 +365,10 @@ body {
     position: absolute;
     right: 15px;
     top: 15px;
+    text-decoration: none;
+
 }
 
-#addTaskButton a {
-    color: black;
-    text-decoration: none;
-}
 
 /* PRODUCTIVITY */
 .sectionProductivity {
@@ -425,10 +424,10 @@ body {
     width: 50%;
 }
 
-/* MODAL logout */
+/* MODAL */
 /* http://www.w3schools.com/howto/howto_css_modals.asp */
 
-#logoutBtn {
+#logoutButton {
     cursor: pointer;
 }
 
@@ -462,6 +461,13 @@ body {
     -webkit-animation-duration: 0.4s;
     animation-name: animatetop;
     animation-duration: 0.4s
+}
+
+/* task creation */
+.modal-body table {
+    width: 80%;
+    font-size: 17px;
+    font-family: "Lato";
 }
 
 /* Add Animation */
@@ -509,7 +515,7 @@ body {
     color: white;
 }
 
-.logoutBtnConfirm {
+.modalButton {
     border-radius: 8px;
     background-color: #EFEFEF;
     color: black;
@@ -521,7 +527,7 @@ body {
     margin: 0 auto;
 }
 
-#logoutBtnNav {
+#logoutButtonNav {
     position: fixed;
     right: 15px;
 }
