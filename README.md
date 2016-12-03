@@ -9,7 +9,7 @@ Namen aplikacije je ustvarjanje opomnikov za opravila. Služi razbremenitvi mož
 Aplikacija je namenjena vsem, ki bi radi imeli svoja opravila bolj organizirana in na enem mestu. Najbolje deluje na namiznih računalnikih, malo manj je prilagojena za tablice.
 
 ### 3. Težave v različnih brskalnikih
-Večina brskalnikov ne podpira `input type="date`, zato sem ga spremenil kar v `text`. Večina brskalnikov tudi ne dovoli dostopanja do JSON datoteke z `XMLHttpRequest`, če dostopamo do strani direktno preko datoteke, ker blokirajo cross-origin zahteve. Drugje so razlike majhne, večinoma v robovih in pozicioniranju, vendar nič večjega.
+Večina brskalnikov ne podpira `input type="date"`, zato sem ga spremenil kar v `text`. Večina brskalnikov tudi ne dovoli dostopanja do JSON datoteke z `XMLHttpRequest`, če dostopamo do strani direktno preko datoteke, ker blokirajo cross-origin zahteve. Drugje so razlike majhne, večinoma v robovih in pozicioniranju, vendar nič večjega.
 
 ### 4. Najboljša dela strani
 Največ dela sem vložil v modalni dialog za ustvarjanje/urejanje opravila in kartice, ki predstavljajo opravila. Oboje sem implementiral s pomočjo Javascripta.
