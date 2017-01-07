@@ -47,7 +47,7 @@ module.exports.connections = {
     port      : 3306,
     user      : 'root',
     password  : 'root',
-    database  : 'testbaza'
+    database  : 'todo_db'
   },
 
 

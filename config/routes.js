@@ -32,9 +32,6 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/': {
-    view: 'homepage'
-  }
 
   /***************************************************************************
   *                                                                          *
@@ -45,5 +42,35 @@ module.exports.routes = {
   * for configuration options and examples.                                  *
   *                                                                          *
   ***************************************************************************/
+
+
+
+
+  'GET /': 'TaskController.taskView',
+
+  'GET /tasks': 'TaskController.taskView',
+
+  'POST /tasks': 'TaskController.addTask',
+
+  'PATCH /tasks': 'TaskController.editTask',
+
+  'GET /productivity': 'TaskController.productivityView',
+
+
+  'GET /login': 'UserController.loginView',
+
+  'POST /login': 'UserController.login',
+
+  'GET /register': 'UserController.registerView',
+
+  'POST /register': 'UserController.register',
+
+
+
+  'GET /profile': 'ProfileController.profileView',
+
+  'POST /profile': 'ProfileController.editProfile',
+
+  'GET /logout': 'ProfileController.logout'
 
 };

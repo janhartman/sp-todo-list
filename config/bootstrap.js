@@ -11,9 +11,18 @@
 
 module.exports.bootstrap = function(cb) {
 
-  // create database
+  // create triggers and such
+  var mysql = require('mysql');
+  var connection = mysql.createConnection({
+    host     : 'localhost',
+    user     : 'root',
+    password : 'root',
+    database : 'todo_db'
+  });
+
+  cb();
 
   // It's very important to trigger this callback method when you are finished
   // with the bootstrap!  (otherwise your server will never lift, since it's waiting on the bootstrap)
-  cb();
+
 };

@@ -4,9 +4,7 @@ window.onload = function() {
 
 
 function load() {
-    if (document.querySelector(".tasks"))
-        loadTasks(showTasks);
-    else if (document.querySelector(("#graph")))
+    if (document.querySelector(("#graph")))
         drawGraph();
 
     /* MODAL */
@@ -20,7 +18,6 @@ function load() {
     var taskSpan = document.getElementById("closeTaskAdd");
     var cancelAdd = document.getElementById("cancelAddButton");
     var doAdd = document.getElementById("doAddButton");
-    var locationDiv = document.getElementById("locationY");
 
      window.onclick = function(event) {
         if (event.target == logoutModal) {
@@ -48,7 +45,7 @@ function load() {
 
     if (doLogout)
         doLogout.onclick = function() {
-            document.location = "index.html";
+            document.location = "/logout";
         };
 
 
@@ -71,9 +68,6 @@ function load() {
         cancelAdd.onclick = function() {
         clearTaskInput(taskModal);
         };
-
-    if (locationDiv)
-        showLocation();
 
 }
 
@@ -104,18 +98,6 @@ function addTaskToList(taskModal, doAdd) {
 }
 
 
-
-function showTasks(tasks) {
-    var categoryTasksList = document.getElementsByClassName("categoryTasksList")[0];
-    var dailyTasksList = document.getElementsByClassName("dailyTasksList")[0];
-
-    tasks.forEach(function(task) {
-        addTask(categoryTasksList, task.name, task.priority, task.due, task.description);
-
-        if (Math.round(Math.random()) == 1)
-            addTask(dailyTasksList, task.name, task.priority, task.due, task.description);
-    })
-}
 
 function addTask(parent, name, priority, due, description) {
     var taskFormat = "<li class=\"task\"> <header>{0}</header> <p>Priority: {1}</p> <p>Due: {2}</p> <p>Description: {3}</p> <button onclick=\"editTask(this)\">Edit</button> <button onclick=\"doneTask(this)\">Done</button> </li>";
@@ -167,26 +149,6 @@ function editTaskInList(taskModal, doAdd, task) {
     doAdd.onclick = function() {
         addTaskToList(taskModal, doAdd);
     };
-}
-
-function loadJSON(file, callback) {
-    var xobj = new XMLHttpRequest();
-    xobj.overrideMimeType("application/json");
-    xobj.open("GET", file, true);
-    xobj.onreadystatechange = function () {
-          if (xobj.readyState == 4 && xobj.status == "200") {
-            callback(xobj.responseText);
-          }
-    };
-    xobj.send(null);
-}
-
-function loadTasks(callback) {
-    loadJSON("js/tasks.json", function (data) {
-        var tasks = JSON.parse(data).tasks;
-        callback(tasks);
-    });
-
 }
 
 function drawGraph() {
@@ -255,24 +217,6 @@ function modifyNav(width, visibility) {
 }
 
 
-function showLocation() {
-    var locationDiv = document.getElementById("locationY");
-
-    function getLocation() {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(showPosition);
-        } else {
-            locationDiv.innerHTML = "Geolocation is not supported by this browser.";
-        }
-    }
-    function showPosition(position) {
-        locationDiv.innerHTML = "Latitude: " + position.coords.latitude.toPrecision(5);
-        document.getElementById("locationX").innerHTML = "Longitude: " + position.coords.longitude.toPrecision(5);
-    }
-
-    getLocation();
-}
-
 function checkPasswords() {
     var pass1 = document.getElementById("pwd").value;
     var pass2 = document.getElementById("cpwd").value;
@@ -283,66 +227,4 @@ function checkPasswords() {
     }
     else
         return true;
-}
-
-function startWS() {
-    var host = "ws://localhost:8000";
-    var socket;
-    try {
-        socket = new WebSocket(host);
-    }
-    catch (err) {
-        errorWS();
-        return;
-    }
-    document.getElementById("webSocketData").innerHTML = "";
-    socket.binaryType = "arraybuffer";
-    socket.addEventListener("message", messageWS);
-	socket.addEventListener("error", errorWS);
-
-	console.log("started socket" + socket);
-
-    var button = document.getElementById("startWSButton");
-	button.innerHTML = "Stop viewing";
-	button.onclick = function () {
-	    console.log("calling stopWS as listener");
-        stopWS(socket);
-    };
-
-	var i = 0;
-	var interval = setInterval(function() {
-	        socket.send("a");
-	        if (i++ > 100) {
-                clearInterval(interval);
-                stopWS(socket)
-            }
-
-        }, 1000);
-}
-
-function stopWS(socket) {
-    if (socket)
-        socket.close();
-
-    var button = document.getElementById("startWSButton");
-
-    console.log("stopped socket");
-    button.innerHTML = "Start viewing";
-    button.onclick = function() {
-        console.log("calling startWS as listener");
-        startWS();
-    }
-}
-
-function messageWS(event) {
-    var data = event.data;
-    console.log("message received: " + data);
-    var task = JSON.parse(data);
-    document.getElementById("webSocketData").innerHTML = "Task: " + task.name + " Priority: " + task.priority;
-}
-
-function errorWS(event) {
-    console.log("error on socket");
-    document.getElementById("webSocketData").innerHTML = "Error: cannot connect to websocket server ws://localhost:8000";
-    stopWS(null);
 }

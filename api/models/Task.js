@@ -1,7 +1,7 @@
 /**
  * Task.js
  *
- * @description :: TODO: You might write a short summary of how this model works and what it represents here.
+ * @description :: This model represents tasks.
  * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
  */
 
@@ -11,14 +11,15 @@ module.exports = {
     "name": {
       type: "string",
       size: 50,
-      required: true
+      notNull: true
     },
     "description": {
       type: "longtext"
     },
     "dueDate": {
       type: "date",
-      required: true
+      notNull: true,
+      columnName: "due_date"
     },
     "priority": {
       type: "integer",
@@ -28,7 +29,19 @@ module.exports = {
       type: "string",
       size: 20,
       defaultsTo: "Other"
+    },
+    "completedDate": {
+      type: "date",
+      columnName: "completed_date"
+    },
+    "user": {
+      model: "user",
+      notNull: true,
+      columnName: "user_id",
+      index: true
     }
-  }
+  },
+  autoCreatedAt: false,
+  autoUpdatedAt: false,
 };
 

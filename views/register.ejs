@@ -4,8 +4,8 @@
 <head>
     <title>To-do List - Register</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href ="css/styles.css">
-    <script src="js/code.js"></script>
+    <link rel="stylesheet" type="text/css" href ="/styles/styles.css">
+    <script src="/js/code.js"></script>
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato">
 </head>
 
@@ -13,17 +13,16 @@
     <nav class="navbar">
         <ul>
             <li id="logoNav">
-                <img src="img/logo.png" alt="LOGO" height="45">
+                <img src="/images/logo.png" alt="LOGO" height="45">
             </li>
 
         </ul>
     </nav>
 
     <section class="sectionRegister">
-        <h2 class="hidden">A</h2>
         <div class="register">
             <header class="divHeader newApp">Your new favourite to-do app.</header>
-            <form class="formReg" action="tasks.html" onSubmit="return checkPasswords()">
+            <form class="formReg" action="/register" onSubmit="return checkPasswords()" method="post">
                 <div class="divReg blackBorder">
                     <table class="registerTable">
                         <tr>
@@ -46,7 +45,7 @@
                 </div>
                 <br>
                 <div class="alreadyReg">
-                   <a href="index.html" id="submitAlreadyReg">Already registered? Sign in here</a>
+                   <a href="/login" id="submitAlreadyReg">Already registered? Sign in here</a>
                 </div>
             </form>
         </div>
