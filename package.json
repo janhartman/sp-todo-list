@@ -28,7 +28,9 @@
   },
   "scripts": {
     "debug": "node debug app.js",
-    "start": "node app.js"
+    "start": "node app.js",
+    "prestart": "node install/databaseProvision.js",
+    "test": "node test/simpleTest.js"
   },
   "main": "app.js",
   "repository": {

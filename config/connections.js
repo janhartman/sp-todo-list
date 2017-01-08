@@ -28,9 +28,9 @@ module.exports.connections = {
   * Installed by default.                                                    *
   *                                                                          *
   ***************************************************************************/
-  localDiskDb: {
-    adapter: 'sails-disk'
-  },
+  // localDiskDb: {
+  //   adapter: 'sails-disk'
+  // },
 
   /***************************************************************************
   *                                                                          *
@@ -41,7 +41,7 @@ module.exports.connections = {
   *                                                                          *
   ***************************************************************************/
 
-  mysql: {
+  mysql_local: {
     adapter   : 'sails-mysql',
     host      : 'localhost',
     port      : 3306,
@@ -50,6 +50,14 @@ module.exports.connections = {
     database  : 'todo_db'
   },
 
+  mysql_jawsdb: {
+    adapter   : 'sails-mysql',
+    host      : 'onnjomlc4vqc55fw.chr7pe7iynqr.eu-west-1.rds.amazonaws.com',
+    port      : 3306,
+    user      : 'cnov0xq1vhxkik6g',
+    password  : '',
+    database  : 'todo_db'
+  }
 
   /***************************************************************************
   *                                                                          *

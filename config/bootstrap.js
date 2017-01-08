@@ -11,6 +11,10 @@
 
 module.exports.bootstrap = function(cb) {
 
+/*
+  // the SQL to run
+  var sql = "";
+
   // create triggers and such
   var mysql = require('mysql');
   var connection = mysql.createConnection({
@@ -20,8 +24,15 @@ module.exports.bootstrap = function(cb) {
     database : 'todo_db'
   });
 
-  cb();
+  connection.query(sql, function(err, rows, fields) {
+    if (err)
+      throw err;
+    else
+      cb();
+  });
 
+*/
+  cb();
   // It's very important to trigger this callback method when you are finished
   // with the bootstrap!  (otherwise your server will never lift, since it's waiting on the bootstrap)
 
