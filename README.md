@@ -1,4 +1,4 @@
-# To-Do List  
+# To-Do List  [![Build Status](https://travis-ci.org/janhartman/sp-todo-list.svg?branch=master)](https://travis-ci.org/janhartman/sp-todo-list)
 
 Aplikacija je bila ustvarjena kot projekt pri predmetu Spletno programiranje. Dosegljiva je na naslovu https://janhartman.github.io/sp-todo-list.
 
