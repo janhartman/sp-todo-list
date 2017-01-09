@@ -56,7 +56,7 @@ module.exports.connections = {
     port      : 3306,
     user      : process.env.JAWSDB_USERNAME,
     password  : process.env.JAWSDB_PASSWORD,
-    database  : 'todo_db'
+    database  : process.env.JAWSDB_DB
   }
 
   /***************************************************************************

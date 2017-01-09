@@ -5,6 +5,8 @@
 *  In order for it to run, the app needs to be started with "npm start".
 * */
 
+
+/*
 var mysql = require('mysql');
 
 var connection = mysql.createConnection({
@@ -20,3 +22,4 @@ connection.query("CREATE DATABASE IF NOT EXISTS todo_db", function(err, rows, fi
 });
 
 connection.destroy();
+*/
