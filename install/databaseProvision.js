@@ -8,9 +8,9 @@
 var mysql = require('mysql');
 
 var connection = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'root',
-  password : 'root'
+    host      : process.env.JAWSDB_HOST,
+    user      : process.env.JAWSDB_USERNAME,
+    password  : process.env.JAWSDB_PASSWORD
 });
 
 connection.query("CREATE DATABASE IF NOT EXISTS todo_db", function(err, rows, fields) {

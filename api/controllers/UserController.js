@@ -41,6 +41,7 @@ module.exports = {
               return res.redirect("/login");
           }
 
+          sails.log.info("User " + user + " successfully logged in");
           req.session.user_id = user.id;
           return res.redirect("/tasks");
         });
@@ -82,12 +83,13 @@ module.exports = {
           email: email,
           name: name,
           password: pass1
-        }).exec(function (err, rec) {
+        }).exec(function (err, user) {
           if (err) {
             sails.log.error("Error creating user record in database "+ err);
             return res.redirect("/register")
           }
 
+          sails.log.info("User " + user + " successfully registered");
           return res.redirect("/login");
         });
 
