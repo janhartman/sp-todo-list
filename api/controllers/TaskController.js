@@ -28,6 +28,11 @@ module.exports = {
       return res.send(400);
     }
 
+    if (dueDate == "Invalid Date") {
+        sails.log.debug("invalid date provided in form");
+        return res.send(400);
+    }
+
 
     Task.create({
       name: name,
@@ -60,7 +65,7 @@ module.exports = {
 
     var queryParam;
 
-    console.log(req.body);
+    // console.log(req.body);
 
     // change the task's status to completed
     if (req.body.completed) {
@@ -87,6 +92,7 @@ module.exports = {
       }
 
       if (dueDate == "Invalid Date") {
+        sails.log.debug("invalid date provided in form");
         return res.send(400);
       }
 
@@ -98,7 +104,7 @@ module.exports = {
         dueDate: dueDate
       };
 
-      console.log(queryParam);
+      //console.log(queryParam);
     }
 
     Task.update({
@@ -111,7 +117,7 @@ module.exports = {
       }
 
       sails.log.info(tasks.length + " task with id " + tasks[0].id + " updated for user " + userID);
-      return res.view("tasksList", {
+      res.view("tasksList", {
         dailyTop: false,
         tasks: tasks
       });
@@ -135,13 +141,13 @@ module.exports = {
         return res.view("500");
       }
 
-      console.log(user);
+      //console.log(user);
       var dailyTasks = user.dailyTasks;
 
       var queryParam = {where: {user: userID, category: {"!": "Completed"}}, limit: Number(dailyTasks)};
       queryParam["sort"] = user.maxPriorityFirst ? "priority DESC" : "dueDate";
 
-      console.log(queryParam);
+      //console.log(queryParam);
 
       Task.find(queryParam).exec(function (err, tasks) {
         if (err) {
@@ -152,12 +158,14 @@ module.exports = {
 
         var dailyTaskList = tasks;
 
-        console.log(tasks);
+        //console.log(tasks);
 
         res.view("tasks", {
           dailyTop: true,
           tasks: dailyTaskList
         })
+
+        sails.log.info("Succesfully sent task view for user " + userID);
       });
     });
 
@@ -170,7 +178,7 @@ module.exports = {
     var category = req.query.category;
     var queryParam = category == "All" ? {user: userID, category: {"!": "Completed"}} : {user: userID, category: category};
 
-    console.log(category);
+    //console.log(category);
 
     Task.find(queryParam).exec(function (err, tasks) {
       if (err) {
@@ -183,6 +191,8 @@ module.exports = {
         dailyTop: false,
         tasks: tasks
       });
+
+      sails.log.info("Succesfully sent task data for user " + userID);
 
     });
   },
@@ -258,6 +268,8 @@ module.exports = {
         total: totalProductivity,
         productivity: productivityByUnitOfTime
       })
+
+      sails.log.info("Succesfully sent productivity data for user " + userID);
     });
   }
 
