@@ -52,10 +52,10 @@ module.exports.connections = {
 
   mysql_jawsdb: {
     adapter   : 'sails-mysql',
-    host      : 'onnjomlc4vqc55fw.chr7pe7iynqr.eu-west-1.rds.amazonaws.com',
+    host      : process.env.JAWSDB_HOST,
     port      : 3306,
-    user      : 'cnov0xq1vhxkik6g',
-    password  : '',
+    user      : process.env.JAWSDB_USERNAME,
+    password  : process.env.JAWSDB_PASSWORD,
     database  : 'todo_db'
   }
 

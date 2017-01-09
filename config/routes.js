@@ -50,9 +50,13 @@ module.exports.routes = {
 
   'GET /tasks': 'TaskController.taskView',
 
+  'GET /tasksCategory': 'TaskController.tasksCategory',
+
   'POST /tasks': 'TaskController.addTask',
 
   'PATCH /tasks': 'TaskController.editTask',
+
+  'GET /productivityData': 'TaskController.productivity',
 
   'GET /productivity': 'TaskController.productivityView',
 

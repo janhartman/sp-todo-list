@@ -36,16 +36,15 @@ module.exports = {
             return res.view("500");
           }
 
-					else if(!compareRes) {
-						sails.log.info("Incorrect password provided");
-						return res.redirect("/login");
-					}
+          else if(!compareRes) {
+              sails.log.info("Incorrect password provided");
+              return res.redirect("/login");
+          }
 
-					req.session.user_id = user.id;
-					return res.redirect("/tasks");
-				});
+          req.session.user_id = user.id;
+          return res.redirect("/tasks");
+        });
       }
-
     });
   },
 

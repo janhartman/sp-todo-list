@@ -1,124 +1,147 @@
 <!DOCTYPE html>
 <head>
-    <title>To-do List - Tasks</title>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href ="/styles/styles.css">
-    <script src="/js/code.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato">
+  <title>To-do List - Tasks</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="/styles/styles.css">
+  <script src="/js/code.js"></script>
+  <script
+    src="https://code.jquery.com/jquery-3.1.1.min.js"
+    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato">
 
 </head>
 <body>
-    <nav class="navbar">
-        <ul>
-            <li id="logoNav">
-                <a href="/"><img src="/images/logo.png" alt="LOGO" height="45"></a>
-            </li>
-            <li>
-                <a href="/tasks">Task View</a>
-            </li>
-            <li>
-                <a href="/productivity">Productivity</a>
-            </li>
-            <li>
-                <a href="/profile">User Profile</a>
-            </li>
-            <li id="logoutButtonNav">
-                <a id="logoutButton">Log out</a>
-            </li>
-        </ul>
-    </nav>
+<nav class="navbar">
+  <ul>
+    <li id="logoNav">
+      <a href="/"><img src="/images/logo.png" alt="LOGO" height="45"></a>
+    </li>
+    <li>
+      <a href="/tasks">Task View</a>
+    </li>
+    <li>
+      <a href="/productivity">Productivity</a>
+    </li>
+    <li>
+      <a href="/profile">User Profile</a>
+    </li>
+    <li id="logoutButtonNav">
+      <a id="logoutButton">Log out</a>
+    </li>
+  </ul>
+</nav>
 
-    <!-- The Modal for LOGOUT -->
-    <div id="logoutModal" class="modal">
-        <div class="modal-content">
-             <div class="modal-header">
-                    <span class="close" id="closeLogout">×</span>
-                    <h2>Are you sure you want to log out?</h2>
-                </div>
-                <div class="modal-body">
-                    <p>
-                        <button class="modalButton" id="doLogout">Yes</button>
-                        <button class="modalButton" id="cancelLogout">Cancel</button>
-                    </p>
-                </div>
-                <!--<div class="modal-footer">
-                    <h3>Modal Footer</h3>
-                </div>-->
-        </div>
+<!-- The Modal for LOGOUT -->
+<div id="logoutModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close" id="closeLogout">×</span>
+      <h2>Are you sure you want to log out?</h2>
+    </div>
+    <div class="modal-body">
+      <p>
+        <button class="modalButton" id="doLogout">Yes</button>
+        <button class="modalButton" id="cancelLogout">Cancel</button>
+      </p>
+    </div>
+    <!--<div class="modal-footer">
+        <h3>Modal Footer</h3>
+    </div>-->
+  </div>
+</div>
+
+
+<!-- modal for task adding -->
+<div id="taskModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close" id="closeTaskAdd">×</span>
+      <h2 id="taskModalHeader">Add a new TODO</h2>
     </div>
 
+    <div class="modal-body">
+      <table>
+        <tr>
+          <td class="leftTable">Task name:</td>
+          <td><label><input id="taskName" type="text" placeholder="Your task name" name="name"
+                            class="rightTable"></label></td>
+        </tr>
+        <tr>
+          <td class="leftTable">Description:</td>
+          <td><label><input id="taskDesc" type="text" placeholder="Your task description" name="desc"
+                            class="rightTable"></label></td>
+        </tr>
+        <tr>
+          <td class="leftTable">Due date:</td>
+          <td><input id="taskDue" type="text" name="date" placeholder="20/12/2016" class="rightTable"></td>
+        </tr>
+        <tr>
+          <td class="leftTable">Priority:</td>
+          <td><input id="taskPriority" type="number" name="prio" placeholder="1" class="rightTable"></td>
+        </tr>
+        <tr>
+          <td class="leftTable">Category:</td>
+          <td >
+            <select id="taskCategory" class="rightTable">
+              <option value="Personal">Personal</option>
+              <option value="Work">Work</option>
+              <option value="Other">Other</option>
+            </select>
+          </td>
+        </tr>
+      </table>
+      <p>
+        <button class="modalButton" id="doAddButton">Add task</button>
+        <button class="modalButton" id="cancelAddButton">Cancel</button>
+      </p>
+    </div>
+  </div>
 
+</div>
 
+<section class="sectionTasks">
+  <button id="addTaskButton">Add new task</button>
+  <div class="tasks">
 
-
-    <!-- modal for task adding -->
-    <div id="taskModal" class="modal">
-         <div class="modal-content">
-            <div class="modal-header">
-                    <span class="close" id="closeTaskAdd">×</span>
-                    <h2 id="taskModalHeader">Add a new TODO</h2>
-                </div>
-
-                <div class="modal-body">
-                    <table>
-                        <tr>
-                            <td class="leftTable">Task name: </td> <td><label><input id="taskName" type="text" placeholder="Your task name" name="name" class="rightTable"></label></td>
-                        </tr>
-                        <tr>
-                            <td class="leftTable">Description </td> <td><textarea id="taskDesc" title="Task description" placeholder="Your task description" rows="5" cols="15" name="desc" class="rightTable"></textarea></td>
-                        </tr>
-                        <tr>
-                            <td class="leftTable">Due date: </td> <td><input id="taskDue" type="text" name="date" placeholder="20/12/2016" class="rightTable"></td>
-                        </tr>
-                        <tr>
-                            <td class="leftTable">Priority: </td> <td><input id="taskPriority" type="number" name="prio" placeholder="1" class="rightTable"></td>
-                        </tr>
-                    </table>
-                    <p>
-                        <button class="modalButton" id="doAddButton">Add task</button>
-                        <button class="modalButton" id="cancelAddButton">Cancel</button>
-                    </p>
-                </div>
-         </div>
-
+    <div class="dailyTasks blackBorder">
+      <header class="divHeader">Daily top tasks</header>
+      <ul class="dailyTasksList">
+        <% include tasksList %>
+      </ul>
     </div>
 
-    <section class="sectionTasks">
-        <button id="addTaskButton" >Add new task</button>
-        <div class="tasks">
+    <div class="categoryTasks blackBorder">
+      <header class="divHeader" id="categoryTag">Tasks in category All</header>
+      <ul class="categoryTasksList">
 
-            <div class="dailyTasks blackBorder">
-                <header class="divHeader">Daily top tasks</header>
-                <ul class="dailyTasksList">
+      </ul>
+    </div>
+  </div>
 
-                </ul>
-            </div>
+</section>
 
-            <div class="categoryTasks blackBorder">
-                <header class="divHeader">Tasks in category</header>
-                <ul class="categoryTasksList">
+<aside>
+  <span id="open" onclick="modifyNav(180, 'hidden')">&#9776; Categories</span>
+  <div class="sidenav" id="mySidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="modifyNav(0, 'visible')">&times;</a>
+    <form id="categoryForm">
+      <fieldset class="checkboxgroup">
+        <h1> Categories </h1>
+        <label><input name="category" value="All" type="radio" checked="yes"> All </label>
+        <label><input name="category" value="Personal" type="radio"> Personal </label>
+        <label><input name="category" value="Work" type="radio"> Work </label>
+        <label><input name="category" value="Other" type="radio"> Other </label>
+        <label><input name="category" value="Completed" type="radio"> Completed </label>
+      </fieldset>
+    </form>
+  </div>
 
-                </ul>
-            </div>
-        </div>
-
-    </section>
-
-    <aside >
-        <span id="open" onclick="modifyNav(180, 'hidden')">&#9776; Categories</span>
-        <div class="sidenav" id="mySidenav">
-            <a href="javascript:void(0)" class="closebtn" onclick="modifyNav(0, 'visible')">&times;</a>
-            <fieldset class="checkboxgroup">
-                <h1> Categories </h1>
-                <label><input type="checkbox"> All </label>
-                <label><input type="checkbox"> Work </label>
-                <label><input type="checkbox"> Other </label>
-                <label><input type="checkbox"> Completed </label>
-            </fieldset>
-        </div>
-
-    </aside>
-    <div class="hidden">Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+</aside>
+<div class="hidden">Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a
+    href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a
+    href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
+</div>
 
 </body>
 </html>

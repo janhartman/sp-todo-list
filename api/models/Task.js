@@ -28,7 +28,8 @@ module.exports = {
     "category": {
       type: "string",
       size: 20,
-      defaultsTo: "Other"
+      defaultsTo: "Other",
+      required: true
     },
     "completedDate": {
       type: "date",

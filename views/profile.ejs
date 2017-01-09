@@ -1,82 +1,114 @@
 <!DOCTYPE html>
 <head>
-    <title>To-do List - Profile</title>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href ="/styles/styles.css">
-    <script src="/js/code.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato">
+  <title>To-do List - Profile</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="/styles/styles.css">
+  <script src="/js/code.js"></script>
+  <script
+    src="https://code.jquery.com/jquery-3.1.1.min.js"
+    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato">
 
 </head>
 <body>
-    <nav class="navbar">
-        <ul>
-            <li id="logoNav">
-                <a href="/"><img src="/images/logo.png" alt="LOGO" height="45"></a>
-            </li>
-            <li>
-                <a href="/tasks">Task View</a>
-            </li>
-            <li>
-                <a href="/productivity">Productivity</a>
-            </li>
-            <li>
-                <a href="/profile">User Profile</a>
-            </li>
-            <li id="logoutButtonNav">
-                <a id="logoutButton">Log out</a>
-            </li>
-        </ul>
-    </nav>
+<nav class="navbar">
+  <ul>
+    <li id="logoNav">
+      <a href="/"><img src="/images/logo.png" alt="LOGO" height="45"></a>
+    </li>
+    <li>
+      <a href="/tasks">Task View</a>
+    </li>
+    <li>
+      <a href="/productivity">Productivity</a>
+    </li>
+    <li>
+      <a href="/profile">User Profile</a>
+    </li>
+    <li id="logoutButtonNav">
+      <a id="logoutButton">Log out</a>
+    </li>
+  </ul>
+</nav>
 
-    <!-- The Modal for LOGOUT -->
-    <div id="logoutModal" class="modal">
-        <div class="modal-content">
-             <div class="modal-header">
-                    <span class="close" id="closeLogout">×</span>
-                    <h2>Are you sure you want to log out?</h2>
-                </div>
-                <div class="modal-body">
-                    <p>
-                        <button class="modalButton" id="doLogout">Yes</button>
-                        <button class="modalButton" id="cancelLogout">Cancel</button>
-                    </p>
-                </div>
-        </div>
+<!-- The Modal for LOGOUT -->
+<div id="logoutModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close" id="closeLogout">×</span>
+      <h2>Are you sure you want to log out?</h2>
     </div>
+    <div class="modal-body">
+      <p>
+        <button class="modalButton" id="doLogout">Yes</button>
+        <button class="modalButton" id="cancelLogout">Cancel</button>
+      </p>
+    </div>
+  </div>
+</div>
 
-    <section class="sectionProfile">
-        <div class="profileInfo profile blackBorder">
-            <header class="divHeader">Info</header>
-            <table>
-                    <tr>
-                        <td class="leftTable">Name: </td> <td class="rightTable">Jan Hartman</td><td></td>
-                    </tr>
-                    <tr>
-                        <td class="leftTable">Email: </td> <td class="rightTable">jan@hartman.com</td><td></td>
-                    </tr>
-                    <tr>
-                        <td class="leftTable">Productivity points: </td> <td class="rightTable">47</td><td></td>
-                    </tr>
-                    <tr>
-                        <td class="leftTable">TODOs completed: </td> <td class="rightTable">12</td><td></td>
-                    </tr>
+<section class="sectionProfile">
+  <div class="profileInfo profile blackBorder">
+    <header class="divHeader">Info</header>
+    <table>
+      <tr>
+        <td class="leftTable">Name:</td>
+        <td class="rightTable"><%= name %></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="leftTable">Email:</td>
+        <td class="rightTable"><%= email %></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="leftTable">Productivity points:</td>
+        <td class="rightTable"><%= points %></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="leftTable">TODOs completed:</td>
+        <td class="rightTable"><%= todos %></td>
+        <td></td>
+      </tr>
 
-            </table>
-        </div>
-        <div class="profileSettings profile blackBorder">
-            <header class="divHeader">Settings</header>
-            <table>
-                    <tr>
-                        <td class="leftTable">Number of daily tasks: </td> <td class="rightTable"><input type="number" placeholder="5"> </td><td></td>
-                    </tr>
-                    <tr>
-                        <td class="leftTable">Pick tasks with maximum priority first: </td> <td class="rightTable"><input name="pick" type="radio" >Yes</td><td ><input name="pick" type="radio">No</td>
-                    </tr>
-            </table>
-        </div>
+    </table>
+  </div>
+  <div class="profileSettings profile blackBorder">
+    <header class="divHeader">Settings</header>
+    <form action="/profile" method="POST">
+      <table>
+        <tr>
+          <td class="leftTable">Number of daily tasks:</td>
+          <td class="rightTable"><input type="number" name="dailyTasks" value=<%= dailyTasks %> min="0" max="10"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="leftTable">Pick tasks with maximum priority first:</td>
+          <td class="rightTable"><input name="pick" value="yes" type="radio"
+              <% if(maxPriorityFirst) { %>
+                                        checked="checked"
+              <% } %>
+            >Yes
+          </td>
+          <td><input name="pick" value="no" type="radio"
+              <% if(!maxPriorityFirst) { %>
+                     checked="checked"
+              <% } %>
+            >No
+          </td>
+        </tr>
+      </table>
+      <input type="submit" value="Save settings" id="saveSettingsButton">
+    </form>
+  </div>
 
-    </section>
-    <div class="hidden">Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+</section>
+<div class="hidden">Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a
+    href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a
+    href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
+</div>
 
 </body>
 </html>

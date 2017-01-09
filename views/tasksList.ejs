@@ -1,0 +1,51 @@
+<% tasks.forEach(function(task) { %>
+<li class="task">
+  <header class="liName"><%= task.name %></header>
+  <table>
+    <tr>
+      <td>
+        Priority:
+      </td>
+      <td class="liPriority">
+        <%= task.priority %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Due:
+      </td>
+      <td class="liDueDate">
+        <%= task.dueDate.toString().split(" 00:00:00")[0] %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Description:
+      </td>
+      <td class="liDescription">
+        <%= task.description %>
+      </td>
+    </tr>
+    <% if (task.category != "Completed") { %>
+    <tr>
+      <td>
+        Category:
+      </td>
+      <td class="liCategory">
+        <%= task.category %>
+      </td>
+    </tr>
+    <% if (!dailyTop) { %>
+    <tr>
+      <td>
+        <button onclick="editTask(this)">Edit</button>
+        <button onclick="doneTask(this)">Done</button>
+      </td>
+      <td></td>
+    </tr>
+    <% }} %>
+  </table>
+  <p class="hidden"><%= task.id %></p>
+
+<% }) %>
+</li>

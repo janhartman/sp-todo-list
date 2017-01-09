@@ -1,98 +1,107 @@
 <!DOCTYPE html>
 <head>
-    <title>To-do List - Productivity</title>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href ="/styles/styles.css">
-    <script src="/js/code.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato">
+  <title>To-do List - Productivity</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="/styles/styles.css">
+  <script src="/js/code.js"></script>
+  <script
+    src="https://code.jquery.com/jquery-3.1.1.min.js"
+    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato">
 
 </head>
 <body>
-    <nav class="navbar">
-        <ul>
-            <li id="logoNav">
-                <a href="/"><img src="/images/logo.png" alt="LOGO" height="45"></a>
-            </li>
-            <li>
-                <a href="/tasks">Task View</a>
-            </li>
-            <li>
-                <a href="/productivity">Productivity</a>
-            </li>
-            <li>
-                <a href="/profile">User Profile</a>
-            </li>
-            <li id="logoutButtonNav">
-                <a id="logoutButton">Log out</a>
-            </li>
-        </ul>
-    </nav>
+<nav class="navbar">
+  <ul>
+    <li id="logoNav">
+      <a href="/"><img src="/images/logo.png" alt="LOGO" height="45"></a>
+    </li>
+    <li>
+      <a href="/tasks">Task View</a>
+    </li>
+    <li>
+      <a href="/productivity">Productivity</a>
+    </li>
+    <li>
+      <a href="/profile">User Profile</a>
+    </li>
+    <li id="logoutButtonNav">
+      <a id="logoutButton">Log out</a>
+    </li>
+  </ul>
+</nav>
 
-    <!-- The Modal for LOGOUT -->
-    <div id="logoutModal" class="modal">
-        <div class="modal-content">
-             <div class="modal-header">
-                    <span class="close" id="closeLogout">×</span>
-                    <h2>Are you sure you want to log out?</h2>
-                </div>
-                <div class="modal-body">
-                    <p>
-                        <button class="modalButton" id="doLogout">Yes</button>
-                        <button class="modalButton" id="cancelLogout">Cancel</button>
-                    </p>
-                </div>
-                <!--<div class="modal-footer">
-                    <h3>Modal Footer</h3>
-                </div>-->
-        </div>
+<!-- The Modal for LOGOUT -->
+<div id="logoutModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close" id="closeLogout">×</span>
+      <h2>Are you sure you want to log out?</h2>
+    </div>
+    <div class="modal-body">
+      <p>
+        <button class="modalButton" id="doLogout">Yes</button>
+        <button class="modalButton" id="cancelLogout">Cancel</button>
+      </p>
+    </div>
+  </div>
+</div>
+
+
+<section class="sectionProductivity">
+  <div class="productivity">
+
+    <div class="graphProd blackBorder">
+      <header class="divHeader graphProdHeader">Past productivity graph</header>
+      <div class="graphContainer">
+        <canvas id="graph" width="600" height="400">
+
+        </canvas>
+      </div>
     </div>
 
+    <div class="summaryProd blackBorder">
+      <header class="divHeader summaryProdHeader">Summary of the time period</header>
+      <ul>
+        <li>
+          <p>Completed tasks: </p>
+          <p id="completed"></p>
+        </li>
+        <li>
+          <p>Missed deadlines: </p>
+          <p id="missed"></p>
+        </li>
+        <li>
+          <p>Total productivity: </p>
+          <p id="total"></p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
 
+<aside>
+  <span id="open" onclick="modifyNav(180, 'hidden')">&#9776; Time period</span>
+  <div class="sidenav" id="mySidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="modifyNav(0, 'visible')">&times;</a>
+    <form id="periodForm">
+      <fieldset class="checkboxgroup">
+        <h1> Time period </h1>
+        <label><input name="period" value="day" type="radio" checked="yes">Day</label>
+        <label><input name="period" value="week" type="radio">Week</label>
+        <label><input name="period" value="month" type="radio">Month</label>
+        <label><input name="period" value="year" type="radio">Year</label>
+      </fieldset>
+    </form>
+  </div>
 
-    <section class="sectionProductivity">
-        <div class="productivity">
+</aside>
 
-            <div class="graphProd blackBorder">
-                <header class="divHeader graphProdHeader">Past productivity graph</header>
-                <div class="graphContainer">
-                    <canvas id="graph" width="600" height="400">
-
-                    </canvas>
-                </div>
-            </div>
-
-            <div class="summaryProd blackBorder">
-                <header class="divHeader summaryProdHeader">Summary of the time period</header>
-                <ul>
-                    <li>
-                        <p>Completed tasks: 7</p>
-                    </li>
-                    <li>
-                        <p>Missed deadlines: 1</p>
-                    </li>
-                    <li>
-                        <p>Total productivity: 24</p>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <aside >
-        <span id="open" onclick="modifyNav(180, 'hidden')">&#9776; Time period</span>
-        <div class="sidenav" id="mySidenav">
-            <a href="javascript:void(0)" class="closebtn" onclick="modifyNav(0, 'visible')">&times;</a>
-            <fieldset class="checkboxgroup">
-                <h1> Time period </h1>
-                <label><input type="checkbox"> Day </label>
-                <label><input type="checkbox"> Week </label>
-                <label><input type="checkbox"> Month </label>
-            </fieldset>
-        </div>
-
-    </aside>
-
-    <div class="hidden">Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+<div class="hidden">Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a
+    href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a
+    href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
+</div>
 
 </body>
 </html>

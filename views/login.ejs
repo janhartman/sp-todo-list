@@ -2,49 +2,58 @@
 <html>
 
 <head>
-    <title>To-do List - Log in</title>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href ="/styles/styles.css">
-    <script src="/js/code.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato">
+  <title>To-do List - Log in</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="/styles/styles.css">
+  <script src="/js/code.js"></script>
+  <script
+    src="https://code.jquery.com/jquery-3.1.1.min.js"
+    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato">
 </head>
 
 <body>
-    <nav class="navbar">
-        <ul>
-            <li id="logoNav">
-                <img src="/images/logo.png" alt="LOGO" height="45">
-            </li>
+<nav class="navbar">
+  <ul>
+    <li id="logoNav">
+      <img src="/images/logo.png" alt="LOGO" height="45">
+    </li>
 
-        </ul>
-    </nav>
+  </ul>
+</nav>
 
-    <section class="sectionLogin">
-        <div class="login">
-            <header class="divHeader newApp">Your new favourite to-do app.</header>
-            <form class="formLog" action="/user/login" method="post">
-                <div class="divLog blackBorder">
-                    <table class="loginTable">
-                        <tr>
-                            <td class="leftTableLog">Email: </td> <td><input type="email" required name="email" class="rightTable"></td>
-                        </tr>
-                        <tr>
-                            <td class="leftTableLog">Password: </td> <td><input type="password" required name="pwd" class="rightTable"></td>
-                        </tr>
-                    </table>
-                    <br>
-                    <div class="submitLoginDiv">
-                        <input type="submit" value="Login" id="submitLogin">
-                    </div>
-                </div>
-                <br>
-                <div class="alreadyLog">
-                    <a href="/register" id="submitAlreadyLog">Not registered yet? Sign up here</a>
-                </div>
-            </form>
+<section class="sectionLogin">
+  <div class="login">
+    <header class="divHeader newApp">Your new favourite to-do app.</header>
+    <form class="formLog" action="/user/login" method="post">
+      <div class="divLog blackBorder">
+        <table class="loginTable">
+          <tr>
+            <td class="leftTableLog">Email:</td>
+            <td><input type="email" required name="email" class="rightTable"></td>
+          </tr>
+          <tr>
+            <td class="leftTableLog">Password:</td>
+            <td><input type="password" required name="pwd" class="rightTable"></td>
+          </tr>
+        </table>
+        <br>
+        <div class="submitLoginDiv">
+          <input type="submit" value="Login" id="submitLogin">
         </div>
-    </section>
-    <div class="hidden">Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+      </div>
+      <br>
+      <div class="alreadyLog">
+        <a href="/register" id="submitAlreadyLog">Not registered yet? Sign up here</a>
+      </div>
+    </form>
+  </div>
+</section>
+<div class="hidden">Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a
+    href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a
+    href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
+</div>
 
 
 </body>

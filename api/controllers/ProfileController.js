@@ -11,7 +11,22 @@ module.exports = {
   editProfile: function(req, res) {
     var userID = req.session.user_id;
     var dailyTasksNumber = req.body.dailyTasks;
-    var maxPriorityFirst = req.body.maxPrioFirst;
+    var maxPriorityFirst = req.body.pick;
+
+    console.log(req.body);
+
+    try {
+      dailyTasksNumber = Number(dailyTasksNumber);
+
+      if (!(maxPriorityFirst == "yes" || maxPriorityFirst == "no" || dailyTasksNumber > 0)) {
+        throw err;
+      }
+      maxPriorityFirst = maxPriorityFirst == "yes";
+    }
+    catch (err) {
+      sails.log.error("Incorrect profile settings provided");
+      return res.redirect("/profile");
+    }
 
 
     User.findOne({
@@ -23,7 +38,7 @@ module.exports = {
       }
 
       else if (!user) {
-        sails.log.info("Cannot find user with id " + id + " for user profile editing");
+        sails.log.info("Cannot find user with id " + userID + " for user profile editing");
         return res.redirect("/profile");
       }
 
@@ -31,11 +46,12 @@ module.exports = {
       user.maxPriorityFirst = maxPriorityFirst;
       user.save(function (err) {
         if (err) {
-         sails.log.error("Error updating profile settings for user " + id);
+         sails.log.error("Error updating profile settings for user " + userID);
          return res.send(500);
         }
 
-        return res.ok();
+        sails.log.info("Successfully updated user profile");
+        return res.redirect("/profile");
       });
     });
 
@@ -70,7 +86,9 @@ module.exports = {
         name: user.name,
         email: user.email,
         dailyTasks: user.dailyTasks,
-        maxPriorityFirst: user.maxPriorityFirst
+        maxPriorityFirst: user.maxPriorityFirst,
+        points: user.productivityPoints,
+        todos: user.completedTasks
       });
     });
   }

@@ -1,540 +1,530 @@
-    /*
+/*
 @media only screen and (min-width: 1001px) { }
 @media only screen and (min-width: 1px) and (max-width: 1000px) { }
 */
 
 body {
-    background-color: #d1d1d1;
+  background-color: #d1d1d1;
 }
 
 .blackBorder {
-    border-radius: 8px;
-    border: 3px solid black;
+  border-radius: 8px;
+  border: 3px solid black;
 }
 
 /* NAVBAR */
 
 .navbar {
-    /* http://codeconvey.com/create-simple-pur-css-sticky-header/ */
-    width: 100%;
-    height: 60px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background: #FF3B3F;
-    font-family: "Lato";
-    z-index: 1;
+  /* http://codeconvey.com/create-simple-pur-css-sticky-header/ */
+  width: 100%;
+  height: 60px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #FF3B3F;
+  font-family: "Lato";
+  z-index: 1;
 }
 
 .navbar ul {
-    padding: 20px;
-    margin: 0 auto;
-    list-style: none;
-    text-align: center;
+  padding: 20px;
+  margin: 0 auto;
+  list-style: none;
+  text-align: center;
 }
 
 .navbar ul li {
-    display: inline-block;
-    margin: 0 10px;
+  display: inline-block;
+  margin: 0 10px;
 }
 
 .navbar ul li a {
-    padding: 10px 0;
-    color: #fff;
-    font-size: 20px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: all 0.2s ease;
+  padding: 10px 0;
+  color: #fff;
+  font-size: 20px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.2s ease;
 }
 
 .navbar ul li a:hover {
-    /*color: #727272;*/
-    color: black;
+  /*color: #727272;*/
+  color: black;
 }
 
 #logoNav {
-    position: fixed;
-    left: 15px;
-    top: 15px;
+  position: fixed;
+  left: 15px;
+  top: 15px;
 }
-
 
 /* SIDEBAR */
 /* http://www.w3schools.com/howto/howto_js_sidenav.asp */
 .categories {
-    position: fixed;
-    left: 25px;
-    top: 100px;
-    width: 10%;
+  position: fixed;
+  left: 25px;
+  top: 100px;
+  width: 10%;
 }
 
-.checkboxgroup{
-    position: relative;
-    border-radius: 8px;
-    background-color: #EFEFEF;
-    color: black;
-    border: 3px solid black;
-    font-size: 14px;
-    font-family: "Lato";
-    height: 245px;
-    top: -60px;
+.checkboxgroup {
+  position: relative;
+  border-radius: 8px;
+  background-color: #EFEFEF;
+  color: black;
+  border: 3px solid black;
+  font-size: 14px;
+  font-family: "Lato";
+  height: 245px;
+  top: -60px;
 
 }
 
-.checkboxgroup label{
-    width: 90%;
-    float: right;
+.checkboxgroup label {
+  width: 90%;
+  float: right;
 }
-
 
 #open {
-    font-size: 20px;
-    cursor: pointer;
-    font-family: "Lato";
-    position: fixed;
-    top: 100px;
+  font-size: 20px;
+  cursor: pointer;
+  font-family: "Lato";
+  position: fixed;
+  top: 100px;
 }
 
 .sidenav {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    /*z-index: 1;*/
-    top: 100px;
-    left: 1%;
-    /*background-color: #111;*/
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
+  height: 100%;
+  width: 0;
+  position: fixed;
+  /*z-index: 1;*/
+  top: 100px;
+  left: 1%;
+  /*background-color: #111;*/
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
 }
 
 .sidenav a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 19px;
-    color: #818181;
-    display: block;
-    transition: 0.3s
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 19px;
+  color: #818181;
+  display: block;
+  transition: 0.3s
 }
 
-.sidenav closebtn:hover, .offcanvas closebtn:focus{
-    color: #f1f1f1;
+.sidenav closebtn:hover, .offcanvas closebtn:focus {
+  color: #f1f1f1;
 }
 
 .sidenav .closebtn {
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    right: 15px;
-    font-size: 36px;
-    margin-left: 50px;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 15px;
+  font-size: 36px;
+  margin-left: 50px;
 }
-
-
 
 /* REGISTER */
 
 .sectionRegister {
-    width: 75%;
-    margin: 0 auto;
-    padding: 40px;
-    background: #EFEFEF;
-    margin-top: 100px; /* !!!!!!!!!!!!*/
-    border-radius: 8px;
-    /* https://designschool.canva.com/blog/website-color-schemes/ clean and highlighted 08 */
+  width: 75%;
+  margin: 0 auto;
+  padding: 40px;
+  background: #EFEFEF;
+  margin-top: 100px; /* !!!!!!!!!!!!*/
+  border-radius: 8px;
+  /* https://designschool.canva.com/blog/website-color-schemes/ clean and highlighted 08 */
 }
 
 .registerTable {
-    width: 100%;
-    height: 100px;
-    font-size: 17px;
-    font-family: "Lato";
-    border-spacing: 15px;
+  width: 100%;
+  height: 100px;
+  font-size: 17px;
+  font-family: "Lato";
+  border-spacing: 15px;
 }
 
-
 .formReg {
-	width: 450px;
-	margin: 0 auto;
-    /*text-align: right;*/
-    /*margin-top: 100px;*/
+  width: 450px;
+  margin: 0 auto;
+  /*text-align: right;*/
+  /*margin-top: 100px;*/
 }
 
 .rightTable {
-    text-align: center;
+  text-align: center;
 }
 
 .leftTable {
-    text-align: right;
+  text-align: right;
 }
 
 #submitRegister {
-    /*margin-left: 50%;*/
-    border-radius: 8px;
-    background-color: #EFEFEF;
-    color: black;
-    border: 3px solid #ff3b3f; /* Green */
-    font-size: 19px;
-    font-family: "Lato";
-    cursor: pointer;
+  /*margin-left: 50%;*/
+  border-radius: 8px;
+  background-color: #EFEFEF;
+  color: black;
+  border: 3px solid #ff3b3f; /* Green */
+  font-size: 19px;
+  font-family: "Lato";
+  cursor: pointer;
 }
 
 .alreadyReg {
-    text-align: left;
+  text-align: left;
 }
 
 #submitAlreadyReg {
-    /*margin-left: 50%;*/
-    border-radius: 8px;
-    background-color: #EFEFEF;
-    color: black;
-    border: 2px solid #ff3b3f; /* Green */
-    font-size: 15px;
-    font-family: "Lato";
-    width: 207px;
-    padding: 2px;
-    cursor: pointer;
-    text-decoration: none;
+  /*margin-left: 50%;*/
+  border-radius: 8px;
+  background-color: #EFEFEF;
+  color: black;
+  border: 2px solid #ff3b3f; /* Green */
+  font-size: 15px;
+  font-family: "Lato";
+  width: 207px;
+  padding: 2px;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .submitRegisterDiv {
-    text-align: center;
+  text-align: center;
 }
 
 .divReg {
-    height: 250px;
+  height: 250px;
 }
 
 #logoNav {
-    position: fixed;
-    left: 15px;
+  position: fixed;
+  left: 15px;
 }
 
 /* LOGIN */
 
 .sectionLogin {
-    width: 75%;
-    margin: 0 auto;
-    padding: 40px;
-    background: #EFEFEF;
-    margin-top: 100px; /* !!!!!!!!!!!!*/
-    border-radius: 8px;
-    /* https://designschool.canva.com/blog/website-color-schemes/ clean and highlighted 08 */
+  width: 75%;
+  margin: 0 auto;
+  padding: 40px;
+  background: #EFEFEF;
+  margin-top: 100px; /* !!!!!!!!!!!!*/
+  border-radius: 8px;
+  /* https://designschool.canva.com/blog/website-color-schemes/ clean and highlighted 08 */
 }
 
 .divLog {;
-    height: 180px;
+  height: 180px;
 }
 
 .loginTable {
-    width: 100%;
-    height: 70px;
-    font-size: 17px;
-    font-family: "Lato";
-    border-spacing: 20px;
+  width: 100%;
+  height: 70px;
+  font-size: 17px;
+  font-family: "Lato";
+  border-spacing: 20px;
 }
 
 .leftTableLog {
-    text-align: right;
+  text-align: right;
 }
 
 .submitLoginDiv {
-    text-align: center;
+  text-align: center;
 }
 
 .formLog {
-	width: 300px;
-	margin: 0 auto;
-    /*text-align: right;*/
-    /*margin-top: 100px;*/
+  width: 300px;
+  margin: 0 auto;
+  /*text-align: right;*/
+  /*margin-top: 100px;*/
 }
 
 #submitLogin {
-    /*margin-left: 50%;*/
-    border-radius: 8px;
-    background-color: #EFEFEF;
-    color: black;
-    border: 3px solid #ff3b3f; /* Green */
-    font-size: 19px;
-    font-family: "Lato";
-    cursor: pointer;
+  /*margin-left: 50%;*/
+  border-radius: 8px;
+  background-color: #EFEFEF;
+  color: black;
+  border: 3px solid #ff3b3f; /* Green */
+  font-size: 19px;
+  font-family: "Lato";
+  cursor: pointer;
 }
 
 #submitAlreadyLog {
-    /*margin-left: 50%;*/
-    border-radius: 8px;
-    background-color: #EFEFEF;
-    color: black;
-    border: 2px solid #ff3b3f; /* Green */
-    font-size: 15px;
-    font-family: "Lato";
-    width: 210px;
-    cursor: pointer;
-    text-decoration: none;
-    padding: 2px;
+  /*margin-left: 50%;*/
+  border-radius: 8px;
+  background-color: #EFEFEF;
+  color: black;
+  border: 2px solid #ff3b3f; /* Green */
+  font-size: 15px;
+  font-family: "Lato";
+  width: 210px;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 2px;
 
 }
-
 
 /* TASKS */
 .sectionTasks {
-    width: 75%;
-    margin: 0 auto;
-    padding: 40px;
-    background: #EFEFEF;
-    margin-top: 100px;
-    border-radius: 8px;
-    position: relative;
+  width: 75%;
+  margin: 0 auto;
+  padding: 40px;
+  background: #EFEFEF;
+  margin-top: 100px;
+  border-radius: 8px;
+  position: relative;
 }
 
 .dailyTasks {
-    margin: 15px;
+  margin: 15px;
 }
 
 .categoryTasks {
-    margin: 15px;
+  margin: 15px;
 }
 
 .dailyTasksList {
-    list-style-type: none;
-    display: inline-flex;
-    margin:  10px;
-    flex-wrap: wrap
+  list-style-type: none;
+  display: inline-flex;
+  margin: 10px;
+  flex-wrap: wrap
 }
 
 .categoryTasksList {
-    list-style: none;
-    display: inline-flex;
-    margin:  10px;
-    flex-wrap: wrap;
+  list-style: none;
+  display: inline-flex;
+  margin: 10px;
+  flex-wrap: wrap;
 }
 
 .task {
-    border: 2px solid black;
-    border-radius: 5px;
-    font-family: "Lato";
-    margin: 10px;
-    padding: 5px;
-    float: left;
-    height: 90%;
+  border: 2px solid black;
+  border-radius: 5px;
+  font-family: "Lato";
+  margin: 10px;
+  padding: 5px;
+  float: left;
+  height: 90%;
 
 }
 
 .task button {
-    border-radius: 8px;
-    background-color: #EFEFEF;
-    color: black;
-    border: 3px solid #ff3b3f;
-    font-size: 14px;
-    font-family: "Lato";
+  border-radius: 8px;
+  background-color: #EFEFEF;
+  color: black;
+  border: 3px solid #ff3b3f;
+  font-size: 14px;
+  font-family: "Lato";
 }
 
 .task header {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 
 .divHeader {
-    font-size: 19px;
-    font-weight: bold;
-    font-family: "Lato";
-    padding: 10px;
+  font-size: 19px;
+  font-weight: bold;
+  font-family: "Lato";
+  padding: 10px;
 }
 
 .newApp {
-    text-align: center;
+  text-align: center;
 }
 
 #addTaskButton {
-    border-radius: 8px;
-    background-color: #EFEFEF;
-    color: black;
-    border: 3px solid #ff3b3f;
-    font-size: 19px;
-    font-family: "Lato";
-    cursor: pointer;
-    position: absolute;
-    right: 15px;
-    top: 15px;
-    text-decoration: none;
+  border-radius: 8px;
+  background-color: #EFEFEF;
+  color: black;
+  border: 3px solid #ff3b3f;
+  font-size: 19px;
+  font-family: "Lato";
+  cursor: pointer;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  text-decoration: none;
 
 }
-
 
 /* PRODUCTIVITY */
 .sectionProductivity {
-    width: 75%;
-    margin: 0 auto;
-    padding: 40px;
-    background: #EFEFEF;
-    margin-top: 100px;
-    border-radius: 8px;
-    position: relative;
+  width: 75%;
+  margin: 0 auto;
+  padding: 40px;
+  background: #EFEFEF;
+  margin-top: 100px;
+  border-radius: 8px;
+  position: relative;
 }
 
 .graphProd {
-    margin: 15px;
+  margin: 15px;
 }
 
 .graphContainer {
-    width: 50%;
-    margin: 0 auto;
+  width: 50%;
+  margin: 0 auto;
 }
 
 .summaryProd {
-    margin: 15px;
+  margin: 15px;
 }
 
 .summaryProd ul {
-    list-style-type: none;
-    font-family: "Lato";
-    font-size: 16px;
+  list-style-type: none;
+  font-family: "Lato";
+  font-size: 16px;
 
 }
 
 #graph {
-    margin: 20px;
-    border: 2px solid black;
+  margin: 20px;
+  border: 2px solid black;
 }
 
 /* PROFILE */
 .sectionProfile {
-    width: 75%;
-    margin: 0 auto;
-    padding: 40px;
-    background: #EFEFEF;
-    margin-top: 100px;
-    border-radius: 8px;
-    position: relative;
+  width: 75%;
+  margin: 0 auto;
+  padding: 40px;
+  background: #EFEFEF;
+  margin-top: 100px;
+  border-radius: 8px;
+  position: relative;
 }
 
 .profile table {
-    margin: 15px;
-    font-size: 18px;
-    font-family: "Lato";
-    width: 50%;
+  margin: 15px;
+  font-size: 18px;
+  font-family: "Lato";
+  width: 50%;
 }
 
-.webSocketDiv {
-    margin: 20px;
-}
 
-.webSocketDiv p {
-    font-size: 14px;
-    font-family: "Lato";
-}
-
-#startWSButton {
-    border-radius: 8px;
-    background-color: #EFEFEF;
-    color: black;
-    border: 3px solid #ff3b3f;
-    font-size: 14px;
-    font-family: "Lato";
+#saveSettingsButton {
+  border-radius: 8px;
+  background-color: #EFEFEF;
+  color: black;
+  border: 3px solid #ff3b3f;
+  font-size: 14px;
+  font-family: "Lato";
 }
 
 /* MODAL */
 /* http://www.w3schools.com/howto/howto_css_modals.asp */
 
 #logoutButton {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 /* The Modal (background) */
 .modal {
-    font-family: "Lato";
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  font-family: "Lato";
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
 
 /* Modal Content */
 
 .modal-content {
-    position: relative;
-    background-color: #fefefe;
-    margin: auto;
-    padding: 0;
-    border: 1px solid #888;
-    width: 30%;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-    animation-name: animatetop;
-    animation-duration: 0.4s
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 30%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  animation-name: animatetop;
+  animation-duration: 0.4s
 }
 
 /* task creation */
 .modal-body table {
-    width: 80%;
-    font-size: 17px;
-    font-family: "Lato";
+  width: 80%;
+  font-size: 17px;
+  font-family: "Lato";
+  margin-left: 25px;
 }
 
-
 @keyframes animatetop {
-    from {top:-300px; opacity:0}
-    to {top:0; opacity:1}
+  from {
+    top: -300px;
+    opacity: 0
+  }
+  to {
+    top: 0;
+    opacity: 1
+  }
 }
 
 /* The Close Button */
 .close {
-    color: white;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
 }
 
 .close:hover, .close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .modal-header {
-    padding: 2px 16px;
-    background-color: #FF3B3F;
-    color: white;
+  padding: 2px 16px;
+  background-color: #FF3B3F;
+  color: white;
 }
 
 .modal-body {
-    padding: 0px 0px;
-    text-align: center;
-    position:relative;
-    width: 100%;
-    border-width: 1px 0 0 0;
+  padding: 0px 0px;
+  text-align: center;
+  position: relative;
+  width: 100%;
+  border-width: 1px 0 0 0;
 }
 
 .modal-footer {
-    padding: 2px 16px;
-    background-color: #FF3B3F;
-    color: white;
+  padding: 2px 16px;
+  background-color: #FF3B3F;
+  color: white;
 }
 
 .modalButton {
-    border-radius: 8px;
-    background-color: #EFEFEF;
-    color: black;
-    border: 3px solid #ff3b3f;
-    font-size: 19px;
-    font-family: "Lato";
-    cursor: pointer;
-    text-align: center;
-    margin: 0 auto;
+  border-radius: 8px;
+  background-color: #EFEFEF;
+  color: black;
+  border: 3px solid #ff3b3f;
+  font-size: 19px;
+  font-family: "Lato";
+  cursor: pointer;
+  text-align: center;
+  margin: 0 auto;
 }
 
 #logoutButtonNav {
-    position: fixed;
-    right: 15px;
+  position: fixed;
+  right: 15px;
 }
 
-
 .hidden {
-    display: none;
+  display: none;
 }
