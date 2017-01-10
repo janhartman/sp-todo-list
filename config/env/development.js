@@ -24,7 +24,7 @@ module.exports = {
   port: 80,
 
   log: {
-    level: 'verbose'
+    level: 'silly'
   }
 
 };

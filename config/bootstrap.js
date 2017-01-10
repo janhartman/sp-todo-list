@@ -11,27 +11,31 @@
 
 module.exports.bootstrap = function(cb) {
 
-/*
+  /*
+  sails.log.info(process.env.DB_HOST);
   // the SQL to run
-  var sql = "";
+  var sql = "show tables";
 
   // create triggers and such
   var mysql = require('mysql');
   var connection = mysql.createConnection({
-    host     : 'localhost',
-    user     : 'root',
-    password : 'root',
+    host     : process.env.DB_HOST,
+    user     : process.env.DB_USERNAME,
+    password : process.env.DB_PASSWORD,
     database : 'todo_db'
   });
 
   connection.query(sql, function(err, rows, fields) {
     if (err)
       throw err;
-    else
+    else {
+      console.log(rows);
+      console.log(fields);
+    }
       cb();
   });
+  */
 
-*/
   cb();
   // It's very important to trigger this callback method when you are finished
   // with the bootstrap!  (otherwise your server will never lift, since it's waiting on the bootstrap)

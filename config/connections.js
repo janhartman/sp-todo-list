@@ -50,7 +50,7 @@ module.exports.connections = {
     database  : 'todo_db'
   },
 
-  mysql_jawsdb: {
+  mysql_remote: {
     adapter   : 'sails-mysql',
     host      : process.env.DB_HOST,
     port      : 3306,
