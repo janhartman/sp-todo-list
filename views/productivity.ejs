@@ -18,16 +18,16 @@
       <a href="/"><img src="/images/logo.png" alt="LOGO" height="45"></a>
     </li>
     <li>
-      <a href="/tasks">Task View</a>
+      <a href="/tasks"><%= __("Task View") %></a>
     </li>
     <li>
-      <a href="/productivity">Productivity</a>
+      <a href="/productivity"><%= __("Productivity") %></a>
     </li>
     <li>
-      <a href="/profile">User Profile</a>
+      <a href="/profile"><%= __("User Profile") %></a>
     </li>
     <li id="logoutButtonNav">
-      <a id="logoutButton">Log out</a>
+      <a id="logoutButton"><%= __("Log out") %></a>
     </li>
   </ul>
 </nav>
@@ -37,12 +37,12 @@
   <div class="modal-content">
     <div class="modal-header">
       <span class="close" id="closeLogout">×</span>
-      <h2>Are you sure you want to log out?</h2>
+      <h2><%= __("Are you sure you want to log out") %>?</h2>
     </div>
     <div class="modal-body">
       <p>
-        <button class="modalButton" id="doLogout">Yes</button>
-        <button class="modalButton" id="cancelLogout">Cancel</button>
+        <button class="modalButton" id="doLogout"><%= __("Yes") %></button>
+        <button class="modalButton" id="cancelLogout"><%= __("Cancel") %></button>
       </p>
     </div>
   </div>
@@ -53,7 +53,7 @@
   <div class="productivity">
 
     <div class="graphProd blackBorder">
-      <header class="divHeader graphProdHeader">Past productivity graph</header>
+      <header class="divHeader graphProdHeader"><%= __("Past productivity graph") %></header>
       <div class="graphContainer">
         <canvas id="graph" width="600" height="400">
 
@@ -62,18 +62,18 @@
     </div>
 
     <div class="summaryProd blackBorder">
-      <header class="divHeader summaryProdHeader">Summary of the time period</header>
+      <header class="divHeader summaryProdHeader"><%= __("Summary of the time period") %></header>
       <ul>
         <li>
-          <p>Completed tasks: </p>
+          <p><%= __("Completed tasks: ") %></p>
           <p id="completed"></p>
         </li>
         <li>
-          <p>Missed deadlines: </p>
+          <p><%= __("Missed deadlines: ") %></p>
           <p id="missed"></p>
         </li>
         <li>
-          <p>Total productivity: </p>
+          <p><%= __("Total productivity: ") %></p>
           <p id="total"></p>
         </li>
       </ul>
@@ -82,12 +82,12 @@
 </section>
 
 <aside>
-  <span id="open" onclick="modifyNav(180, 'hidden')">&#9776; Time period</span>
+  <span id="open" onclick="modifyNav(180, 'hidden')">&#9776; <%= __("Time period") %></span>
   <div class="sidenav" id="mySidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="modifyNav(0, 'visible')">&times;</a>
     <form id="periodForm">
       <fieldset class="checkboxgroup">
-        <h1> Time period </h1>
+        <h1> <%= __("Time period") %> </h1>
         <label><input name="period" value="day" type="radio" checked="yes">Day</label>
         <label><input name="period" value="week" type="radio">Week</label>
         <label><input name="period" value="month" type="radio">Month</label>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-  <title>To-do List - Admin panel</title>
+  <title>To-do List</title>
   <meta charset="UTF-8">
   <link rel="stylesheet" type="text/css" href="/styles/styles.css">
   <script src="/js/code.js"></script>
@@ -18,10 +18,10 @@
       <a href="/"><img src="/images/logo.png" alt="LOGO" height="45"></a>
     </li>
         <li>
-      <a href="/tasks">Task View</a>
+      <a href="/tasks"><%= __("Task View") %></a>
     </li>
     <li id="logoutButtonNav">
-      <a id="logoutButton">Log out</a>
+      <a id="logoutButton"><%= __("Log out") %></a>
     </li>
   </ul>
 </nav>
@@ -31,12 +31,12 @@
   <div class="modal-content">
     <div class="modal-header">
       <span class="close" id="closeLogout">×</span>
-      <h2>Are you sure you want to log out?</h2>
+      <h2><%= __("Are you sure you want to log out") %>?</h2>
     </div>
     <div class="modal-body">
       <p>
-        <button class="modalButton" id="doLogout">Yes</button>
-        <button class="modalButton" id="cancelLogout">Cancel</button>
+        <button class="modalButton" id="doLogout"><%= __("Yes") %></button>
+        <button class="modalButton" id="cancelLogout"><%= __("Cancel") %></button>
       </p>
     </div>
   </div>
@@ -44,7 +44,7 @@
 
 <section class="sectionTasks">
   <div class="blackBorder">
-    <p class="divHeader">Users</p>
+    <p class="divHeader"><%= __("Users") %></p>
     <ul class="userList">
       <% users.forEach(function(user) { %>
       <li class="user">
@@ -59,7 +59,7 @@
           </tr>
           <tr>
             <td>
-              Name:
+              <%= __("Name") %>:
             </td>
             <td>
               <%= user.name %>
@@ -83,11 +83,11 @@
           </tr>
           <tr>
             <td>
-              <button class="adminButton" onclick="showTasks(this)">Show tasks</button>
+              <button class="adminButton" onclick="showTasks(this)"><%= __("Show tasks") %></button>
             </td>
             <td>
               <% if (!user.admin) {%>
-              <button class="adminButton" onclick="editUser(this)">Promote to admin</button>
+              <button class="adminButton" onclick="editUser(this)"><%= __("Promote to admin") %></button>
               <% }%>
             </td>
           </tr>
@@ -97,7 +97,7 @@
   </div>
 
   <div class="categoryTasks blackBorder">
-      <header class="divHeader" id="categoryTag">Tasks</header>
+      <header class="divHeader" id="categoryTag"><%= __("Tasks") %></header>
       <ul class="userTaskList">
 
       </ul>

@@ -4,7 +4,7 @@
   <table>
     <tr>
       <td>
-        Priority:
+        <%= __("Priority:") %>
       </td>
       <td class="liPriority">
         <%= task.priority %>
@@ -12,7 +12,7 @@
     </tr>
     <tr>
       <td>
-        Due:
+        <%= __("Due:") %>
       </td>
       <td class="liDueDate">
         <%= task.dueDate.toString().split(" 00:00:00")[0] %>
@@ -20,7 +20,7 @@
     </tr>
     <tr>
       <td>
-        Description:
+        <%= __("Description:") %>
       </td>
       <td class="liDescription">
         <%= task.description %>
@@ -29,7 +29,7 @@
     <% if (task.category != "Completed") { %>
     <tr>
       <td>
-        Category:
+        <%= __("Category:") %>
       </td>
       <td class="liCategory">
         <%= task.category %>
@@ -38,10 +38,11 @@
     <% if (!dailyTop) { %>
     <tr>
       <td>
-        <button onclick="editTask(this)">Edit</button>
-        <button onclick="doneTask(this)">Done</button>
+        <button onclick="editTask(this)"><%= __("Edit") %></button>
       </td>
-      <td></td>
+      <td>
+        <button onclick="doneTask(this)"><%= __("Done") %></button>
+      </td>
     </tr>
     <% }} %>
   </table>

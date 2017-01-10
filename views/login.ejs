@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>To-do List - Log in</title>
+  <title>To-do List</title>
   <meta charset="UTF-8">
   <link rel="stylesheet" type="text/css" href="/styles/styles.css">
   <script src="/js/code.js"></script>
@@ -25,7 +25,7 @@
 
 <section class="sectionLogin">
   <div class="login">
-    <header class="divHeader newApp">Your new favourite to-do app.</header>
+    <header class="divHeader newApp"><%= __("Your new favourite to-do app.")%></header>
     <form class="formLog" action="/login" method="post">
       <div class="divLog blackBorder">
         <table class="loginTable">
@@ -34,18 +34,18 @@
             <td><input type="email" required name="email" class="rightTable"></td>
           </tr>
           <tr>
-            <td class="leftTableLog">Password:</td>
+            <td class="leftTableLog"><%=__("Password:")%></td>
             <td><input type="password" required name="pwd" class="rightTable"></td>
           </tr>
         </table>
         <br>
         <div class="submitLoginDiv">
-          <input type="submit" value="Login" id="submitLogin">
+          <input type="submit" value="<%=__("Log in")%>" id="submitLogin">
         </div>
       </div>
       <br>
       <div class="alreadyLog">
-        <a href="/register" id="submitAlreadyLog">Not registered yet? Sign up here</a>
+        <a href="/register" id="submitAlreadyLog"><%=__("Not registered yet? Sign up here")%></a>
       </div>
     </form>
   </div>

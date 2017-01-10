@@ -25,12 +25,12 @@
 
 <section class="sectionRegister">
   <div class="register">
-    <header class="divHeader newApp">Your new favourite to-do app.</header>
+    <header class="divHeader newApp"><%=__("Your new favourite to-do app.")%></header>
     <form class="formReg" action="/register" onSubmit="return checkPasswords()" method="post">
       <div class="divReg blackBorder">
         <table class="registerTable">
           <tr>
-            <td class="leftTable">Name:</td>
+            <td class="leftTable"><%=__("Name:")%></td>
             <td><input required type="text" name="name" class="rightTable"></td>
           </tr>
           <tr>
@@ -38,22 +38,22 @@
             <td><input required type="email" name="email" class="rightTable"></td>
           </tr>
           <tr>
-            <td class="leftTable">Password:</td>
+            <td class="leftTable"><%= __("Password:") %></td>
             <td><input required type="password" name="pwd" id="pwd" class="rightTable"></td>
           </tr>
           <tr>
-            <td class="leftTable">Confirm password:</td>
+            <td class="leftTable"><%= __("Confirm password:") %></td>
             <td><input required type="password" name="cpwd" id="cpwd" class="rightTable"></td>
           </tr>
         </table>
         <br>
         <div class="submitRegisterDiv">
-          <input type="submit" value="Register" id="submitRegister">
+          <input type="submit" value="<%= __("Register") %>" id="submitRegister">
         </div>
       </div>
       <br>
       <div class="alreadyReg">
-        <a href="/login" id="submitAlreadyReg">Already registered? Sign in here</a>
+        <a href="/login" id="submitAlreadyReg"><%= __("Already registered? Sign in here") %></a>
       </div>
     </form>
   </div>

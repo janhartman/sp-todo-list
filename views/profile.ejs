@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-  <title>To-do List - Profile</title>
+  <title>To-do List</title>
   <meta charset="UTF-8">
   <link rel="stylesheet" type="text/css" href="/styles/styles.css">
   <script src="/js/code.js"></script>
@@ -18,21 +18,21 @@
       <a href="/"><img src="/images/logo.png" alt="LOGO" height="45"></a>
     </li>
     <li>
-      <a href="/tasks">Task View</a>
+      <a href="/tasks"><%= __("Task View") %></a>
     </li>
     <li>
-      <a href="/productivity">Productivity</a>
+      <a href="/productivity"><%= __("Productivity") %></a>
     </li>
     <li>
-      <a href="/profile">User Profile</a>
+      <a href="/profile"><%= __("User Profile") %></a>
     </li>
     <% if (admin) {%>
     <li>
-      <a href="/admin">Admin panel</a>
+      <a href="/admin"><%= __("Admin panel") %></a>
     </li>
     <% }%>
     <li id="logoutButtonNav">
-      <a id="logoutButton">Log out</a>
+      <a id="logoutButton"><%= __("Log out") %></a>
     </li>
   </ul>
 </nav>
@@ -42,12 +42,12 @@
   <div class="modal-content">
     <div class="modal-header">
       <span class="close" id="closeLogout">×</span>
-      <h2>Are you sure you want to log out?</h2>
+      <h2><%= __("Are you sure you want to log out") %>?</h2>
     </div>
     <div class="modal-body">
       <p>
-        <button class="modalButton" id="doLogout">Yes</button>
-        <button class="modalButton" id="cancelLogout">Cancel</button>
+        <button class="modalButton" id="doLogout"><%= __("Yes") %></button>
+        <button class="modalButton" id="cancelLogout"><%= __("Cancel") %></button>
       </p>
     </div>
   </div>
@@ -55,10 +55,10 @@
 
 <section class="sectionProfile">
   <div class="profileInfo profile blackBorder">
-    <header class="divHeader">Info</header>
+    <header class="divHeader"><%= __("Info") %></header>
     <table>
       <tr>
-        <td class="leftTable">Name:</td>
+        <td class="leftTable"><%= __("Name:") %></td>
         <td class="rightTable"><%= name %></td>
         <td></td>
       </tr>
@@ -68,12 +68,12 @@
         <td></td>
       </tr>
       <tr>
-        <td class="leftTable">Productivity points:</td>
+        <td class="leftTable"><%= __("Productivity points:") %></td>
         <td class="rightTable"><%= points %></td>
         <td></td>
       </tr>
       <tr>
-        <td class="leftTable">TODOs completed:</td>
+        <td class="leftTable"><%= __("TODOs completed:") %></td>
         <td class="rightTable"><%= todos %></td>
         <td></td>
       </tr>
@@ -81,31 +81,31 @@
     </table>
   </div>
   <div class="profileSettings profile blackBorder">
-    <header class="divHeader">Settings</header>
+    <header class="divHeader"><%= __("Settings") %></header>
     <form action="/profile" method="POST">
       <table>
         <tr>
-          <td class="leftTable">Number of daily tasks:</td>
+          <td class="leftTable"><%= __("Number of daily tasks:") %></td>
           <td class="rightTable"><input type="number" name="dailyTasks" value=<%= dailyTasks %> min="0" max="10"></td>
           <td></td>
         </tr>
         <tr>
-          <td class="leftTable">Pick tasks with maximum priority first:</td>
+          <td class="leftTable"><%= __("Pick tasks with maximum priority first:") %></td>
           <td class="rightTable"><input name="pick" value="yes" type="radio"
               <% if(maxPriorityFirst) { %>
                                         checked="checked"
               <% } %>
-            >Yes
+            ><%= __("Yes") %>
           </td>
           <td><input name="pick" value="no" type="radio"
               <% if(!maxPriorityFirst) { %>
                      checked="checked"
               <% } %>
-            >No
+            ><%= __("No") %>
           </td>
         </tr>
       </table>
-      <input type="submit" value="Save settings" id="saveSettingsButton">
+      <input type="submit" value="<%= __("Save settings") %>" id="saveSettingsButton">
     </form>
   </div>
 
