@@ -10,7 +10,6 @@
  * http://sailsjs.org/#!/documentation/concepts/Logging
  */
 
-module.exports.log = {
 
   /***************************************************************************
   *                                                                          *
@@ -24,6 +23,25 @@ module.exports.log = {
   *                                                                          *
   ***************************************************************************/
 
-  // level: 'info'
+var winston = require('winston');
+var customLogger = new winston.Logger();
 
+// A console transport logging debug and above.
+customLogger.add(winston.transports.Console, {
+  level: 'verbose',
+  colorize: true
+});
+
+// A file based transport logging only errors formatted as json.
+customLogger.add(winston.transports.File, {
+  level: 'info',
+  filename: 'logs/log.log',
+  json: true
+});
+
+module.exports.log = {
+  colors: false,  // To get clean logs without prefixes or color codings
+  custom: customLogger,
+  inspect: false
 };
+

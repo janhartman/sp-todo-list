@@ -118,3 +118,4 @@ nbproject
 .node_history
 .TODO
 testdb.js
+*.log

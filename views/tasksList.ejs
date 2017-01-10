@@ -15,7 +15,7 @@
         <%= __("Due:") %>
       </td>
       <td class="liDueDate">
-        <%= task.dueDate.toString().split(" 00:00:00")[0] %>
+        <%= task.dueDate.toString().substr(0, 15) %>
       </td>
     </tr>
     <tr>

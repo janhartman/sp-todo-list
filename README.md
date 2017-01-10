@@ -1,18 +1,24 @@
 # To-Do List  [![Build Status](https://travis-ci.org/janhartman/sp-todo-list.svg?branch=master)](https://travis-ci.org/janhartman/sp-todo-list)
 
-Aplikacija je bila ustvarjena kot projekt pri predmetu Spletno programiranje. Dosegljiva je na naslovu https://janhartman.github.io/sp-todo-list.
+This app was created as a project in the Web Programming course. It is available at https://sp-todo-list.herokuapp.com/.
+The app is written in `Node.js` using the framework `Sails`.
 
-### 1. Opis aplikacije
-Namen aplikacije je ustvarjanje opomnikov za opravila. Služi razbremenitvi možganov in lažji organizaciji, saj nam nudi pregled nad nujnimi in manj nujnimi opravili. Pokaže nam tudi, koliko smo bili v zadnjem času produktivni.
 
-### 2. Ciljna publika in naprave
-Aplikacija je namenjena vsem, ki bi radi imeli svoja opravila bolj organizirana in na enem mestu. Najbolje deluje na namiznih računalnikih, malo manj je prilagojena za tablice.
+## Installation
 
-### 3. Težave v različnih brskalnikih
-Večina brskalnikov ne podpira `input type="date"`, zato sem ga spremenil kar v `text`. Večina brskalnikov tudi ne dovoli dostopanja do JSON datoteke z `XMLHttpRequest`, če dostopamo do strani direktno preko datoteke, ker blokirajo cross-origin zahteve. Drugje so razlike majhne, večinoma v robovih in pozicioniranju, vendar nič večjega.
+### Database
+The app needs a MySQL database for persisting data.
 
-### 4. Najboljša dela strani
-Največ dela sem vložil v modalni dialog za ustvarjanje/urejanje opravila in kartice, ki predstavljajo opravila. Oboje sem implementiral s pomočjo Javascripta.
+The following environment variables need to be present in order to start the app without any issues.
+- `DB_HOST`: hostname of the database
+- `DB_USERNAME`: username for the database
+- `DB_PASSWORD`: password for the database
+- `ROOT_PASSWORD`: an admin user is created in the database with the email root@to.do and this password
 
-### 5. Komentarji in problemi
-Aplikacija bi lahko bila boljša, če bi lahko uporabljal knjižnice (npr. Bootstrap in jQuery), saj sem tu moral veliko stvari spisati sam, kar je zahtevalo kar nekaj časa. Pri nadaljnem delu bo treba veliko delov, ki so zdaj "hardcoded", narediti dinamične. Stran brez omogočenega Javascripta dela bolj slabo.
+
+### Node.js
+A `Node.js` installation is required (recommended version ^4.0.0).
+
+The following commands are necessary for deployment:   
+- install dependencies: `npm install`  
+- start the app: `npm start`
