@@ -11,6 +11,8 @@ var moment = require('moment');
 module.exports = {
 
   //POST /tasks
+  //task creation procedure
+  //creates a new task
   addTask: function (req, res) {
     var userID = req.session.user_id;
 
@@ -29,8 +31,8 @@ module.exports = {
     }
 
     if (dueDate == "Invalid Date") {
-        sails.log.debug("invalid date provided in form");
-        return res.send(400);
+      sails.log.debug("invalid date provided in form");
+      return res.send(400);
     }
 
 
@@ -59,6 +61,8 @@ module.exports = {
   },
 
   //PATCH /tasks
+  //task editing procedure
+  //change the task to completed or change its details
   editTask: function (req, res) {
     var userID = req.session.user_id;
     var taskID = req.body.id;
@@ -70,15 +74,16 @@ module.exports = {
     // change the task's status to completed
     if (req.body.completed) {
       queryParam = {
-          category: "Completed",
-          completedDate: new Date()
-        };
+        category: "Completed",
+        completedDate: new Date()
+      };
     }
 
     // edit task details
     else {
       var dueDate, priority, name, description, category;
 
+      //form validation
       try {
         dueDate = new Date(req.body.dueDate);
         priority = Number(req.body.priority);
@@ -107,10 +112,11 @@ module.exports = {
       //console.log(queryParam);
     }
 
+    //update the task and return the rendered view of it
     Task.update({
-        id: taskID,
-        user: userID
-      }, queryParam).exec(function (err, tasks) {
+      id: taskID,
+      user: userID
+    }, queryParam).exec(function (err, tasks) {
       if (err) {
         sails.log.error("Error updating task for user " + userID);
         return res.send(500);
@@ -127,11 +133,11 @@ module.exports = {
   },
 
   // GET /tasks
+  // render the task view with top daily tasks, load category tasks separately
   taskView: function (req, res) {
     var userID = req.session.user_id;
 
-    //options: sort by priority and limit how many there are
-
+    //options: sort by priority and limit number of daily tasks
     User.findOne({
       id: userID
     }).exec(function (err, user) {
@@ -156,13 +162,11 @@ module.exports = {
           return res.view("500");
         }
 
-        var dailyTaskList = tasks;
-
         //console.log(tasks);
 
         res.view("tasks", {
           dailyTop: true,
-          tasks: dailyTaskList
+          tasks: tasks
         })
 
         sails.log.info("Succesfully sent task view for user " + userID);
@@ -173,10 +177,14 @@ module.exports = {
   },
 
   //GET /tasksCategory
+  // gets and loads the tasks in a specified category
   tasksCategory: function (req, res) {
     var userID = req.session.user_id;
     var category = req.query.category;
-    var queryParam = category == "All" ? {user: userID, category: {"!": "Completed"}} : {user: userID, category: category};
+    var queryParam = category == "All" ? {user: userID, category: {"!": "Completed"}} : {
+        user: userID,
+        category: category
+      };
 
     //console.log(category);
 
@@ -198,12 +206,14 @@ module.exports = {
   },
 
   //GET /productivity
+  // renders the productivity view
   productivityView: function (req, res) {
     res.view("productivity");
 
   },
 
   //GET /productivityData
+  // returns the productivity data for the productivity view of a specified time period
   productivity: function (req, res) {
     var userID = req.session.user_id;
     period = req.query.period;
@@ -270,6 +280,30 @@ module.exports = {
       })
 
       sails.log.info("Succesfully sent productivity data for user " + userID);
+    });
+  },
+
+  //GET /tasksAdmin
+  // gets and loads all tasks of a user
+  tasksAdmin: function (req, res) {
+    var userID = req.query.userID;
+
+    Task.find({
+      user: userID
+    }).exec(function (err, tasks) {
+      if (err) {
+        sails.log.error("Error while loading tasks for task admin view of user " + userID);
+        return res.view("500");
+      }
+
+      res.view("tasksList", {
+        category: "All",
+        dailyTop: true,
+        tasks: tasks
+      });
+
+      sails.log.info("Succesfully sent task admin data for user " + userID);
+
     });
   }
 

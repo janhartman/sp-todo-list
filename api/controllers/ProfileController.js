@@ -8,13 +8,16 @@
 module.exports = {
 
   // POST /profile
+  // editing a user's profile
+  // verifies the form data and updates
   editProfile: function(req, res) {
     var userID = req.session.user_id;
     var dailyTasksNumber = req.body.dailyTasks;
     var maxPriorityFirst = req.body.pick;
 
-    console.log(req.body);
+    // console.log(req.body);
 
+    //form validation
     try {
       dailyTasksNumber = Number(dailyTasksNumber);
 
@@ -28,10 +31,14 @@ module.exports = {
       return res.redirect("/profile");
     }
 
-
-    User.findOne({
+    //database update
+    User.update({
       id: userID
-    }).exec(function(err, user) {
+    },{
+      dailyTasks: dailyTasksNumber,
+      maxPriorityFirst: maxPriorityFirst
+      }
+    ).exec(function(err, user) {
       if (err) {
         sails.log.error("Error looking up database for user profile editing");
         return res.redirect("/profile");
@@ -42,29 +49,24 @@ module.exports = {
         return res.redirect("/profile");
       }
 
-      user.dailyTasks = dailyTasksNumber;
-      user.maxPriorityFirst = maxPriorityFirst;
-      user.save(function (err) {
-        if (err) {
-         sails.log.error("Error updating profile settings for user " + userID);
-         return res.send(500);
-        }
+      sails.log.info("Successfully updated user profile");
+      return res.redirect("/profile");
 
-        sails.log.info("Successfully updated user profile");
-        return res.redirect("/profile");
-      });
     });
 
   },
 
 
   //GET /logout
+  // log out procedure
+  // deletes the user id from the user's cookie and redirects
   logout: function(req, res) {
     delete req.session.user_id;
     res.view("login");
   },
 
   // GET /profile
+  // renders the profile view with the user's data
   profileView: function(req, res) {
     var userID = req.session.user_id;
 
@@ -88,10 +90,35 @@ module.exports = {
         dailyTasks: user.dailyTasks,
         maxPriorityFirst: user.maxPriorityFirst,
         points: user.productivityPoints,
-        todos: user.completedTasks
+        todos: user.completedTasks,
+        admin: user.admin
       });
     });
+  },
+
+  //GET /admin
+  // renders the administrator panel view
+  adminPanel: function (req, res) {
+    var userID = req.session.user_id;
+
+    User.find({
+      id: {'!': userID}
+    }).exec(function(err, users) {
+      if (err) {
+        sails.log.error("Error loading users for admin panel of user " + userID);
+        return res.view("500");
+      }
+
+      sails.log.info("Loaded users for admin panel of user " + userID);
+      return res.view("admin", {
+        users: users
+      });
+
+    });
+
+
   }
+
 
 };
 

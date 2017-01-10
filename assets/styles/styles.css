@@ -525,6 +525,40 @@ body {
   right: 15px;
 }
 
+.userList {
+  list-style: none;
+  display: inline-flex;
+  margin: 10px;
+  flex-wrap: wrap;
+}
+
+.userTaskList {
+  list-style: none;
+  display: inline-flex;
+  margin: 10px;
+  flex-wrap: wrap;
+}
+
+.user {
+  border: 2px solid black;
+  border-radius: 5px;
+  font-family: "Lato";
+  margin: 10px;
+  padding: 5px;
+  float: left;
+  height: 90%;
+
+}
+
+.adminButton {
+  border-radius: 8px;
+  background-color: #EFEFEF;
+  color: black;
+  border: 3px solid #ff3b3f;
+  font-size: 14px;
+  font-family: "Lato";
+}
+
 .hidden {
   display: none;
 }

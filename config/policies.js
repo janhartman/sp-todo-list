@@ -28,13 +28,15 @@ module.exports.policies = {
 
 
   TaskController: {
-    '*': 'isLoggedIn'
+    '*': 'isLoggedIn',
+    tasksAdmin: ['isLoggedIn', 'isAdmin']
   },
   ProfileController: {
-    '*': 'isLoggedIn'
+    '*': 'isLoggedIn',
+    adminPanel: ['isLoggedIn', 'isAdmin']
   },
   UserController: {
-
+    editUser: ['isLoggedIn', 'isAdmin']
   }
 
   /***************************************************************************

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<head>
+  <title>To-do List - Admin panel</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="/styles/styles.css">
+  <script src="/js/code.js"></script>
+  <script
+    src="https://code.jquery.com/jquery-3.1.1.min.js"
+    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato">
+
+</head>
+<body>
+<nav class="navbar">
+  <ul>
+    <li id="logoNav">
+      <a href="/"><img src="/images/logo.png" alt="LOGO" height="45"></a>
+    </li>
+        <li>
+      <a href="/tasks">Task View</a>
+    </li>
+    <li id="logoutButtonNav">
+      <a id="logoutButton">Log out</a>
+    </li>
+  </ul>
+</nav>
+
+<!-- The Modal for LOGOUT -->
+<div id="logoutModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close" id="closeLogout">×</span>
+      <h2>Are you sure you want to log out?</h2>
+    </div>
+    <div class="modal-body">
+      <p>
+        <button class="modalButton" id="doLogout">Yes</button>
+        <button class="modalButton" id="cancelLogout">Cancel</button>
+      </p>
+    </div>
+  </div>
+</div>
+
+<section class="sectionTasks">
+  <div class="blackBorder">
+    <p class="divHeader">Users</p>
+    <ul class="userList">
+      <% users.forEach(function(user) { %>
+      <li class="user">
+        <table>
+          <tr>
+            <td>
+              ID:
+            </td>
+            <td class="liUserID">
+              <%= user.id %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Name:
+            </td>
+            <td>
+              <%= user.name %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Email:
+            </td>
+            <td>
+              <%= user.email %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Admin:
+            </td>
+            <td>
+              <%= user.admin %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <button class="adminButton" onclick="showTasks(this)">Show tasks</button>
+            </td>
+            <td>
+              <% if (!user.admin) {%>
+              <button class="adminButton" onclick="editUser(this)">Promote to admin</button>
+              <% }%>
+            </td>
+          </tr>
+        </table>
+        <% }) %>
+    </ul>
+  </div>
+
+  <div class="categoryTasks blackBorder">
+      <header class="divHeader" id="categoryTag">Tasks</header>
+      <ul class="userTaskList">
+
+      </ul>
+  </div>
+</section>
+
+
+<div class="hidden">Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a
+    href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a
+    href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
+</div>
+
+</body>
+</html>

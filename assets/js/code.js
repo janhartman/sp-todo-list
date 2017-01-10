@@ -122,7 +122,7 @@ function clearTaskInput(taskModal) {
   document.getElementById("taskModalHeader").innerHTML = "Add a new TODO";
   document.getElementById("doAddButton").innerHTML = "Add task";
   var doAdd = document.getElementById("doAddButton");
-  doAdd.onclick = function() {
+  doAdd.onclick = function () {
     addTaskToList(taskModal, doAdd);
   };
 
@@ -153,7 +153,7 @@ function addTaskToList(taskModal, doAdd) {
       success: function (result) {
         var chosenCategory = $("input[name=category]:checked", "#categoryForm").val();
         if (chosenCategory == "All" || category == chosenCategory)
-        $(".categoryTasksList").append(result);
+          $(".categoryTasksList").append(result);
       }
     });
 
@@ -162,7 +162,6 @@ function addTaskToList(taskModal, doAdd) {
     alert("Provide the name and due date!")
   }
 }
-
 
 
 function doneTask(element) {
@@ -177,7 +176,7 @@ function doneTask(element) {
       completed: true
     },
     method: "PATCH",
-    success: function(result) {
+    success: function (result) {
       task.remove();
     }
   })
@@ -226,7 +225,7 @@ function editTaskInList(taskModal, doAdd, task, taskID) {
       category: $("#taskCategory").val()
     },
     method: "PATCH",
-    success: function(result) {
+    success: function (result) {
       task.replaceWith(result);
       clearTaskInput(taskModal);
       doAdd.onclick = function () {
@@ -240,6 +239,45 @@ function editTaskInList(taskModal, doAdd, task, taskID) {
 
 
 }
+
+function editUser(element) {
+
+  var button = $(element);
+  var user = button.closest("li");
+  var userID = user.find(".liUserID").html();
+
+  $.ajax({
+    url: "/admin",
+    data: {
+      id: userID
+    },
+    method: "PATCH",
+    success: function (result) {
+      location.reload();
+    }
+  })
+
+}
+
+function showTasks(element) {
+
+  var button = $(element);
+  var user = button.closest("li");
+  var userID = user.find(".liUserID").html().trim();
+
+  $.ajax({
+    url: "/tasksAdmin",
+    data: {
+      userID: userID
+    },
+    success: function (result) {
+      console.log(result);
+      $(".userTaskList").html(result);
+    }
+  })
+}
+
+
 
 function drawGraph(productivity) {
   var c = document.getElementById("graph");

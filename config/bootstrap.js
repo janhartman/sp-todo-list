@@ -13,6 +13,7 @@ module.exports.bootstrap = function(cb) {
 
   sails.config.appName = "To-Do List";
 
+  /*
   sails.log.info(process.env.DB_HOST);
   // the SQL to run
   var sql = "select * from user";
@@ -34,9 +35,9 @@ module.exports.bootstrap = function(cb) {
     }
       cb();
   });
+  */
 
-
-  //cb();
+  cb();
   // It's very important to trigger this callback method when you are finished
   // with the bootstrap!  (otherwise your server will never lift, since it's waiting on the bootstrap)
 

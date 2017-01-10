@@ -75,6 +75,13 @@ module.exports.routes = {
 
   'POST /profile': 'ProfileController.editProfile',
 
-  'GET /logout': 'ProfileController.logout'
+  'GET /logout': 'ProfileController.logout',
+
+
+  'GET /admin': 'ProfileController.adminPanel',
+
+  'PATCH /admin': 'UserController.editUser',
+
+  'GET /tasksAdmin': 'TaskController.tasksAdmin'
 
 };

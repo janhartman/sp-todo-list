@@ -11,10 +11,11 @@ var bcrypt = require("bcrypt-nodejs");
 module.exports = {
 
   // POST /login
+  // login procedure
+  // checks if user exists and if the provided password is correct
   login: function (req, res) {
     var email = req.body.email;
     var password = req.body.pwd;
-
 
     User.findOne({
       email: email
@@ -29,6 +30,7 @@ module.exports = {
         return res.redirect("/login");
       }
 
+      //verify that the provided password hashes to the same value as the one in the database
       else {
         bcrypt.compare(password, user.password, function(err, compareRes) {
           if (err) {
@@ -50,12 +52,15 @@ module.exports = {
   },
 
   //POST /register
+  // registration procedure
+  // verifies the form data and creates a new user in the database
   register: function (req, res) {
     var email = req.body.email;
     var name = req.body.name;
     var pass1 = req.body.pwd;
     var pass2 = req.body.cpwd;
 
+    //form validation
     if(pass1 != pass2) {
       sails.log.info("Passwords do not match");
       return res.redirect("/register");
@@ -66,6 +71,7 @@ module.exports = {
       return res.redirect("/register");
     }
 
+    //database lookup
     User.findOne({
       email: email
     }).exec(function(err, user) {
@@ -79,6 +85,7 @@ module.exports = {
         return res.redirect("/register");
       }
 
+      //create a new user in database
       User.create({
           email: email,
           name: name,
@@ -93,8 +100,36 @@ module.exports = {
           return res.redirect("/login");
         });
 
+    });
 
+  },
 
+  // PATCH /admin
+  // promotes the user to admin
+  editUser: function (req, res) {
+    var id = req.body.id;
+
+    User.update({
+      id: id
+    }, {
+      admin: true
+    }).exec(function (err, users) {
+      if (err) {
+        sails.log.error("Error updating user to administrator");
+        return res.view("500");
+      }
+
+      else if (!users) {
+        sails.log.info("Could not find user to update");
+        return res.view("admin", {
+          users: users
+        });
+      }
+
+      sails.log.info("Successfully updated user "+ users[0] +" to admin");
+      return res.view("admin", {
+        users: users
+      });
     });
 
 
@@ -102,6 +137,7 @@ module.exports = {
 
 
   // GET /login
+  // renders the login view
   loginView: function(req, res) {
     var userID = req.session.user_id;
 
@@ -115,6 +151,7 @@ module.exports = {
   },
 
   // GET /register
+  // renders the registration view
   registerView: function(req, res) {
     var userID = req.session.user_id;
 
@@ -125,8 +162,6 @@ module.exports = {
       res.view("register");
     }
   }
-
-
 
 };
 
