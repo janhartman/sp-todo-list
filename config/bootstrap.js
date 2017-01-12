@@ -13,6 +13,8 @@ module.exports.bootstrap = function(cb) {
 
   sails.config.appName = "To-Do List";
 
+  console.log(sails.config);
+
   /*
   sails.log.info(process.env.DB_HOST);
   // the SQL to run
