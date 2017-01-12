@@ -1,0 +1,48 @@
+Jan@DESKTOP-NFI7T3P c:\xampp
+# ab -n 250 -m GET -k -c 20 http://localhost/login
+This is ApacheBench, Version 2.3 <$Revision: 1748469 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking localhost (be patient)
+Completed 100 requests
+Completed 200 requests
+Finished 250 requests
+
+
+Server Software:
+Server Hostname:        localhost
+Server Port:            80
+
+Document Path:          /login
+Document Length:        5206 bytes
+
+Concurrency Level:      20
+Time taken for tests:   0.877 seconds
+Complete requests:      250
+Failed requests:        0
+Keep-Alive requests:    250
+Total transferred:      1433398 bytes
+HTML transferred:       1301500 bytes
+Requests per second:    285.21 [#/sec] (mean)
+Time per request:       70.124 [ms] (mean)
+Time per request:       3.506 [ms] (mean, across all concurrent requests)
+Transfer rate:          1596.94 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.0      0       0
+Processing:    16   69  27.3     63     153
+Waiting:        0   45  28.4     47     153
+Total:         16   69  27.3     63     153
+
+Percentage of the requests served within a certain time (ms)
+  50%     63
+  66%     74
+  75%     78
+  80%     78
+  90%     78
+  95%    153
+  98%    153
+  99%    153
+ 100%    153 (longest request)

@@ -1,0 +1,314 @@
+Statistical profiling result from isolate-00000217F436FA90-v8.log, (28276 ticks, 108 unaccounted, 0 excluded).
+
+ [Shared libraries]:
+   ticks  total  nonlib   name
+   8374   29.6%          C:\WINDOWS\SYSTEM32\ntdll.dll
+    779    2.8%          C:\Program Files\nodejs\node.exe
+      8    0.0%          C:\WINDOWS\System32\KERNELBASE.dll
+      3    0.0%          C:\WINDOWS\System32\KERNEL32.DLL
+      1    0.0%          C:\WINDOWS\system32\mswsock.dll
+
+ [JavaScript]:
+   ticks  total  nonlib   name
+  18208   64.4%   95.3%  LazyCompile: *encipher D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:330:18
+    627    2.2%    3.3%  LazyCompile: *crypt_raw D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:434:19
+      6    0.0%    0.0%  Stub: ArrayNArgumentsConstructorStub
+      6    0.0%    0.0%  KeyedLoadIC: A keyed load IC from the snapshot {1}
+      6    0.0%    0.0%  Builtin: CallFunction_ReceiverIsNotNullOrUndefined
+      5    0.0%    0.0%  Stub: LoadICStub
+      5    0.0%    0.0%  LazyCompile: *key D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:367:13
+      4    0.0%    0.0%  Builtin: CallFunction_ReceiverIsAny
+      3    0.0%    0.0%  LazyCompile: *ekskey D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:392:16
+      2    0.0%    0.0%  Stub: VectorStoreICStub
+      2    0.0%    0.0%  Stub: ToIntegerStub
+      2    0.0%    0.0%  Stub: LoadConstantStub
+      2    0.0%    0.0%  Stub: JSEntryStub
+      2    0.0%    0.0%  Stub: FastNewClosureStub {1}
+      2    0.0%    0.0%  LazyCompile: ~releaseConnection D:\Faks\SP\sp-todo-list\node_modules\sails-mysql\node_modules\mysql\lib\Pool.js:112:62
+      2    0.0%    0.0%  LazyCompile: ~Module._compile module.js:510:37
+      2    0.0%    0.0%  LazyCompile: *normalizeStringWin32 path.js:12:30
+      2    0.0%    0.0%  LazyCompile: *get flags native regexp.js:795:24
+      2    0.0%    0.0%  LazyCompile: *baseMerge D:\Faks\SP\sp-todo-list\node_modules\@sailshq\lodash\lib\index.js:2506:23
+      2    0.0%    0.0%  LazyCompile: *Writable.write _stream_writable.js:226:36
+      2    0.0%    0.0%  LazyCompile: *InnerArrayForEach native array.js:935:27
+      2    0.0%    0.0%  LazyCompile: *<anonymous> D:\Faks\SP\sp-todo-list\node_modules\@sailshq\lodash\lib\index.js:2513:42
+      2    0.0%    0.0%  Handler: symbol("Symbol.hasInstance" hash 1cb9da9b)
+      2    0.0%    0.0%  Handler: An IC handler from the snapshot {5}
+      2    0.0%    0.0%  Handler: An IC handler from the snapshot {1}
+      2    0.0%    0.0%  Handler: An IC handler from the snapshot
+      1    0.0%    0.0%  Stub: ToBooleanStub
+      1    0.0%    0.0%  Stub: SubStringStub
+      1    0.0%    0.0%  Stub: RecordWriteStub
+      1    0.0%    0.0%  Stub: NumberToStringStub
+      1    0.0%    0.0%  Stub: LoadIndexedStringStub
+      1    0.0%    0.0%  Stub: LoadFieldStub
+      1    0.0%    0.0%  Stub: LoadConstantStub {3}
+      1    0.0%    0.0%  Stub: LoadConstantStub {2}
+      1    0.0%    0.0%  Stub: LoadConstantStub {1}
+      1    0.0%    0.0%  Stub: InstanceOfStub
+      1    0.0%    0.0%  Stub: FastNewSloppyArgumentsStub
+      1    0.0%    0.0%  Stub: FastNewObjectStub
+      1    0.0%    0.0%  Stub: FastNewContextStub
+      1    0.0%    0.0%  Stub: FastNewClosureStub
+      1    0.0%    0.0%  Stub: FastCloneShallowObjectStub
+      1    0.0%    0.0%  Stub: FastCloneRegExpStub
+      1    0.0%    0.0%  Stub: CreateWeakCellStub
+      1    0.0%    0.0%  Stub: CompareICStub {1}
+      1    0.0%    0.0%  Stub: CompareICStub
+      1    0.0%    0.0%  Stub: CEntryStub
+      1    0.0%    0.0%  Stub: BinaryOpWithAllocationSiteStub
+      1    0.0%    0.0%  Stub: BinaryOpICStub(SUB:Generic*Generic->Smi)
+      1    0.0%    0.0%  Stub: BinaryOpICStub
+      1    0.0%    0.0%  LazyCompile: ~wrapper D:\Faks\SP\sp-todo-list\node_modules\lodash\index.js:3576:23
+      1    0.0%    0.0%  LazyCompile: ~target.(anonymous function) D:\Faks\SP\sp-todo-list\node_modules\winston\lib\winston\common.js:51:30
+      1    0.0%    0.0%  LazyCompile: ~stringify native json.js:176:23
+      1    0.0%    0.0%  LazyCompile: ~removeListener events.js:315:28
+      1    0.0%    0.0%  LazyCompile: ~onwrite _stream_writable.js:356:17
+      1    0.0%    0.0%  LazyCompile: ~normalize path.js:310:32
+      1    0.0%    0.0%  LazyCompile: ~nextTick internal/process/next_tick.js:140:20
+      1    0.0%    0.0%  LazyCompile: ~jsonParser D:\Faks\SP\sp-todo-list\node_modules\skipper\node_modules\body-parser\lib\types\json.js:91:29
+      1    0.0%    0.0%  LazyCompile: ~exec native regexp.js:116:30
+      1    0.0%    0.0%  LazyCompile: ~encipher D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:330:18
+      1    0.0%    0.0%  LazyCompile: ~contentstream D:\Faks\SP\sp-todo-list\node_modules\skipper\node_modules\body-parser\lib\read.js:143:23
+      1    0.0%    0.0%  LazyCompile: ~baseClone D:\Faks\SP\sp-todo-list\node_modules\sails-mysql\node_modules\waterline-sequel\node_modules\lodash\index.js:1686:23
+      1    0.0%    0.0%  LazyCompile: ~applyStyle D:\Faks\SP\sp-todo-list\node_modules\winston\node_modules\colors\lib\colors.js:89:20
+      1    0.0%    0.0%  LazyCompile: ~applyAPItoObject D:\Faks\SP\sp-todo-list\node_modules\i18n\i18n.js:593:34
+      1    0.0%    0.0%  LazyCompile: ~_unrefTimer net.js:198:52
+      1    0.0%    0.0%  LazyCompile: ~_mixinReqParamsAll D:\Faks\SP\sp-todo-list\node_modules\sails\lib\hooks\request\params.all.js:30:45
+      1    0.0%    0.0%  LazyCompile: ~[Symbol.replace] native regexp.js:659:31
+      1    0.0%    0.0%  LazyCompile: ~ServerResponse.writeHead _http_server.js:160:46
+      1    0.0%    0.0%  LazyCompile: ~SerializeObject native json.js:97:25
+      1    0.0%    0.0%  LazyCompile: ~Router.matchRequest D:\Faks\SP\sp-todo-list\node_modules\express\lib\router\index.js:238:41
+      1    0.0%    0.0%  LazyCompile: ~Readable.read _stream_readable.js:271:35
+      1    0.0%    0.0%  LazyCompile: ~Parser._combineLongPacketBuffers D:\Faks\SP\sp-todo-list\node_modules\sails-mysql\node_modules\mysql\lib\protocol\Parser.js:386:54
+      1    0.0%    0.0%  LazyCompile: ~OutgoingMessage.write _http_outgoing.js:437:43
+      1    0.0%    0.0%  LazyCompile: ~OutgoingMessage._send _http_outgoing.js:125:43
+      1    0.0%    0.0%  LazyCompile: ~OutgoingMessage _http_outgoing.js:48:25
+      1    0.0%    0.0%  LazyCompile: ~Module._load module.js:412:24
+      1    0.0%    0.0%  LazyCompile: ~Logger.log D:\Faks\SP\sp-todo-list\node_modules\winston\lib\winston\logger.js:109:33
+      1    0.0%    0.0%  LazyCompile: ~InnerArrayFilter native array.js:913:26
+      1    0.0%    0.0%  LazyCompile: ~Hmac crypto.js:87:14
+      1    0.0%    0.0%  LazyCompile: ~Console.log D:\Faks\SP\sp-todo-list\node_modules\winston\lib\winston\transports\console.js:91:34
+      1    0.0%    0.0%  LazyCompile: ~Buffer.write buffer.js:704:34
+      1    0.0%    0.0%  LazyCompile: ~<anonymous> D:\Faks\SP\sp-todo-list\node_modules\sails\lib\hooks\request\index.js:51:40
+      1    0.0%    0.0%  LazyCompile: ~<anonymous> D:\Faks\SP\sp-todo-list\node_modules\sails-mysql\node_modules\waterline-sequel\sequel\select.js:72:30
+      1    0.0%    0.0%  LazyCompile: next D:\Faks\SP\sp-todo-list\node_modules\express\node_modules\connect\lib\proto.js:123:16
+      1    0.0%    0.0%  LazyCompile: getByte D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:235:17
+      1    0.0%    0.0%  LazyCompile: Route.match D:\Faks\SP\sp-todo-list\node_modules\express\lib\router\route.js:50:33
+      1    0.0%    0.0%  LazyCompile: *split native string.js:280:23
+      1    0.0%    0.0%  LazyCompile: *set expires D:\Faks\SP\sp-todo-list\node_modules\express-session\session\cookie.js:48:14
+      1    0.0%    0.0%  LazyCompile: *progress D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:498:33
+      1    0.0%    0.0%  LazyCompile: *isLength D:\Faks\SP\sp-todo-list\node_modules\@sailshq\lodash\lib\index.js:4324:22
+      1    0.0%    0.0%  LazyCompile: *isFinite native v8natives.js:32:24
+      1    0.0%    0.0%  LazyCompile: *isAbsolute path.js:438:34
+      1    0.0%    0.0%  LazyCompile: *hash D:\Faks\SP\sp-todo-list\node_modules\express-session\index.js:563:14
+      1    0.0%    0.0%  LazyCompile: *exports.unenroll timers.js:282:45
+      1    0.0%    0.0%  LazyCompile: *emit events.js:136:44
+      1    0.0%    0.0%  LazyCompile: *doWrite _stream_writable.js:326:17
+      1    0.0%    0.0%  LazyCompile: *defineProperty native v8natives.js:573:30
+      1    0.0%    0.0%  LazyCompile: *createWrapper D:\Faks\SP\sp-todo-list\node_modules\lodash\index.js:3657:27
+      1    0.0%    0.0%  LazyCompile: *createSingleTimeout timers.js:346:29
+      1    0.0%    0.0%  LazyCompile: *baseAssign D:\Faks\SP\sp-todo-list\node_modules\lodash\index.js:1588:24
+      1    0.0%    0.0%  LazyCompile: *applyInOriginalCtx D:\Faks\SP\sp-todo-list\node_modules\waterline\lib\waterline\utils\normalize.js:420:28
+      1    0.0%    0.0%  LazyCompile: *Uint8ArrayConstructByLength native typedarray.js:184:37
+      1    0.0%    0.0%  LazyCompile: *TickObject internal/process/next_tick.js:134:22
+      1    0.0%    0.0%  LazyCompile: *Readable.on _stream_readable.js:686:33
+      1    0.0%    0.0%  LazyCompile: *ArraySlice native array.js:570:20
+      1    0.0%    0.0%  LazyCompile: *<anonymous> D:\Faks\SP\sp-todo-list\node_modules\@sailshq\lodash\lib\index.js:4505:22
+      1    0.0%    0.0%  KeyedStoreIC: A keyed store IC from the snapshot {1}
+      1    0.0%    0.0%  KeyedStoreIC: A keyed store IC from the snapshot
+      1    0.0%    0.0%  KeyedLoadIC: A keyed load IC from the snapshot
+      1    0.0%    0.0%  Handler: some
+      1    0.0%    0.0%  Handler: reading
+      1    0.0%    0.0%  Handler: command
+      1    0.0%    0.0%  Handler: call
+      1    0.0%    0.0%  Handler: _list
+      1    0.0%    0.0%  Handler: _header
+      1    0.0%    0.0%  Handler: An IC handler from the snapshot {6}
+      1    0.0%    0.0%  Handler: An IC handler from the snapshot {4}
+      1    0.0%    0.0%  Handler: An IC handler from the snapshot {3}
+      1    0.0%    0.0%  Handler: An IC handler from the snapshot {2}
+      1    0.0%    0.0%  Builtin: JSConstructStubGeneric
+      1    0.0%    0.0%  Builtin: DateConstructor_ConstructStub
+      1    0.0%    0.0%  Builtin: Construct
+      1    0.0%    0.0%  Builtin: Call_ReceiverIsAny
+      1    0.0%    0.0%  Builtin: CallFunction_ReceiverIsNullOrUndefined
+      1    0.0%    0.0%  Builtin: ArgumentsAdaptorTrampoline
+      1    0.0%    0.0%  Builtin: Apply
+
+ [C++]:
+   ticks  total  nonlib   name
+
+ [Summary]:
+   ticks  total  nonlib   name
+  19003   67.2%   99.4%  JavaScript
+      0    0.0%    0.0%  C++
+     80    0.3%    0.4%  GC
+   9165   32.4%          Shared libraries
+    108    0.4%          Unaccounted
+
+ [C++ entry points]:
+   ticks    cpp   total   name
+
+ [Bottom up (heavy) profile]:
+  Note: percentage shows a share of a particular caller in the total
+  amount of its parent calls.
+  Callers occupying less than 2.0% are not shown.
+
+   ticks parent  name
+  18208   64.4%  LazyCompile: *encipher D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:330:18
+  18090   99.4%    LazyCompile: *crypt_raw D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:434:19
+  18090  100.0%      LazyCompile: ~hashpw D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:488:16
+  10931   60.4%        LazyCompile: *hashSync D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:600:18
+  10931  100.0%          LazyCompile: ~compareSync D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:635:21
+  10931  100.0%            LazyCompile: <anonymous> D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:681:27
+   5603   31.0%        LazyCompile: *compareSync D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:635:21
+   5603  100.0%          LazyCompile: <anonymous> D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:681:27
+   5603  100.0%            LazyCompile: *_tickDomainCallback internal/process/next_tick.js:108:31
+   1556    8.6%        LazyCompile: ~hashSync D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:600:18
+   1556  100.0%          LazyCompile: ~compareSync D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:635:21
+   1556  100.0%            LazyCompile: <anonymous> D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:681:27
+
+   8374   29.6%  C:\WINDOWS\SYSTEM32\ntdll.dll
+    298    3.6%    C:\Program Files\nodejs\node.exe
+    248   83.2%      LazyCompile: *crypt_raw D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:434:19
+    248  100.0%        LazyCompile: ~hashpw D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:488:16
+    141   56.9%          LazyCompile: *hashSync D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:600:18
+    141  100.0%            LazyCompile: ~compareSync D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:635:21
+     74   29.8%          LazyCompile: *compareSync D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:635:21
+     74  100.0%            LazyCompile: <anonymous> D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:681:27
+     33   13.3%          LazyCompile: ~hashSync D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:600:18
+     33  100.0%            LazyCompile: ~compareSync D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:635:21
+      8    2.7%      LazyCompile: getByte D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:235:17
+      4   50.0%        LazyCompile: *crypt_raw D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:434:19
+      4  100.0%          LazyCompile: ~hashpw D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:488:16
+      3   75.0%            LazyCompile: *hashSync D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:600:18
+      1   25.0%            LazyCompile: ~hashSync D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:600:18
+      2   25.0%        LazyCompile: ~crypt_raw D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:434:19
+      2  100.0%          LazyCompile: ~hashpw D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:488:16
+      2  100.0%            LazyCompile: ~hashSync D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:600:18
+      1   12.5%        LazyCompile: ~hashpw D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:488:16
+      1  100.0%          LazyCompile: *compareSync D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:635:21
+      1  100.0%            LazyCompile: <anonymous> D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:681:27
+      1   12.5%        LazyCompile: ~decode_base64 D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:288:23
+      1  100.0%          LazyCompile: ~hashpw D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:488:16
+      1  100.0%            LazyCompile: ~hashSync D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:600:18
+
+    779    2.8%  C:\Program Files\nodejs\node.exe
+    642   82.4%    C:\Program Files\nodejs\node.exe
+    168   26.2%      LazyCompile: *crypt_raw D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:434:19
+    168  100.0%        LazyCompile: ~hashpw D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:488:16
+     87   51.8%          LazyCompile: *hashSync D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:600:18
+     87  100.0%            LazyCompile: ~compareSync D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:635:21
+     59   35.1%          LazyCompile: *compareSync D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:635:21
+     59  100.0%            LazyCompile: <anonymous> D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:681:27
+     22   13.1%          LazyCompile: ~hashSync D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:600:18
+     22  100.0%            LazyCompile: ~compareSync D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:635:21
+     56    8.7%      LazyCompile: getByte D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:235:17
+     33   58.9%        LazyCompile: *crypt_raw D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:434:19
+     33  100.0%          LazyCompile: ~hashpw D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:488:16
+     16   48.5%            LazyCompile: *hashSync D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:600:18
+     14   42.4%            LazyCompile: *compareSync D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:635:21
+      3    9.1%            LazyCompile: ~hashSync D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:600:18
+     20   35.7%        LazyCompile: ~hashpw D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:488:16
+     14   70.0%          LazyCompile: *hashSync D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:600:18
+     14  100.0%            LazyCompile: ~compareSync D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:635:21
+      6   30.0%          LazyCompile: *compareSync D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:635:21
+      6  100.0%            LazyCompile: <anonymous> D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:681:27
+      3    5.4%        LazyCompile: ~decode_base64 D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:288:23
+      3  100.0%          LazyCompile: ~hashpw D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:488:16
+      2   66.7%            LazyCompile: ~hashSync D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:600:18
+      1   33.3%            LazyCompile: *hashSync D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:600:18
+     37    5.8%      LazyCompile: *captureStackTrace native messages.js:686:30
+     30   81.1%        LazyCompile: TypeError native messages.js:637:21
+     19   63.3%          LazyCompile: ~MakeGenericError native messages.js:131:26
+     19  100.0%            Stub: CEntryStub
+      9   30.0%          LazyCompile: *MakeGenericError native messages.js:131:26
+      9  100.0%            Stub: CEntryStub
+      2    6.7%          LazyCompile: ~splitType D:\Faks\SP\sp-todo-list\node_modules\media-typer\index.js:245:19
+      2  100.0%            LazyCompile: ~parse D:\Faks\SP\sp-todo-list\node_modules\media-typer\index.js:139:15
+      7   18.9%        LazyCompile: Error native messages.js:637:21
+      4   57.1%          LazyCompile: ~Protocol._enqueue D:\Faks\SP\sp-todo-list\node_modules\sails-mysql\node_modules\mysql\lib\protocol\Protocol.js:134:39
+      2   50.0%            LazyCompile: *query D:\Faks\SP\sp-todo-list\node_modules\sails-mysql\node_modules\mysql\lib\Connection.js:187:44
+      1   25.0%            LazyCompile: ~ping D:\Faks\SP\sp-todo-list\node_modules\sails-mysql\node_modules\mysql\lib\protocol\Protocol.js:63:40
+      1   25.0%            LazyCompile: *ping D:\Faks\SP\sp-todo-list\node_modules\sails-mysql\node_modules\mysql\lib\Connection.js:204:42
+      2   28.6%          LazyCompile: *Protocol._enqueue D:\Faks\SP\sp-todo-list\node_modules\sails-mysql\node_modules\mysql\lib\protocol\Protocol.js:134:39
+      1   50.0%            LazyCompile: *query D:\Faks\SP\sp-todo-list\node_modules\sails-mysql\node_modules\mysql\lib\Connection.js:187:44
+      1   50.0%            LazyCompile: *ping D:\Faks\SP\sp-todo-list\node_modules\sails-mysql\node_modules\mysql\lib\Connection.js:204:42
+      1   14.3%          LazyCompile: ~Form.parse D:\Faks\SP\sp-todo-list\node_modules\skipper\node_modules\multiparty\index.js:82:32
+      1  100.0%            LazyCompile: *parseReq D:\Faks\SP\sp-todo-list\node_modules\skipper\lib\Parser\prototype.parseReq.js:17:35
+     28    4.4%      Stub: CEntryStub
+     22   78.6%        LazyCompile: *crypt_raw D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:434:19
+     22  100.0%          LazyCompile: ~hashpw D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:488:16
+     15   68.2%            LazyCompile: *hashSync D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:600:18
+      7   31.8%            LazyCompile: *compareSync D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:635:21
+      6   21.4%        Stub: CEntryStub
+      6  100.0%          LazyCompile: *crypt_raw D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:434:19
+      6  100.0%            LazyCompile: ~hashpw D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:488:16
+     21    3.3%      LazyCompile: *defineProperty native v8natives.js:573:30
+      9   42.9%        LazyCompile: *captureStackTrace native messages.js:686:30
+      9  100.0%          LazyCompile: TypeError native messages.js:637:21
+      5   55.6%            LazyCompile: *MakeGenericError native messages.js:131:26
+      4   44.4%            LazyCompile: ~MakeGenericError native messages.js:131:26
+      7   33.3%        LazyCompile: *DefineIndexedProperty native array.js:48:31
+      5   71.4%          LazyCompile: *SimpleSlice native array.js:267:21
+      5  100.0%            LazyCompile: *ArraySlice native array.js:570:20
+      1   14.3%          LazyCompile: ~map native array.js:994:18
+      1  100.0%            LazyCompile: *req.accepts D:\Faks\SP\sp-todo-list\node_modules\express\lib\request.js:106:23
+      1   14.3%          LazyCompile: *InnerArrayFilter native array.js:913:26
+      1  100.0%            LazyCompile: *filter native array.js:927:21
+      3   14.3%        LazyCompile: ~Define.buildHasManyProperty D:\Faks\SP\sp-todo-list\node_modules\waterline\lib\waterline\model\lib\internalMethods\defineAssociations.js:105:49
+      3  100.0%          LazyCompile: ~<anonymous> D:\Faks\SP\sp-todo-list\node_modules\waterline\lib\waterline\model\lib\internalMethods\defineAssociations.js:48:31
+      3  100.0%            LazyCompile: *InnerArrayForEach native array.js:935:27
+      2    9.5%        LazyCompile: ~_mixinReqParamsAll D:\Faks\SP\sp-todo-list\node_modules\sails\lib\hooks\request\params.all.js:30:45
+      2  100.0%          LazyCompile: *<anonymous> D:\Faks\SP\sp-todo-list\node_modules\sails\lib\hooks\request\index.js:51:40
+      2  100.0%            LazyCompile: *emit events.js:136:44
+     20    3.1%      LazyCompile: *exports.runInThisContext vm.js:75:36
+     20  100.0%        LazyCompile: ~Module._compile module.js:510:37
+     20  100.0%          LazyCompile: *Module._extensions..js module.js:577:37
+     20  100.0%            LazyCompile: *Module.load module.js:478:33
+     18    2.8%      LazyCompile: ~Socket._writeGeneric net.js:662:42
+     16   88.9%        LazyCompile: *Socket._write net.js:730:35
+     16  100.0%          LazyCompile: *doWrite _stream_writable.js:326:17
+     16  100.0%            LazyCompile: *writeOrBuffer _stream_writable.js:296:23
+      1    5.6%        LazyCompile: ~Socket._writev net.js:725:36
+      1  100.0%          LazyCompile: ~doWrite _stream_writable.js:326:17
+      1  100.0%            LazyCompile: ~clearBuffer _stream_writable.js:403:21
+      1    5.6%        LazyCompile: *doWrite _stream_writable.js:326:17
+      1  100.0%          LazyCompile: ~clearBuffer _stream_writable.js:403:21
+      1  100.0%            Handler: sortedIndex
+     13    2.0%      LazyCompile: ~createWriteReq net.js:734:24
+     13  100.0%        LazyCompile: ~Socket._writeGeneric net.js:662:42
+      6   46.2%          LazyCompile: ~Socket._write net.js:730:35
+      6  100.0%            LazyCompile: ~doWrite _stream_writable.js:326:17
+      6   46.2%          LazyCompile: *Socket._write net.js:730:35
+      6  100.0%            LazyCompile: *doWrite _stream_writable.js:326:17
+      1    7.7%          LazyCompile: *doWrite _stream_writable.js:326:17
+      1  100.0%            LazyCompile: ~writeOrBuffer _stream_writable.js:296:23
+
+    627    2.2%  LazyCompile: *crypt_raw D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:434:19
+    496   79.1%    LazyCompile: getByte D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:235:17
+    496  100.0%      LazyCompile: ~hashpw D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:488:16
+    275   55.4%        LazyCompile: *hashSync D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:600:18
+    275  100.0%          LazyCompile: ~compareSync D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:635:21
+    275  100.0%            LazyCompile: <anonymous> D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:681:27
+    169   34.1%        LazyCompile: *compareSync D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:635:21
+    169  100.0%          LazyCompile: <anonymous> D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:681:27
+    169  100.0%            LazyCompile: *_tickDomainCallback internal/process/next_tick.js:108:31
+     52   10.5%        LazyCompile: ~hashSync D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:600:18
+     52  100.0%          LazyCompile: ~compareSync D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:635:21
+     52  100.0%            LazyCompile: <anonymous> D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:681:27
+    131   20.9%    LazyCompile: ~hashpw D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:488:16
+     75   57.3%      LazyCompile: *hashSync D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:600:18
+     75  100.0%        LazyCompile: ~compareSync D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:635:21
+     75  100.0%          LazyCompile: <anonymous> D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:681:27
+     75  100.0%            LazyCompile: *_tickDomainCallback internal/process/next_tick.js:108:31
+     45   34.4%      LazyCompile: *compareSync D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:635:21
+     45  100.0%        LazyCompile: <anonymous> D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:681:27
+     45  100.0%          LazyCompile: *_tickDomainCallback internal/process/next_tick.js:108:31
+     11    8.4%      LazyCompile: ~hashSync D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:600:18
+     11  100.0%        LazyCompile: ~compareSync D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:635:21
+     11  100.0%          LazyCompile: <anonymous> D:\Faks\SP\sp-todo-list\node_modules\bcrypt-nodejs\bCrypt.js:681:27
+      6   54.5%            LazyCompile: *_combinedTickCallback internal/process/next_tick.js:65:33
+      5   45.5%            LazyCompile: *_tickDomainCallback internal/process/next_tick.js:108:31
+

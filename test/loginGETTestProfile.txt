@@ -1,0 +1,233 @@
+Statistical profiling result from isolate-0000019CDF1303C0-v8.log, (173 ticks, 2 unaccounted, 0 excluded).
+
+ [Shared libraries]:
+   ticks  total  nonlib   name
+     93   53.8%          C:\Program Files\nodejs\node.exe
+     29   16.8%          C:\WINDOWS\SYSTEM32\ntdll.dll
+
+ [JavaScript]:
+   ticks  total  nonlib   name
+      6    3.5%   11.8%  Stub: InstanceOfStub
+      4    2.3%    7.8%  Stub: FastNewClosureStub
+      3    1.7%    5.9%  LazyCompile: *InnerArrayForEach native array.js:935:27
+      2    1.2%    3.9%  Stub: StringEqualStub
+      2    1.2%    3.9%  LazyCompile: *_visit :1255:21
+      2    1.2%    3.9%  KeyedLoadIC: A keyed load IC from the snapshot
+      1    0.6%    2.0%  Stub: RegExpExecStub
+      1    0.6%    2.0%  Stub: LoadICStub
+      1    0.6%    2.0%  Stub: LoadConstantStub
+      1    0.6%    2.0%  Stub: FastNewContextStub {2}
+      1    0.6%    2.0%  Stub: FastNewContextStub {1}
+      1    0.6%    2.0%  Stub: FastNewContextStub
+      1    0.6%    2.0%  Stub: CEntryStub
+      1    0.6%    2.0%  RegExp: \\r?\\n
+      1    0.6%    2.0%  LazyCompile: ~walk :418:19
+      1    0.6%    2.0%  LazyCompile: ~split D:\Faks\SP\sp-todo-list\node_modules\clean-css\lib\utils\split.js:1:77
+      1    0.6%    2.0%  LazyCompile: ~exec native regexp.js:116:30
+      1    0.6%    2.0%  LazyCompile: ~[Symbol.split] native regexp.js:355:29
+      1    0.6%    2.0%  LazyCompile: ~<anonymous> :5151:54
+      1    0.6%    2.0%  LazyCompile: ~<anonymous> :3241:37
+      1    0.6%    2.0%  LazyCompile: ~<anonymous> :3119:32
+      1    0.6%    2.0%  LazyCompile: <anonymous> :6292:36
+      1    0.6%    2.0%  LazyCompile: *split native string.js:280:23
+      1    0.6%    2.0%  LazyCompile: *push_node :4159:35
+      1    0.6%    2.0%  LazyCompile: *forEach native array.js:954:22
+      1    0.6%    2.0%  LazyCompile: *_walk :976:20
+      1    0.6%    2.0%  LazyCompile: *_walk :718:20
+      1    0.6%    2.0%  LazyCompile: *_walk :415:20
+      1    0.6%    2.0%  LazyCompile: *TreeWalker :1249:20
+      1    0.6%    2.0%  Handler: print
+      1    0.6%    2.0%  Handler: load
+      1    0.6%    2.0%  Handler: _walk {1}
+      1    0.6%    2.0%  Handler: _walk
+      1    0.6%    2.0%  Handler: An IC handler from the snapshot {1}
+      1    0.6%    2.0%  Handler: An IC handler from the snapshot
+      1    0.6%    2.0%  Builtin: ArgumentsAdaptorTrampoline
+
+ [C++]:
+   ticks  total  nonlib   name
+
+ [Summary]:
+   ticks  total  nonlib   name
+     49   28.3%   96.1%  JavaScript
+      0    0.0%    0.0%  C++
+      8    4.6%   15.7%  GC
+    122   70.5%          Shared libraries
+      2    1.2%          Unaccounted
+
+ [C++ entry points]:
+   ticks    cpp   total   name
+
+ [Bottom up (heavy) profile]:
+  Note: percentage shows a share of a particular caller in the total
+  amount of its parent calls.
+  Callers occupying less than 2.0% are not shown.
+
+   ticks parent  name
+     93   53.8%  C:\Program Files\nodejs\node.exe
+     82   88.2%    C:\Program Files\nodejs\node.exe
+     12   14.6%      LazyCompile: *exports.runInThisContext vm.js:75:36
+     12  100.0%        LazyCompile: ~Module._compile module.js:510:37
+      8   66.7%          LazyCompile: ~Module._extensions..js module.js:577:37
+      8  100.0%            LazyCompile: ~Module.load D:\Faks\SP\sp-todo-list\node_modules\coffee-script\lib\coffee-script\register.js:40:37
+      4   33.3%          LazyCompile: *Module._extensions..js module.js:577:37
+      4  100.0%            LazyCompile: ~Module.load D:\Faks\SP\sp-todo-list\node_modules\coffee-script\lib\coffee-script\register.js:40:37
+      4    4.9%      LazyCompile: ~exports.runInThisContext vm.js:75:36
+      4  100.0%        LazyCompile: ~Module._compile module.js:510:37
+      4  100.0%          LazyCompile: ~Module._extensions..js module.js:577:37
+      2   50.0%            LazyCompile: ~Module.load module.js:478:33
+      2   50.0%            LazyCompile: ~Module.load D:\Faks\SP\sp-todo-list\node_modules\coffee-script\lib\coffee-script\register.js:40:37
+      2    2.4%      LazyCompile: ~runInThisContext bootstrap_node.js:403:28
+      2  100.0%        LazyCompile: NativeModule.compile bootstrap_node.js:485:44
+      2  100.0%          LazyCompile: ~NativeModule.require bootstrap_node.js:419:34
+      1   50.0%            Function: ~<anonymous> stream.js:1:11
+      1   50.0%            Function: ~<anonymous> http.js:1:11
+      2    2.4%      LazyCompile: ~fromString buffer.js:186:20
+      2  100.0%        LazyCompile: ~Buffer.from buffer.js:91:23
+      2  100.0%          LazyCompile: ~Buffer buffer.js:70:16
+      2  100.0%            LazyCompile: ~InternalEncoder.write D:\Faks\SP\sp-todo-list\node_modules\iconv-lite\encodings\internal.js:68:43
+      2    2.4%      LazyCompile: *_visit :1255:21
+      1   50.0%        LazyCompile: *_walk :976:20
+      1  100.0%          LazyCompile: ~<anonymous> :986:45
+      1  100.0%            LazyCompile: *_visit :1255:21
+      1   50.0%        LazyCompile: *_walk :684:20
+      1  100.0%          LazyCompile: *<anonymous> :464:36
+      1  100.0%            LazyCompile: *InnerArrayForEach native array.js:935:27
+      2    2.4%      LazyCompile: *<anonymous> :4182:41
+      1   50.0%        LazyCompile: ~<anonymous> :4482:43
+      1  100.0%          LazyCompile: ~doit :4187:22
+      1  100.0%            LazyCompile: *<anonymous> :4182:41
+      1   50.0%        LazyCompile: *<anonymous> :4875:34
+      1  100.0%          LazyCompile: ~doit :4187:22
+      1  100.0%            LazyCompile: *<anonymous> :4182:41
+
+     29   16.8%  C:\WINDOWS\SYSTEM32\ntdll.dll
+      8   27.6%    C:\Program Files\nodejs\node.exe
+      2   25.0%      Function: ~<anonymous> D:\Faks\SP\sp-todo-list\node_modules\uglify-js\tools\node.js:1:11
+      2  100.0%        LazyCompile: ~Module._compile module.js:510:37
+      2  100.0%          LazyCompile: *Module._extensions..js module.js:577:37
+      2  100.0%            LazyCompile: ~Module.load D:\Faks\SP\sp-todo-list\node_modules\coffee-script\lib\coffee-script\register.js:40:37
+      1   12.5%      LazyCompile: ~tryPackage module.js:101:20
+      1  100.0%        LazyCompile: ~Module._findPath module.js:151:28
+      1  100.0%          LazyCompile: ~Module._resolveFilename module.js:455:35
+      1  100.0%            LazyCompile: ~Module._load module.js:412:24
+      1   12.5%      LazyCompile: ~cons_seq :5946:30
+      1  100.0%        LazyCompile: <anonymous> :5957:40
+      1  100.0%          LazyCompile: *InnerArrayForEach native array.js:935:27
+      1  100.0%            LazyCompile: *forEach native array.js:954:22
+      1   12.5%      LazyCompile: ~<anonymous> D:\Faks\SP\sp-todo-list\node_modules\resolve\lib\node-modules-paths.js:27:48
+      1  100.0%        LazyCompile: ~map native array.js:994:18
+      1  100.0%          LazyCompile: ~module.exports D:\Faks\SP\sp-todo-list\node_modules\resolve\lib\node-modules-paths.js:3:27
+      1  100.0%            LazyCompile: ~loadNodeModulesSync D:\Faks\SP\sp-todo-list\node_modules\resolve\lib\sync.js:71:34
+      1   12.5%      LazyCompile: ~<anonymous> :454:45
+      1  100.0%        LazyCompile: *_visit :1255:21
+      1  100.0%          LazyCompile: ~_walk :453:20
+      1  100.0%            LazyCompile: ~<anonymous> :464:36
+      1   12.5%      LazyCompile: *toString native v8natives.js:642:26
+      1  100.0%        LazyCompile: ~make_num :5116:22
+      1  100.0%          LazyCompile: *<anonymous> :5000:34
+      1  100.0%            LazyCompile: ~doit :4187:22
+      1   12.5%      Function: ~<anonymous> D:\Faks\SP\sp-todo-list\node_modules\grunt-contrib-coffee\node_modules\lodash\lodash.js:10:11
+      1  100.0%        Function: ~<anonymous> D:\Faks\SP\sp-todo-list\node_modules\grunt-contrib-coffee\node_modules\lodash\lodash.js:1:11
+      1  100.0%          LazyCompile: ~Module._compile module.js:510:37
+      1  100.0%            LazyCompile: ~Module._extensions..js module.js:577:37
+      6   20.7%    LazyCompile: *fs.lstatSync fs.js:980:24
+      4   66.7%      LazyCompile: ~realpathSync fs.js:1592:40
+      3   75.0%        LazyCompile: *toRealPath module.js:132:20
+      2   66.7%          LazyCompile: *tryFile module.js:124:17
+      2  100.0%            LazyCompile: ~tryExtensions module.js:139:23
+      1   33.3%          LazyCompile: ~Module._findPath module.js:151:28
+      1  100.0%            LazyCompile: *Module._resolveFilename module.js:455:35
+      1   25.0%        LazyCompile: ~toRealPath module.js:132:20
+      1  100.0%          LazyCompile: ~tryFile module.js:124:17
+      1  100.0%            LazyCompile: ~tryExtensions module.js:139:23
+      1   16.7%      LazyCompile: ~start fs.js:1625:17
+      1  100.0%        LazyCompile: ~realpathSync fs.js:1592:40
+      1  100.0%          LazyCompile: *toRealPath module.js:132:20
+      1  100.0%            LazyCompile: *tryPackage module.js:101:20
+      1   16.7%      LazyCompile: GlobSync._readdirInGlobStar D:\Faks\SP\sp-todo-list\node_modules\glob\sync.js:231:50
+      1  100.0%        LazyCompile: GlobSync._readdir D:\Faks\SP\sp-todo-list\node_modules\glob\sync.js:260:40
+      1  100.0%          LazyCompile: ~GlobSync._processReaddir D:\Faks\SP\sp-todo-list\node_modules\glob\sync.js:135:47
+      1  100.0%            LazyCompile: ~GlobSync._process D:\Faks\SP\sp-todo-list\node_modules\glob\sync.js:76:40
+      6   20.7%    LazyCompile: *fs.closeSync fs.js:608:24
+      6  100.0%      LazyCompile: *<anonymous> D:\Faks\SP\sp-todo-list\node_modules\graceful-fs\graceful-fs.js:48:59
+      6  100.0%        LazyCompile: fs.writeFileSync fs.js:1320:28
+      6  100.0%          LazyCompile: file.write D:\Faks\SP\sp-todo-list\node_modules\grunt\lib\grunt\file.js:270:22
+      2   33.3%            LazyCompile: ~<anonymous> D:\Faks\SP\sp-todo-list\node_modules\grunt-contrib-concat\tasks\concat.js:64:32
+      2   33.3%            LazyCompile: file._copy D:\Faks\SP\sp-todo-list\node_modules\grunt\lib\grunt\file.js:313:22
+      2   33.3%            LazyCompile: <anonymous> D:\Faks\SP\sp-todo-list\node_modules\grunt-contrib-uglify\tasks\uglify.js:77:33
+      2    6.9%    LazyCompile: *tryFile module.js:124:17
+      2  100.0%      LazyCompile: ~tryExtensions module.js:139:23
+      2  100.0%        LazyCompile: ~Module._findPath module.js:151:28
+      1   50.0%          LazyCompile: *Module._resolveFilename module.js:455:35
+      1  100.0%            LazyCompile: ~Module._load module.js:412:24
+      1   50.0%          LazyCompile: *Module._load module.js:412:24
+      1  100.0%            LazyCompile: *Module.require module.js:494:36
+      2    6.9%    LazyCompile: *fs.readSync fs.js:701:23
+      1   50.0%      LazyCompile: tryReadSync fs.js:482:21
+      1  100.0%        LazyCompile: ~fs.readFileSync fs.js:494:27
+      1  100.0%          LazyCompile: *Module._extensions..js module.js:577:37
+      1  100.0%            LazyCompile: ~Module.load D:\Faks\SP\sp-todo-list\node_modules\coffee-script\lib\coffee-script\register.js:40:37
+      1   50.0%      LazyCompile: *equalFiles D:\Faks\SP\sp-todo-list\node_modules\file-sync-cmp\index.js:8:20
+      1  100.0%        LazyCompile: ~syncTimestamp D:\Faks\SP\sp-todo-list\node_modules\grunt-contrib-copy\tasks\copy.js:52:34
+      1  100.0%          LazyCompile: ~<anonymous> D:\Faks\SP\sp-todo-list\node_modules\grunt-contrib-copy\tasks\copy.js:77:36
+      1  100.0%            LazyCompile: ~InnerArrayForEach native array.js:935:27
+      1    3.4%    LazyCompile: *stat module.js:23:14
+      1  100.0%      LazyCompile: ~Module._findPath module.js:151:28
+      1  100.0%        LazyCompile: *Module._load module.js:412:24
+      1  100.0%          LazyCompile: *Module.require module.js:494:36
+      1  100.0%            LazyCompile: require internal/module.js:17:19
+
+      6    3.5%  Stub: InstanceOfStub
+      2   33.3%    LazyCompile: *_visit :1255:21
+      1   50.0%      LazyCompile: *_walk :985:20
+      1  100.0%        LazyCompile: ~<anonymous> :1022:45
+      1  100.0%          LazyCompile: *_visit :1255:21
+      1  100.0%            LazyCompile: *_walk :1021:20
+      1   50.0%      LazyCompile: *_walk :415:20
+      1  100.0%        LazyCompile: ~<anonymous> :977:45
+      1  100.0%          LazyCompile: *_visit :1255:21
+      1  100.0%            LazyCompile: *_walk :976:20
+      1   16.7%    LazyCompile: *doit :121:22
+      1  100.0%      LazyCompile: *MAP :119:17
+      1  100.0%        LazyCompile: *do_list :2997:21
+      1  100.0%          LazyCompile: *<anonymous> :3091:25
+      1  100.0%            LazyCompile: *<anonymous> :2977:45
+      1   16.7%    LazyCompile: *<anonymous> :6580:57
+      1  100.0%      LazyCompile: *_visit :1255:21
+      1  100.0%        LazyCompile: *_walk :958:20
+      1  100.0%          LazyCompile: ~<anonymous> :959:45
+      1  100.0%            LazyCompile: *_visit :1255:21
+      1   16.7%    LazyCompile: *<anonymous> :5712:46
+      1  100.0%      LazyCompile: *InnerArrayReduce native array.js:1107:26
+      1  100.0%        LazyCompile: *reduce native array.js:1130:21
+      1  100.0%          LazyCompile: ~eliminate_spurious_blocks :5710:43
+      1  100.0%            LazyCompile: ~tighten_body :5451:26
+      1   16.7%    LazyCompile: *<anonymous> :3241:37
+      1  100.0%      LazyCompile: *_visit :1255:21
+      1  100.0%        LazyCompile: *_walk :1021:20
+      1  100.0%          LazyCompile: ~<anonymous> :556:45
+      1  100.0%            LazyCompile: *_visit :1255:21
+
+      4    2.3%  Stub: FastNewClosureStub
+      1   25.0%    LazyCompile: ~<anonymous> :685:45
+      1  100.0%      LazyCompile: *_visit :1255:21
+      1  100.0%        LazyCompile: *_walk :684:20
+      1  100.0%          LazyCompile: ~walk :418:19
+      1  100.0%            LazyCompile: ~<anonymous> :6579:52
+      1   25.0%    LazyCompile: *mergeSort :183:19
+      1  100.0%      LazyCompile: *before :6595:32
+      1  100.0%        LazyCompile: *<anonymous> :2977:45
+      1  100.0%          LazyCompile: *<anonymous> :2998:34
+      1  100.0%            LazyCompile: *doit :121:22
+      1   25.0%    LazyCompile: *_walk :870:20
+      1  100.0%      LazyCompile: *<anonymous> :849:46
+      1  100.0%        LazyCompile: *InnerArrayForEach native array.js:935:27
+      1  100.0%          LazyCompile: *forEach native array.js:954:22
+      1  100.0%            LazyCompile: ~<anonymous> :848:45
+      1   25.0%    LazyCompile: *OutputStream :3825:22
+      1  100.0%      LazyCompile: *<anonymous> :4204:51
+      1  100.0%        LazyCompile: ~<anonymous> :6956:25
+      1  100.0%          LazyCompile: ~<anonymous> :5326:44
+      1  100.0%            LazyCompile: *<anonymous> :2977:45
+
