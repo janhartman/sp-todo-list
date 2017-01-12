@@ -3,6 +3,12 @@
  */
 
 
-var assert = require('assert');
+var Sails = require('sails').constructor;
+var sails = new Sails();
 
-assert.equal(-1, [1, 2, 3].indexOf(4));
+sails.lift({}, function(err) {
+  if (err)
+    throw err;
+
+  sails.lower();
+})

@@ -9,6 +9,7 @@ if (process.env.NODE_ENV != "production") {
   return;
 }
 
+
 var mysql = require('mysql');
 var bcrypt = require('bcrypt-nodejs');
 
@@ -39,7 +40,6 @@ bcrypt.genSalt(10, function(err, salt) {
 
     var connection = mysql.createConnection(databaseConnection);
 
-
     connection.query(checkDatabaseSQL, function(err, rows, fields) {
       if (err)
         throw err;
@@ -55,7 +55,6 @@ bcrypt.genSalt(10, function(err, salt) {
 
           //run migrations
           process.env.NODE_ENV="development";
-          process.chdir("../");
           var Sails = require('sails').constructor;
           var sails = new Sails();
 
@@ -81,8 +80,6 @@ bcrypt.genSalt(10, function(err, salt) {
             });
 
            });
-
-
 
         });
       }
