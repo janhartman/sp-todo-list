@@ -55,6 +55,7 @@ bcrypt.genSalt(10, function(err, salt) {
 
           //run migrations
           process.env.NODE_ENV="development";
+          process.chdir("../");
           var Sails = require('sails').constructor;
           var sails = new Sails();
 
