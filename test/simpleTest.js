@@ -6,9 +6,11 @@
 var Sails = require('sails').constructor;
 var sails = new Sails();
 
-sails.lift({}, function(err) {
+sails.lift({
+  port: process.env.PORT || 1337
+}, function(err) {
   if (err)
     throw err;
 
   sails.lower();
-})
+});
