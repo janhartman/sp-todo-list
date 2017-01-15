@@ -176,7 +176,7 @@ module.exports = {
 
   },
 
-  //GET /tasksCategory
+  //GET /tasks/category
   // gets and loads the tasks in a specified category
   tasksCategory: function (req, res) {
     var userID = req.session.user_id;
@@ -212,11 +212,16 @@ module.exports = {
 
   },
 
-  //GET /productivityData
+  //GET /productivity/data
   // returns the productivity data for the productivity view of a specified time period
   productivity: function (req, res) {
     var userID = req.session.user_id;
     period = req.query.period;
+
+    if (!period) {
+      res.status(400);
+      return res.send({});
+    }
 
     var periodMap = {
       "day": 24,
@@ -277,13 +282,13 @@ module.exports = {
         missed: missedTasks.length,
         total: totalProductivity,
         productivity: productivityByUnitOfTime
-      })
+      });
 
       sails.log.info("Succesfully sent productivity data for user " + userID);
     });
   },
 
-  //GET /tasksAdmin
+  //GET /admin/tasks
   // gets and loads all tasks of a user
   tasksAdmin: function (req, res) {
     var userID = req.query.userID;

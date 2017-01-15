@@ -1,0 +1,47 @@
+# ab -n 250 -m GET -k -c 20 -C sails.sid=s%3AurASmJYdmhXU3-EgCAA3N4DXzSqXG3x0.Gf3plGXX31p%2BOB249z708E%2F6GZvHBggExQ8VxRUszrQ http://localhost/productivityData?period=month
+This is ApacheBench, Version 2.3 <$Revision: 1748469 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking localhost (be patient)
+Completed 100 requests
+Completed 200 requests
+Finished 250 requests
+
+
+Server Software:
+Server Hostname:        localhost
+Server Port:            80
+
+Document Path:          /productivityData?period=month
+Document Length:        115 bytes
+
+Concurrency Level:      20
+Time taken for tests:   3.929 seconds
+Complete requests:      250
+Failed requests:        0
+Keep-Alive requests:    250
+Total transferred:      130500 bytes
+HTML transferred:       28750 bytes
+Requests per second:    63.63 [#/sec] (mean)
+Time per request:       314.294 [ms] (mean)
+Time per request:       15.715 [ms] (mean, across all concurrent requests)
+Transfer rate:          32.44 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   1.0      0      16
+Processing:    78  301  29.8    299     422
+Waiting:       78  299  29.8    297     422
+Total:         94  301  29.3    299     422
+
+Percentage of the requests served within a certain time (ms)
+  50%    299
+  66%    311
+  75%    312
+  80%    313
+  90%    328
+  95%    328
+  98%    344
+  99%    406
+ 100%    422 (longest request)

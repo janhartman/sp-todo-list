@@ -85,7 +85,7 @@ function refreshProductivity() {
   var period = $("input[name=period]:checked", "#periodForm").val();
 
   $.ajax({
-    url: "/productivityData",
+    url: "/productivity/data",
     data: {
       period: period
     },
@@ -102,7 +102,7 @@ function refreshTasks() {
   var category = $("input[name=category]:checked", "#categoryForm").val();
 
   $.ajax({
-    url: "/tasksCategory",
+    url: "/tasks/category",
     data: {
       category: category
     },
@@ -266,7 +266,7 @@ function showTasks(element) {
   var userID = user.find(".liUserID").html().trim();
 
   $.ajax({
-    url: "/tasksAdmin",
+    url: "/admin/tasks",
     data: {
       userID: userID
     },

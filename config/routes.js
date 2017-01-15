@@ -50,13 +50,13 @@ module.exports.routes = {
 
   'GET /tasks': 'TaskController.taskView',
 
-  'GET /tasksCategory': 'TaskController.tasksCategory',
+  'GET /tasks/category': 'TaskController.tasksCategory',
 
   'POST /tasks': 'TaskController.addTask',
 
   'PATCH /tasks': 'TaskController.editTask',
 
-  'GET /productivityData': 'TaskController.productivity',
+  'GET /productivity/data': 'TaskController.productivity',
 
   'GET /productivity': 'TaskController.productivityView',
 
@@ -82,6 +82,6 @@ module.exports.routes = {
 
   'PATCH /admin': 'UserController.editUser',
 
-  'GET /tasksAdmin': 'TaskController.tasksAdmin'
+  'GET /admin/tasks': 'TaskController.tasksAdmin'
 
 };
