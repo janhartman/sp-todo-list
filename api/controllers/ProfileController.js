@@ -7,15 +7,23 @@
 
 module.exports = {
 
-  // POST /profile
-  // editing a user's profile
-  // verifies the form data and updates
+  /**
+ * @api {post} /profile Edit user profile
+ * @apiName EditProfile
+ * @apiGroup Profile
+ *
+ * @apiParam {Number} id Users unique ID.
+ * @apiParam {Number} dailyTasks Number of daily tasks
+ * @apiParam {String} maxPriorityFirst Pick tasks with maximum priority first
+ *
+ * @apiError 404 user not found
+ * @apiSuccess 200 profile page refresh
+ */
   editProfile: function(req, res) {
     var userID = req.session.user_id;
     var dailyTasksNumber = req.body.dailyTasks;
     var maxPriorityFirst = req.body.pick;
 
-    // console.log(req.body);
 
     //form validation
     try {
@@ -27,7 +35,7 @@ module.exports = {
       maxPriorityFirst = maxPriorityFirst == "yes";
     }
     catch (err) {
-      sails.log.error("Incorrect profile settings provided");
+      sails.log.error("editProfile: Incorrect profile settings provided by user "+ userID);
       return res.redirect("/profile");
     }
 
@@ -40,16 +48,16 @@ module.exports = {
       }
     ).exec(function(err, user) {
       if (err) {
-        sails.log.error("Error looking up database for user profile editing");
+        sails.log.error("editProfile: Error looking up database for user profile editing by user " + userID);
         return res.redirect("/profile");
       }
 
       else if (!user) {
-        sails.log.info("Cannot find user with id " + userID + " for user profile editing");
+        sails.log.info("editProfile: Cannot find user with id " + userID + " for user profile editing");
         return res.redirect("/profile");
       }
 
-      sails.log.info("Successfully updated user profile");
+      sails.log.info("editProfile: Successfully updated user profile of user " + userID);
       return res.redirect("/profile");
 
     });
@@ -57,16 +65,31 @@ module.exports = {
   },
 
 
-  //GET /logout
-  // log out procedure
-  // deletes the user id from the user's cookie and redirects
+  /**
+ * @api {get} /logout Logs out the current user by deleting the user id from the cookie
+ * @apiName Logout
+ * @apiGroup Profile
+ *
+ * @apiParam {Number} id Users unique ID.
+
+ * @apiSuccess 200 redirect to login page
+ */
   logout: function(req, res) {
+    sails.log.info("logout: Logging out user " + req.session.user_id);
     delete req.session.user_id;
     res.view("login");
   },
 
-  // GET /profile
-  // renders the profile view with the user's data
+  /**
+ * @api {get} /profile Get user profile
+ * @apiName GetProfile
+ * @apiGroup Profile
+ *
+ * @apiParam {Number} id Users unique ID.
+ *
+ * @apiSuccess 200 profile page load
+ * @apiError 404 user not found
+ */
   profileView: function(req, res) {
     var userID = req.session.user_id;
 
@@ -75,12 +98,12 @@ module.exports = {
     }).exec(function(err, user) {
 
       if (err) {
-        sails.log.error("Error while loading profile view of user " + userID);
+        sails.log.error("profileView: Error while loading profile view of user " + userID);
         return res.view("500");
       }
 
       else if (!user) {
-        sails.log.error("Profile of user " + userID + " not found");
+        sails.log.error("profileView: Profile of user " + userID + " not found");
         return res.view("404");
       }
 
@@ -96,8 +119,16 @@ module.exports = {
     });
   },
 
-  //GET /admin
-  // renders the administrator panel view
+  /**
+ * @api {get} /admin Get admin panel
+ * @apiName GetAdminPanel
+ * @apiGroup Profile
+ *
+ * @apiParam {Number} id Users unique ID.
+ *
+ * @apiSuccess 200 admin panel load
+ * @apiError 500 error loading users
+ */
   adminPanel: function (req, res) {
     var userID = req.session.user_id;
 
@@ -105,11 +136,11 @@ module.exports = {
       id: {'!': userID}
     }).exec(function(err, users) {
       if (err) {
-        sails.log.error("Error loading users for admin panel of user " + userID);
+        sails.log.error("adminPanel: Error loading users for admin panel of user " + userID);
         return res.view("500");
       }
 
-      sails.log.info("Loaded users for admin panel of user " + userID);
+      sails.log.info("adminPanel: Loaded users for admin panel of user " + userID);
       return res.view("admin", {
         users: users
       });

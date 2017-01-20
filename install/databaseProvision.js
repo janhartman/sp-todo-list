@@ -44,14 +44,12 @@ bcrypt.genSalt(10, function(err, salt) {
       if (err)
         throw err;
 
-      //console.log(rows);
 
       if (rows.length == 0) {
         connection.query(createDatabaseSQL, function(err, rows, fields) {
           if (err)
             throw err;
 
-          //console.log(rows);
 
           //run migrations
           process.env.NODE_ENV="development";

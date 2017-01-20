@@ -25,13 +25,15 @@
     "bcrypt-nodejs": "^0.0.3",
     "mysql": "^2.12.0",
     "moment": "^2.4.0",
-    "winston": "^2.3.0"
+    "winston": "^2.3.0",
+    "mocha": "^3.2.0",
+    "supertest": "^2.0.0"
   },
   "scripts": {
     "debug": "node debug app.js",
     "start": "node app.js",
     "prestart": "node install/databaseProvision.js",
-    "test": "node test/simpleTest.js"
+    "test": "node ./node_modules/mocha/bin/mocha test/bootstrap.test.js test/integration/**/*.test.js"
   },
   "main": "app.js",
   "repository": {

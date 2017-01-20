@@ -2,7 +2,10 @@ window.onload = function () {
   window.document.body.onload = load();
 };
 
-
+/*
+  this function triggers when the document is loaded
+  it adds all the event listeners
+ */
 function load() {
 
   if ($("#graph").length == 1) {
@@ -80,6 +83,9 @@ function load() {
 
 }
 
+/*
+  refresh productivity graph and data
+ */
 
 function refreshProductivity() {
   var period = $("input[name=period]:checked", "#periodForm").val();
@@ -98,6 +104,10 @@ function refreshProductivity() {
   });
 }
 
+/*
+  refresh tasks in category
+ */
+
 function refreshTasks() {
   var category = $("input[name=category]:checked", "#categoryForm").val();
 
@@ -113,6 +123,9 @@ function refreshTasks() {
   });
 }
 
+/*
+  clear task input after adding the task or canceling
+ */
 function clearTaskInput(taskModal) {
   document.getElementById("taskName").value = "";
   document.getElementById("taskDesc").value = "";
@@ -128,8 +141,12 @@ function clearTaskInput(taskModal) {
 
 }
 
+/*
+  add task to list
+ */
+
 function addTaskToList(taskModal, doAdd) {
-  console.log("started addTaskToList");
+  //console.log("started addTaskToList");
 
   var name = document.getElementById("taskName").value;
   var desc = document.getElementById("taskDesc").value;
@@ -163,6 +180,9 @@ function addTaskToList(taskModal, doAdd) {
   }
 }
 
+/*
+  mark task as done
+ */
 
 function doneTask(element) {
   var button = $(element);
@@ -184,8 +204,12 @@ function doneTask(element) {
 
 }
 
+/*
+  edit a task's data (modal dialog)
+ */
+
 function editTask(element) {
-  console.log("started editTask");
+  //console.log("started editTask");
 
   var button = $(element);
   var task = button.closest("li");
@@ -211,8 +235,11 @@ function editTask(element) {
   };
 }
 
+/*
+  save the edited task
+ */
 function editTaskInList(taskModal, doAdd, task, taskID) {
-  console.log("started editTaskInList");
+  //console.log("started editTaskInList");
 
   $.ajax({
     url: "/tasks",
@@ -233,12 +260,16 @@ function editTaskInList(taskModal, doAdd, task, taskID) {
       };
     },
     failure: function () {
-      console.log("failed to edit task");
+      //console.log("failed to edit task");
     }
   });
 
 
 }
+
+/*
+  edit user's data
+ */
 
 function editUser(element) {
 
@@ -259,6 +290,10 @@ function editUser(element) {
 
 }
 
+/*
+  show tasks of a user on admin panel
+ */
+
 function showTasks(element) {
 
   var button = $(element);
@@ -271,13 +306,16 @@ function showTasks(element) {
       userID: userID
     },
     success: function (result) {
-      console.log(result);
+      //console.log(result);
       $(".userTaskList").html(result);
     }
   })
 }
 
 
+/*
+  draw the productivity graph
+ */
 
 function drawGraph(productivity) {
   var c = document.getElementById("graph");
@@ -336,6 +374,9 @@ String.prototype.format = function () {
   return content;
 };
 
+/*
+  hide sidenav
+ */
 
 function modifyNav(width, visibility) {
   document.getElementById("mySidenav").style.width = width + "px";
@@ -343,6 +384,9 @@ function modifyNav(width, visibility) {
 }
 
 
+/*
+  check if passwords match before sending to server
+ */
 function checkPasswords() {
   var pass1 = document.getElementById("pwd").value;
   var pass2 = document.getElementById("cpwd").value;

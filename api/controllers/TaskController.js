@@ -10,9 +10,21 @@ var moment = require('moment');
 
 module.exports = {
 
-  //POST /tasks
-  //task creation procedure
-  //creates a new task
+  /**
+ * @api {post} /tasks Create a new task
+ * @apiName AddTask
+ * @apiGroup Task
+ *
+ * @apiParam {id} id User's unique id
+ * @apiParam {Date} dueDate Due date
+ * @apiParam {Number} priority Task priority
+ * @apiParam {String} name Task name
+ * @apiParam {String} description Task description
+ * @apiParam {String} category Task category
+ *
+ * @apiSuccess 200 task page load
+ * @apiError 400 missing data for task creation
+ */
   addTask: function (req, res) {
     var userID = req.session.user_id;
 
@@ -27,11 +39,17 @@ module.exports = {
     }
 
     catch (err) {
+      sails.log.debug("addTask: Invalid form data for task creation by user " + userID);
       return res.send(400);
     }
 
     if (dueDate == "Invalid Date") {
-      sails.log.debug("invalid date provided in form");
+      sails.log.debug("addTask: Invalid date provided for task creation by user " + userID);
+      return res.send(400);
+    }
+
+    if (!dueDate || priority == undefined || !name || !category) {
+      sails.log.debug("addTask: Missing form data for task creation by user " + userID);
       return res.send(400);
     }
 
@@ -45,11 +63,11 @@ module.exports = {
       user: userID
     }).exec(function (err, task) {
       if (err) {
-        sails.log.error("Error creating task for user " + userID);
+        sails.log.error("addTask: Error creating task by user " + userID);
         return res.send(500);
       }
 
-      sails.log.info("Task created with id " + task.id + " for user " + userID);
+      sails.log.info("addTask: Task created with id " + task.id + " for user " + userID);
       return res.view("tasksList", {
         tasks: [task],
         dailyTop: false
@@ -60,16 +78,28 @@ module.exports = {
 
   },
 
-  //PATCH /tasks
-  //task editing procedure
-  //change the task to completed or change its details
+  /**
+ * @api {patch} /tasks Edit task
+ * @apiName EditTask
+ * @apiGroup Task
+ *
+ * @apiParam {id} id User's unique id
+ * @apiParam {taskId} taskId Task's unique id
+ * @apiParam {Date} dueDate Due date
+ * @apiParam {Number} priority Task priority
+ * @apiParam {String} name Task name
+ * @apiParam {String} description Task description
+ * @apiParam {String} category Task category
+ * @apiParam {Boolean} completed Task completion status
+ *
+ * @apiSuccess 200 task page load
+ * @apiError 400 missing data for task creation
+ */
   editTask: function (req, res) {
     var userID = req.session.user_id;
     var taskID = req.body.id;
 
     var queryParam;
-
-    // console.log(req.body);
 
     // change the task's status to completed
     if (req.body.completed) {
@@ -97,7 +127,7 @@ module.exports = {
       }
 
       if (dueDate == "Invalid Date") {
-        sails.log.debug("invalid date provided in form");
+        sails.log.debug("editTask: invalid date provided in form by user " + userID);
         return res.send(400);
       }
 
@@ -109,7 +139,6 @@ module.exports = {
         dueDate: dueDate
       };
 
-      //console.log(queryParam);
     }
 
     //update the task and return the rendered view of it
@@ -118,11 +147,11 @@ module.exports = {
       user: userID
     }, queryParam).exec(function (err, tasks) {
       if (err) {
-        sails.log.error("Error updating task for user " + userID);
+        sails.log.error("editTask: Error updating task with id " + tasks[0].id + " for user " + userID);
         return res.send(500);
       }
 
-      sails.log.info(tasks.length + " task with id " + tasks[0].id + " updated for user " + userID);
+      sails.log.info("editTask: " + tasks.length + " task with id " + tasks[0].id + " updated for user " + userID);
       res.view("tasksList", {
         dailyTop: false,
         tasks: tasks
@@ -132,8 +161,16 @@ module.exports = {
 
   },
 
-  // GET /tasks
-  // render the task view with top daily tasks, load category tasks separately
+  /**
+ * @api {get} /tasks Load task view with daily tasks
+ * @apiName GetTasks
+ * @apiGroup Task
+ *
+ * @apiParam {id} id User's unique id
+ *
+ * @apiSuccess 200 task page load
+ * @apiError 404 user not found
+ */
   taskView: function (req, res) {
     var userID = req.session.user_id;
 
@@ -142,42 +179,46 @@ module.exports = {
       id: userID
     }).exec(function (err, user) {
       if (err) {
-        sails.log.error("Error while loading user for daily task view of user " + userID);
+        sails.log.error("taskView: Error while loading user for daily task view of user " + userID);
         sails.log.error(err);
         return res.view("500");
       }
 
-      //console.log(user);
       var dailyTasks = user.dailyTasks;
 
       var queryParam = {where: {user: userID, category: {"!": "Completed"}}, limit: Number(dailyTasks)};
       queryParam["sort"] = user.maxPriorityFirst ? "priority DESC" : "dueDate";
 
-      //console.log(queryParam);
-
       Task.find(queryParam).exec(function (err, tasks) {
         if (err) {
-          sails.log.error("Error while loading tasks for daily task view of user " + userID);
+          sails.log.error("taskView: Error while loading tasks for daily task view of user " + userID);
           sails.log.error(err);
           return res.view("500");
         }
 
-        //console.log(tasks);
-
         res.view("tasks", {
           dailyTop: true,
           tasks: tasks
-        })
+        });
 
-        sails.log.info("Succesfully sent task view for user " + userID);
+        sails.log.info("taskView: Succesfully sent task view for user " + userID);
       });
     });
 
 
   },
 
-  //GET /tasks/category
-  // gets and loads the tasks in a specified category
+  /**
+ * @api {get} /tasks/category
+ * @apiName GetTasksCategory
+ * @apiGroup Task
+ *
+ * @apiParam {id} id User's unique id
+ * @apiParam {String} category Task category
+ *
+ * @apiSuccess 200 task page load
+ * @apiError 404 User not found
+ */
   tasksCategory: function (req, res) {
     var userID = req.session.user_id;
     var category = req.query.category;
@@ -186,11 +227,9 @@ module.exports = {
         category: category
       };
 
-    //console.log(category);
-
     Task.find(queryParam).exec(function (err, tasks) {
       if (err) {
-        sails.log.error("Error while loading tasks for task category view of user " + userID);
+        sails.log.error("tasksCategory: Error while loading tasks for task category view of user " + userID);
         return res.view("500");
       }
 
@@ -200,25 +239,38 @@ module.exports = {
         tasks: tasks
       });
 
-      sails.log.info("Succesfully sent task data for user " + userID);
+      sails.log.info("tasksCategory: Succesfully sent task data for user " + userID);
 
     });
   },
 
-  //GET /productivity
-  // renders the productivity view
+  /**
+ * @api {get} /productivity Load productivity page
+ * @apiName GetProductivity
+ * @apiGroup Task
+ *
+ * @apiSuccess 200 productivity page load
+ */
   productivityView: function (req, res) {
     res.view("productivity");
-
   },
 
-  //GET /productivity/data
-  // returns the productivity data for the productivity view of a specified time period
+  /**
+ * @api {get} /productivity/data Get productivity data for specified time period
+ * @apiName GetProductivityData
+ * @apiGroup Task
+ *
+ * @apiParam {id} id User's unique id
+ * @apiParam {String} period Time period
+ *
+ * @apiSuccess 200 productivity data
+ * @apiError 400 missing or wrong time period
+ */
   productivity: function (req, res) {
     var userID = req.session.user_id;
     period = req.query.period;
 
-    if (!period) {
+    if (!period || ["day", "week", "month", "year"].indexOf(period) < 0) {
       res.status(400);
       return res.send({});
     }
@@ -253,11 +305,8 @@ module.exports = {
       completedDate: {'>': date}
     }).exec(function (err, tasks) {
 
-      //console.log(date);
-      //console.log(tasks);
-
       if (err) {
-        sails.log.error("Error while loading tasks for productivity view of user " + userID);
+        sails.log.error("productivityData: Error while loading tasks for productivity view of user " + userID);
         return res.view("500");
       }
 
@@ -275,8 +324,6 @@ module.exports = {
         return acc;
       }, new Array(periodLength).fill(0));
 
-      //console.log(productivityByUnitOfTime);
-
       res.send({
         completed: tasks.length,
         missed: missedTasks.length,
@@ -284,12 +331,20 @@ module.exports = {
         productivity: productivityByUnitOfTime
       });
 
-      sails.log.info("Succesfully sent productivity data for user " + userID);
+      sails.log.info("productivityData: Succesfully sent productivity data for user " + userID);
     });
   },
 
-  //GET /admin/tasks
-  // gets and loads all tasks of a user
+  /**
+ * @api {get} /admin/tasks Get tasks of a user for admin panel
+ * @apiName GetAdminTasks
+ * @apiGroup Task
+ *
+ * @apiParam {id} id User's unique id
+ *
+ * @apiSuccess 200 tasks list for user
+ * @apiError 404 user not found
+ */
   tasksAdmin: function (req, res) {
     var userID = req.query.userID;
 
@@ -297,7 +352,7 @@ module.exports = {
       user: userID
     }).exec(function (err, tasks) {
       if (err) {
-        sails.log.error("Error while loading tasks for task admin view of user " + userID);
+        sails.log.error("tasksAdmin: Error while loading tasks for task admin view of user " + userID);
         return res.view("500");
       }
 
@@ -307,7 +362,7 @@ module.exports = {
         tasks: tasks
       });
 
-      sails.log.info("Succesfully sent task admin data for user " + userID);
+      sails.log.info("tasksAdmin: Succesfully sent task admin data for user " + userID);
 
     });
   }
